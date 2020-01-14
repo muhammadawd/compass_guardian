@@ -44,20 +44,24 @@
     padding: 20px 19px 16px 23px;
     width: 100%;
     .logo{
+      width: 60px!important;;
+      height: 60px;
       img {
         padding: 4px 0;
+        width: 60px!important;
+        height: 60px;
       }
       .logo-text{
         font-size: 22px;
         font-weight: 600;
-        color: #b29570;
+        color: #2196f3;
         animation: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) 0s normal forwards 1 fadein;
       }
     }
 
     .feather-icon {
     	svg {
-    		color: #b29570;
+    		color: #2196f3;
     	}
     }
   }

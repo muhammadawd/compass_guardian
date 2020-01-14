@@ -132,6 +132,16 @@ export default new MLCreate({
       phone: 'رقم الهاتف',
       password: 'كلمة المرور',
       show: 'عرض',
+
+      management: 'ادراة العمليات',
+      subjects: 'المواد الدراسية',
+      stages: 'المراحل الدراسية',
+      add_stages: 'اضافة المراحل الدراسية',
+      add_subject: 'اضافة مادة دراسية',
+      edit_subject: 'تعديل مادة دراسية',
+      size: 'عدد الطلاب بالفصل',
+      class_title_ar: 'اسم الفصل بالعربية',
+      class_title_en: 'اسم الفصل بالانجليزية',
     })
   ]
 })

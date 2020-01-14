@@ -57,33 +57,21 @@ export default [
   },
   {
     url: null,
-    name: "meals",
+    name: "management",
     // tag: "2",
     // tagColor: "primary",
-    icon: "CoffeeIcon",
+    icon: "FeatherIcon",
     i18n: "",
     submenu: [
       {
-        url: '/meals/categories',
-        name: "categories",
+        url: '/management/subjects',
+        name: "subjects",
         slug: "",
         i18n: "",
       },
       {
-        url: '/meals/units',
-        name: "units",
-        slug: "",
-        i18n: "",
-      },
-      {
-        url: '/meals/extra_options',
-        name: "extra_options",
-        slug: "",
-        i18n: "",
-      },
-      {
-        url: '/meals/options',
-        name: "options",
+        url: '/management/stages',
+        name: "stages",
         slug: "",
         i18n: "",
       },
@@ -95,64 +83,64 @@ export default [
       // },
     ]
   },
-  {
-    url: null,
-    name: "menu",
-    // tag: "2",
-    // tagColor: "primary",
-    icon: "GridIcon",
-    i18n: "",
-    submenu: [
-      {
-        url: '/menu/categories',
-        name: "categories",
-        slug: "",
-        i18n: "",
-      },
-      {
-        url: '/menu/units',
-        name: "units",
-        slug: "",
-        i18n: "",
-      },
-      {
-        url: '/menu/extra_options',
-        name: "extra_options",
-        slug: "",
-        i18n: "",
-      },
-      {
-        url: '/menu/options',
-        name: "options",
-        slug: "",
-        i18n: "",
-      },
-      {
-        url: '/menu/items',
-        name: "all_items",
-        slug: "",
-        i18n: "",
-      },
-    ]
-  },
-  {
-    url: "/orders",
-    name: "orders",
-    slug: "",
-    icon: "ShoppingCartIcon",
-  },
+  // {
+  //   url: null,
+  //   name: "menu",
+  //   // tag: "2",
+  //   // tagColor: "primary",
+  //   icon: "GridIcon",
+  //   i18n: "",
+  //   submenu: [
+  //     {
+  //       url: '/menu/categories',
+  //       name: "categories",
+  //       slug: "",
+  //       i18n: "",
+  //     },
+  //     {
+  //       url: '/menu/units',
+  //       name: "units",
+  //       slug: "",
+  //       i18n: "",
+  //     },
+  //     {
+  //       url: '/menu/extra_options',
+  //       name: "extra_options",
+  //       slug: "",
+  //       i18n: "",
+  //     },
+  //     {
+  //       url: '/menu/options',
+  //       name: "options",
+  //       slug: "",
+  //       i18n: "",
+  //     },
+  //     {
+  //       url: '/menu/items',
+  //       name: "all_items",
+  //       slug: "",
+  //       i18n: "",
+  //     },
+  //   ]
+  // },
+  // {
+  //   url: "/orders",
+  //   name: "orders",
+  //   slug: "",
+  //   icon: "ShoppingCartIcon",
+  // },
   // {
   //   url: "/50",
   //   name: "subscription",
   //   slug: "",
   //   icon: "SlackIcon",
   // },
-  {
-    url: "/delivery",
-    name: "delivery",
-    slug: "",
-    icon: "PhoneCallIcon",
-  },
+  // {
+  //   url: "/delivery",
+  //   name: "delivery",
+  //   slug: "",
+  //   icon: "PhoneCallIcon",
+  // },
   // {
   //   url: "/60",
   //   name: "offers",
@@ -209,32 +197,32 @@ export default [
   //     },
   //   ]
   // },
-  {
-    header: "setting",
-    i18n: "",
-  },
-  {
-    url: null,
-    name: "settings",
-    // tag: "2",
-    // tagColor: "primary",
-    icon: "SettingsIcon",
-    i18n: "",
-    submenu: [
-      {
-        url: '/settings/admins',
-        name: "admins",
-        slug: "",
-        i18n: "",
-      },
-      {
-        url: '/settings/slider',
-        name: "slider",
-        slug: "",
-        i18n: "",
-      },
-    ]
-  },
+  // {
+  //   header: "setting",
+  //   i18n: "",
+  // },
+  // {
+  //   url: null,
+  //   name: "settings",
+  //   // tag: "2",
+  //   // tagColor: "primary",
+  //   icon: "SettingsIcon",
+  //   i18n: "",
+  //   submenu: [
+  //     {
+  //       url: '/settings/admins',
+  //       name: "admins",
+  //       slug: "",
+  //       i18n: "",
+  //     },
+  //     {
+  //       url: '/settings/slider',
+  //       name: "slider",
+  //       slug: "",
+  //       i18n: "",
+  //     },
+  //   ]
+  // },
   // {
   //   url: "/80",
   //   name: "invoices",

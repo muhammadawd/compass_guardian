@@ -43,8 +43,8 @@ const router = new Router({
         {
           path: '/',
           name: 'home',
-          meta:{
-            requiresAuth:true
+          meta: {
+            requiresAuth: true
           },
           component: () => import('./views/Home.vue')
         },
@@ -59,245 +59,167 @@ const router = new Router({
       component: () => import('./layouts/main/Main.vue'),
       children: [
         // =============================================================================
-        // Meals Category Routes
+        // Meals Subject Routes
         // =============================================================================
         {
-          path: '/meals/categories',
-          name: 'meals_categories',
-          meta:{
-            requiresAuth:true
+          path: '/management/subjects',
+          name: 'management_subjects',
+          meta: {
+            requiresAuth: true
           },
-          component: () => import('./views/Meals/Categories/All/Index.vue')
+          component: () => import('./views/Management/Subjects/All/Index.vue')
         },
         {
-          path: '/menu/categories',
-          name: 'menu_categories',
-          meta:{
-            requiresAuth:true
+          path: '/management/subjects/edit/:id',
+          name: 'management_subjects_edit',
+          meta: {
+            requiresAuth: true
           },
-          component: () => import('./views/Meals/Categories/All/Index.vue')
-        },
-        {
-          path: '/meals/categories/add',
-          name: 'meals_categories_add',
-          meta:{
-            requiresAuth:true
-          },
-          component: () => import('./views/Meals/Categories/Add/Index.vue')
-        },
-        {
-          path: '/meals/categories/edit/:id',
-          name: 'meals_categories_edit',
-          meta:{
-            requiresAuth:true
-          },
-          component: () => import('./views/Meals/Categories/Edit/Index.vue')
-        },
-        // =============================================================================
-        // Meals Units Routes
-        // =============================================================================
-        {
-          path: '/meals/units',
-          name: 'meals_units',
-          meta:{
-            requiresAuth:true
-          },
-          component: () => import('./views/Meals/Units/All/Index.vue')
-        },
-        {
-          path: '/menu/units',
-          name: 'menu_units',
-          meta:{
-            requiresAuth:true
-          },
-          component: () => import('./views/Meals/Units/All/Index.vue')
-        },
-        {
-          path: '/meals/units/edit/:id',
-          name: 'meals_units_edit',
-          meta:{
-            requiresAuth:true
-          },
-          component: () => import('./views/Meals/Units/Edit/Index.vue')
-        },
-        // =============================================================================
-        // Meals Extra Options Routes
-        // =============================================================================
-        {
-          path: '/meals/extra_options',
-          name: 'meals_extra_options',
-          meta:{
-            requiresAuth:true
-          },
-          component: () => import('./views/Meals/ExtraOptions/All/Index.vue')
-        },
-        {
-          path: '/menu/extra_options',
-          name: 'menu_extra_options',
-          meta:{
-            requiresAuth:true
-          },
-          component: () => import('./views/Meals/ExtraOptions/All/Index.vue')
-        },
-        {
-          path: '/meals/extra_options/edit/:id',
-          name: 'meals_extra_options_edit',
-          meta:{
-            requiresAuth:true
-          },
-          component: () => import('./views/Meals/ExtraOptions/Edit/Index.vue')
+          component: () => import('./views/Management/Subjects/Edit/Index.vue')
         },
         // =============================================================================
         // Meals options Routes
         // =============================================================================
         {
-          path: '/meals/options',
-          name: 'meals_options',
-          component: () => import('./views/Meals/Options/All/Index.vue')
+          path: '/management/stages',
+          name: 'management_stages',
+          component: () => import('./views/Management/Stage/All/Index.vue')
         },
         {
-          path: '/menu/options',
-          name: 'menu_options',
-          meta:{
-            requiresAuth:true
+          path: '/management/stages/add',
+          name: 'management_stages_add',
+          meta: {
+            requiresAuth: true
           },
-          component: () => import('./views/Meals/Options/All/Index.vue')
+          component: () => import('./views/Management/Stage/Add/Index.vue')
         },
         {
-          path: '/meals/options/add',
-          name: 'meals_options_add',
-          meta:{
-            requiresAuth:true
+          path: '/management/stages/edit/:id',
+          name: 'management_stages_edit',
+          meta: {
+            requiresAuth: true
           },
-          component: () => import('./views/Meals/Options/Add/Index.vue')
-        },
-        {
-          path: '/meals/options/edit/:id',
-          name: 'meals_options_edit',
-          meta:{
-            requiresAuth:true
-          },
-          component: () => import('./views/Meals/Options/Edit/Index.vue')
+          component: () => import('./views/Management/Stage/Edit/Index.vue')
         },
         // =============================================================================
         // Menu items Routes
         // =============================================================================
-        {
-          path: '/menu/items',
-          name: 'menu_items',
-          meta:{
-            requiresAuth:true
-          },
-          component: () => import('./views/Meals/Menu/All/Index.vue')
-        },
-        {
-          path: '/menu/items/add',
-          name: 'menu_items_add',
-          meta:{
-            requiresAuth:true
-          },
-          component: () => import('./views/Meals/Menu/Add/Index.vue')
-        },
-        {
-          path: '/menu/items/edit/:id',
-          name: 'menu_items_edit',
-          meta:{
-            requiresAuth:true
-          },
-          component: () => import('./views/Meals/Menu/Edit/Index.vue')
-        },
+        // {
+        //   path: '/menu/items',
+        //   name: 'menu_items',
+        //   meta:{
+        //     requiresAuth:true
+        //   },
+        //   component: () => import('./views/Meals/Menu/All/Index.vue')
+        // },
+        // {
+        //   path: '/menu/items/add',
+        //   name: 'menu_items_add',
+        //   meta:{
+        //     requiresAuth:true
+        //   },
+        //   component: () => import('./views/Meals/Menu/Add/Index.vue')
+        // },
+        // {
+        //   path: '/menu/items/edit/:id',
+        //   name: 'menu_items_edit',
+        //   meta:{
+        //     requiresAuth:true
+        //   },
+        //   component: () => import('./views/Meals/Menu/Edit/Index.vue')
+        // },
         // =============================================================================
         // Settings Admin Routes
         // =============================================================================
-        {
-          path: '/orders',
-          name: 'orders',
-          meta:{
-            requiresAuth:true
-          },
-          component: () => import('./views/Orders/NormalOrders/Index.vue')
-        },
+        // {
+        //   path: '/orders',
+        //   name: 'orders',
+        //   meta:{
+        //     requiresAuth:true
+        //   },
+        //   component: () => import('./views/Orders/NormalOrders/Index.vue')
+        // },
         // =============================================================================
         // Settings Admin Routes
         // =============================================================================
-        {
-          path: '/delivery',
-          name: 'delivery',
-          meta:{
-            requiresAuth:true
-          },
-          component: () => import('./views/Settings/Delivery/All/Index.vue')
-        },
-        {
-          path: '/delivery/add',
-          name: 'delivery_add',
-          meta:{
-            requiresAuth:true
-          },
-          component: () => import('./views/Settings/Delivery/Add/Index.vue')
-        },
-        {
-          path: '/delivery/edit/:id',
-          name: 'delivery_edit',
-          meta:{
-            requiresAuth:true
-          },
-          component: () => import('./views/Settings/Delivery/Edit/Index.vue')
-        },
+        // {
+        //   path: '/delivery',
+        //   name: 'delivery',
+        //   meta:{
+        //     requiresAuth:true
+        //   },
+        //   component: () => import('./views/Settings/Delivery/All/Index.vue')
+        // },
+        // {
+        //   path: '/delivery/add',
+        //   name: 'delivery_add',
+        //   meta:{
+        //     requiresAuth:true
+        //   },
+        //   component: () => import('./views/Settings/Delivery/Add/Index.vue')
+        // },
+        // {
+        //   path: '/delivery/edit/:id',
+        //   name: 'delivery_edit',
+        //   meta:{
+        //     requiresAuth:true
+        //   },
+        //   component: () => import('./views/Settings/Delivery/Edit/Index.vue')
+        // },
         // =============================================================================
         // Settings Slider Routes
         // =============================================================================
-        {
-          path: '/settings/slider',
-          name: 'settings_slider',
-          meta:{
-            requiresAuth:true
-          },
-          component: () => import('./views/Settings/Slider/All/Index.vue')
-        },
-        {
-          path: '/settings/slider/add',
-          name: 'settings_slider_add',
-          meta:{
-            requiresAuth:true
-          },
-          component: () => import('./views/Settings/Slider/Add/Index.vue')
-        },
-        {
-          path: '/settings/slider/edit/:id',
-          name: 'settings_slider_edit',
-          meta:{
-            requiresAuth:true
-          },
-          component: () => import('./views/Settings/Slider/Edit/Index.vue')
-        },
+        // {
+        //   path: '/settings/slider',
+        //   name: 'settings_slider',
+        //   meta:{
+        //     requiresAuth:true
+        //   },
+        //   component: () => import('./views/Settings/Slider/All/Index.vue')
+        // },
+        // {
+        //   path: '/settings/slider/add',
+        //   name: 'settings_slider_add',
+        //   meta:{
+        //     requiresAuth:true
+        //   },
+        //   component: () => import('./views/Settings/Slider/Add/Index.vue')
+        // },
+        // {
+        //   path: '/settings/slider/edit/:id',
+        //   name: 'settings_slider_edit',
+        //   meta:{
+        //     requiresAuth:true
+        //   },
+        //   component: () => import('./views/Settings/Slider/Edit/Index.vue')
+        // },
         // =============================================================================
         // Settings Admin Routes
         // =============================================================================
-        {
-          path: '/settings/admins',
-          name: 'settings_admins',
-          meta:{
-            requiresAuth:true
-          },
-          component: () => import('./views/Settings/Admins/All/Index.vue')
-        },
-        {
-          path: '/settings/admins/add',
-          name: 'settings_admins_add',
-          meta:{
-            requiresAuth:true
-          },
-          component: () => import('./views/Settings/Admins/Add/Index.vue')
-        },
-        {
-          path: '/settings/admins/edit/:id',
-          name: 'settings_admins_edit',
-          meta:{
-            requiresAuth:true
-          },
-          component: () => import('./views/Settings/Admins/Edit/Index.vue')
-        },
+        // {
+        //   path: '/settings/admins',
+        //   name: 'settings_admins',
+        //   meta:{
+        //     requiresAuth:true
+        //   },
+        //   component: () => import('./views/Settings/Admins/All/Index.vue')
+        // },
+        // {
+        //   path: '/settings/admins/add',
+        //   name: 'settings_admins_add',
+        //   meta:{
+        //     requiresAuth:true
+        //   },
+        //   component: () => import('./views/Settings/Admins/Add/Index.vue')
+        // },
+        // {
+        //   path: '/settings/admins/edit/:id',
+        //   name: 'settings_admins_edit',
+        //   meta:{
+        //     requiresAuth:true
+        //   },
+        //   component: () => import('./views/Settings/Admins/Edit/Index.vue')
+        // },
       ],
     },
     // =============================================================================
@@ -313,16 +235,16 @@ const router = new Router({
         {
           path: '/login',
           name: 'login',
-          meta:{
-            requiresAuth:false
+          meta: {
+            requiresAuth: false
           },
           component: () => import('@/views/pages/Login.vue')
         },
         {
           path: '/pages/error-404',
           name: 'pageError404',
-          meta:{
-            requiresAuth:false
+          meta: {
+            requiresAuth: false
           },
           component: () => import('@/views/pages/Error404.vue')
         },
