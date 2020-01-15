@@ -27,6 +27,18 @@ export default {
   EDIT_TEACHERS: 'teacher/update',
   DELETE_TEACHERS: 'teacher/delete',
 
+  ALL_PARENTS: 'parent',
+  ADD_PARENTS: 'parent/create',
+  FIND_PARENTS: 'parent/find',
+  EDIT_PARENTS: 'parent/update',
+  DELETE_PARENTS: 'parent/delete',
+
+  ALL_STUDENTS: 'student',
+  ADD_STUDENTS: 'student/create',
+  FIND_STUDENTS: 'student/find',
+  EDIT_STUDENTS: 'student/update',
+  DELETE_STUDENTS: 'student/delete',
+
 
 
   API: () => {

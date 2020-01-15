@@ -85,6 +85,22 @@ export default [
     icon: "UserCheckIcon",
     i18n: "",
   },
+  {
+    url: '/parents',
+    name: "parents",
+    // tag: "2",
+    // tagColor: "primary",
+    icon: "CoffeeIcon",
+    i18n: "",
+  },
+  {
+    url: '/students',
+    name: "students",
+    // tag: "2",
+    // tagColor: "primary",
+    icon: "UserIcon",
+    i18n: "",
+  },
   // {
   //   url: null,
   //   name: "menu",

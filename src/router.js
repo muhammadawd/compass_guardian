@@ -102,7 +102,7 @@ const router = new Router({
           component: () => import('./views/Management/Stage/Edit/Index.vue')
         },
         // =============================================================================
-        // Management Stages Routes
+        // Management Teachers Routes
         // =============================================================================
         {
           path: '/teachers',
@@ -124,6 +124,54 @@ const router = new Router({
             requiresAuth: true
           },
           component: () => import('./views/Teacher/Edit/Index.vue')
+        },
+        // =============================================================================
+        // Management Parents Routes
+        // =============================================================================
+        {
+          path: '/parents',
+          name: 'parents',
+          component: () => import('./views/Parents/All/Index.vue')
+        },
+        {
+          path: '/parents/add',
+          name: 'parents_add',
+          meta: {
+            requiresAuth: true
+          },
+          component: () => import('./views/Parents/Add/Index.vue')
+        },
+        {
+          path: '/parents/edit/:id',
+          name: 'parents_edit',
+          meta: {
+            requiresAuth: true
+          },
+          component: () => import('./views/Parents/Edit/Index.vue')
+        },
+        // =============================================================================
+        // Management Students Routes
+        // =============================================================================
+        {
+          path: '/students',
+          name: 'students',
+          component: () => import('./views/Students/All/Index.vue')
+        },
+        {
+          path: '/students/add',
+          name: 'students_add',
+          meta: {
+            requiresAuth: true
+          },
+          component: () => import('./views/Students/Add/Index.vue')
+        },
+        {
+          path: '/students/edit/:id',
+          name: 'students_edit',
+          meta: {
+            requiresAuth: true
+          },
+          component: () => import('./views/Students/Edit/Index.vue')
         },
         // =============================================================================
         // Settings Admin Routes
