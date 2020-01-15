@@ -2,32 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55110bd7-8ede-484f-93cc-6f3454507933" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/views/Teacher/Add/Index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Teacher/All/Index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Teacher/Edit/Index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/logo/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/logo/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/scss/vuesax/components/vxSidebar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/vuesax/components/vxSidebar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/107b5d9755c469224afa4702344adc86.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/107b5d9755c469224afa4702344adc86.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/1f47569fbdc3f64ce193c7156edceb65.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/1f47569fbdc3f64ce193c7156edceb65.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/657427f3ca0914cadf2702e70cc9c9d0.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/657427f3ca0914cadf2702e70cc9c9d0.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/8dd85dc78da20f32bd656d645a09c6e2.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/8dd85dc78da20f32bd656d645a09c6e2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/b938c31f06a236f5d07e3aa9a4120285.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/b938c31f06a236f5d07e3aa9a4120285.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/c247b4ebb4de36b8a80b3196aac435d6.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/c247b4ebb4de36b8a80b3196aac435d6.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/cf8525911c24eaad08c319fdc6780a9e.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/cf8525911c24eaad08c319fdc6780a9e.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/daca7b18caabd64df105d658197b6d20.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/daca7b18caabd64df105d658197b6d20.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/0d45c10ee6cfdfa45121631db1408dc3.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/0d45c10ee6cfdfa45121631db1408dc3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/137a2cedf04aaa69abe3dffc4eea9745.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/137a2cedf04aaa69abe3dffc4eea9745.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/3841efa443db5c9095789f6d3af24555.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/3841efa443db5c9095789f6d3af24555.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/429438ed1463b04f189d5a272e99bbaf.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/429438ed1463b04f189d5a272e99bbaf.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/5bb05e82d34e3bed30fa649eb97dc120.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/5bb05e82d34e3bed30fa649eb97dc120.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/5f652a742a848188088933791aa82009.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/5f652a742a848188088933791aa82009.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/6709d0a1fc748bd63c28a8572c8c45ba.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/6709d0a1fc748bd63c28a8572c8c45ba.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/85d095c4a9974caebbaecab535961604.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/85d095c4a9974caebbaecab535961604.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/8823d5a3bcd515638d76abbbbff7ff64.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/8823d5a3bcd515638d76abbbbff7ff64.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/924ca0ac8776469121cabeff893581a4.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/924ca0ac8776469121cabeff893581a4.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/b8727a0cf0b14d49eb52b138e71a7128.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/b8727a0cf0b14d49eb52b138e71a7128.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/b9ae9e381a41b9135970c85d41b9cfbe.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/b9ae9e381a41b9135970c85d41b9cfbe.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/c2b332765da5485fa79d23116543ef3c.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/c2b332765da5485fa79d23116543ef3c.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/c84d5fa0d73b2d9f43f33b8fb92fd7be.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/c84d5fa0d73b2d9f43f33b8fb92fd7be.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/e59fba05816002eaa9285c6b91603a0f.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/e59fba05816002eaa9285c6b91603a0f.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bootstrap/ml.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/bootstrap/ml.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bootstrap/serviceAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/bootstrap/serviceAPI.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/layouts/components/vx-sidebar/sidebarItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/components/vx-sidebar/sidebarItems.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Meals/Categories/Add/Index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Meals/Categories/All/Index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Meals/Categories/Edit/Index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Meals/ExtraOptions/AddNewDataSidebar.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Meals/ExtraOptions/All/Index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Meals/ExtraOptions/Edit/Index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Meals/Menu/Add/Index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Meals/Menu/All/Index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Meals/Menu/Edit/Index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Meals/Options/Add/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Management/Stage/Add/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Meals/Options/All/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Management/Stage/All/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Meals/Options/Edit/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Management/Stage/Edit/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Meals/Units/AddNewDataSidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Management/Subjects/AddNewDataSidebar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Meals/Units/All/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Management/Subjects/All/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Meals/Units/Edit/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Management/Subjects/Edit/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themeConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/themeConfig.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Orders/NormalOrders/Index.vue" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -39,12 +45,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/themeConfig.js">
+        <entry file="file://$PROJECT_DIR$/src/bootstrap/ml.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+            <state relative-caret-position="659">
+              <caret line="150" column="20" selection-start-line="150" selection-start-column="20" selection-end-line="150" selection-end-column="20" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -52,8 +61,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/router.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="84" column="34" selection-start-line="84" selection-start-column="17" selection-end-line="84" selection-end-column="34" />
+            <state relative-caret-position="344">
+              <caret line="113" column="29" selection-start-line="113" selection-start-column="17" selection-end-line="113" selection-end-column="29" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -64,11 +73,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/Management/Stage/Edit/Index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="76" column="94" lean-forward="true" selection-start-line="76" selection-start-column="94" selection-end-line="76" selection-end-column="94" />
+            <state relative-caret-position="168">
+              <caret line="122" column="15" lean-forward="true" selection-start-line="122" selection-start-column="15" selection-end-line="123" selection-end-column="42" />
               <folding>
-                <element signature="e#4802#4843#0" expanded="true" />
+                <element signature="e#4813#4854#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/views/Teacher/Edit/Index.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="84" column="31" selection-start-line="84" selection-start-column="31" selection-end-line="84" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -76,8 +94,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/layouts/components/vx-sidebar/sidebarItems.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="64" column="14" lean-forward="true" selection-start-line="64" selection-start-column="14" selection-end-line="64" selection-end-column="14" />
+            <state relative-caret-position="701">
+              <caret line="80" column="11" selection-start-line="80" selection-start-column="11" selection-end-line="80" selection-end-column="11" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -86,22 +104,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/bootstrap/ml.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="575">
-              <caret line="138" column="25" selection-start-line="138" selection-start-column="25" selection-end-line="138" selection-end-column="25" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/bootstrap/serviceAPI.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+            <state relative-caret-position="147">
+              <caret line="7" column="45" lean-forward="true" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -109,8 +115,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/node_modules/vue-feather-icons/dist/vue-feather-icons.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="3544" column="17" selection-start-line="3544" selection-start-column="6" selection-end-line="3544" selection-end-column="17" />
+            <state relative-caret-position="272">
+              <caret line="9313" column="19" selection-start-line="9313" selection-start-column="6" selection-end-line="9313" selection-end-column="19" />
               <folding>
                 <element signature="e#28#237#0" />
                 <element signature="e#411#1554#0" />
@@ -3357,7 +3363,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/assets/scss/vuesax/components/vxSidebar.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="587">
+            <state relative-caret-position="1323">
               <caret line="63" column="22" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="22" />
             </state>
           </provider>
@@ -3376,9 +3382,12 @@
       <find>multis</find>
       <find>customL</find>
       <find>classRooms</find>
+      <find>user</find>
+      <find>stages</find>
     </findStrings>
     <replaceStrings>
       <replace>class_rooms</replace>
+      <replace>teachers</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -3391,16 +3400,19 @@
         <option value="$PROJECT_DIR$/src/layouts/components/vx-sidebar/VxSidebar.vue" />
         <option value="$PROJECT_DIR$/themeConfig.js" />
         <option value="$PROJECT_DIR$/src/assets/scss/vuesax/components/vxSidebar.scss" />
-        <option value="$PROJECT_DIR$/src/layouts/components/vx-sidebar/sidebarItems.js" />
         <option value="$PROJECT_DIR$/src/views/Management/Subjects/All/Index.vue" />
         <option value="$PROJECT_DIR$/src/views/Management/Subjects/AddNewDataSidebar.vue" />
         <option value="$PROJECT_DIR$/src/views/Management/Subjects/Edit/Index.vue" />
-        <option value="$PROJECT_DIR$/src/router.js" />
         <option value="$PROJECT_DIR$/src/views/Management/Stage/All/Index.vue" />
-        <option value="$PROJECT_DIR$/src/bootstrap/ml.js" />
         <option value="$PROJECT_DIR$/src/views/Management/Stage/Add/Index.vue" />
-        <option value="$PROJECT_DIR$/src/views/Management/Stage/Edit/Index.vue" />
+        <option value="$PROJECT_DIR$/src/router.js" />
+        <option value="$PROJECT_DIR$/src/views/Teacher/All/Index.vue" />
         <option value="$PROJECT_DIR$/src/bootstrap/serviceAPI.js" />
+        <option value="$PROJECT_DIR$/src/layouts/components/vx-sidebar/sidebarItems.js" />
+        <option value="$PROJECT_DIR$/src/bootstrap/ml.js" />
+        <option value="$PROJECT_DIR$/src/views/Teacher/Add/Index.vue" />
+        <option value="$PROJECT_DIR$/src/views/Management/Stage/Edit/Index.vue" />
+        <option value="$PROJECT_DIR$/src/views/Teacher/Edit/Index.vue" />
       </list>
     </option>
   </component>
@@ -3495,6 +3507,29 @@
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="Management" type="462c0819:PsiDirectoryNode" />
               <item name="Stage" type="462c0819:PsiDirectoryNode" />
+              <item name="Edit" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Guardian" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Guardian" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="Teacher" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Guardian" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Guardian" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="Teacher" type="462c0819:PsiDirectoryNode" />
+              <item name="Add" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Guardian" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Guardian" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="Teacher" type="462c0819:PsiDirectoryNode" />
               <item name="All" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -3502,8 +3537,7 @@
               <item name="Guardian" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Management" type="462c0819:PsiDirectoryNode" />
-              <item name="Stage" type="462c0819:PsiDirectoryNode" />
+              <item name="Teacher" type="462c0819:PsiDirectoryNode" />
               <item name="Edit" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -3517,7 +3551,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/views/Management/Stage/Edit" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/views" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -3528,7 +3562,12 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/views" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/views" />
+      <recent name="$PROJECT_DIR$/src/views/Management" />
       <recent name="$PROJECT_DIR$/src/views/Management/Stage/Edit" />
     </key>
   </component>
@@ -3555,23 +3594,23 @@
       <option name="presentableId" value="Default" />
       <updated>1578911684876</updated>
       <workItem from="1578911686440" duration="1934000" />
-      <workItem from="1578985476130" duration="12201000" />
+      <workItem from="1578985476130" duration="13321000" />
+      <workItem from="1579072141589" duration="5647000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14135000" />
+    <option name="totallyTimeSpent" value="20902000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1057" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25307652" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25682184" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Storybook" order="2" side_tool="true" />
       <window_info id="npm" order="3" side_tool="true" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" weight="0.32968238" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -3585,6 +3624,7 @@
       <window_info anchor="bottom" id="RNConsole" order="10" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.25082147" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.32968238" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -3595,10 +3635,76 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/layouts/components/Loader.vue">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/Home.vue">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/layouts/components/TheNavbar.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1260" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/layouts/components/vx-sidebar/VxSidebar.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="10" lean-forward="true" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/Management/Subjects/AddNewDataSidebar.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" column="32" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/Management/Subjects/Edit/Index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="32" column="110" selection-start-line="32" selection-start-column="110" selection-end-line="32" selection-end-column="110" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/Management/Subjects/All/Index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/Settings/Delivery/Add/Index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1071" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/Management/Stage/All/Index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="145" column="31" lean-forward="true" selection-start-line="145" selection-end-line="146" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/Management/Stage/Edit/Index2.vue" />
+    <entry file="file://$PROJECT_DIR$/src/assets/scss/vuesax/components/vxSidebar.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1323">
+          <caret line="63" column="22" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/vue-feather-icons/dist/vue-feather-icons.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="3544" column="17" selection-start-line="3544" selection-start-column="6" selection-end-line="3544" selection-end-column="17" />
+        <state relative-caret-position="272">
+          <caret line="9313" column="19" selection-start-line="9313" selection-start-column="6" selection-end-line="9313" selection-end-column="19" />
           <folding>
             <element signature="e#28#237#0" />
             <element signature="e#411#1554#0" />
@@ -6841,38 +6947,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/layouts/components/Loader.vue">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/Home.vue">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/scss/vuesax/components/vxSidebar.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="587">
-          <caret line="63" column="22" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/layouts/components/TheNavbar.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1260" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/layouts/components/vx-sidebar/VxSidebar.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="10" lean-forward="true" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/themeConfig.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
@@ -6880,31 +6954,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/Management/Subjects/AddNewDataSidebar.vue">
+    <entry file="file://$PROJECT_DIR$/src/bootstrap/serviceAPI.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="32" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="32" />
+        <state relative-caret-position="147">
+          <caret line="7" column="45" lean-forward="true" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/Management/Subjects/Edit/Index.vue">
+    <entry file="file://$PROJECT_DIR$/src/views/Management/Stage/Add/Index.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="32" column="110" selection-start-line="32" selection-start-column="110" selection-end-line="32" selection-end-column="110" />
+        <state relative-caret-position="147">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="30" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/Management/Subjects/All/Index.vue">
+    <entry file="file://$PROJECT_DIR$/src/views/Teacher/All/Index.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
-          <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/router.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="84" column="34" selection-start-line="84" selection-start-column="17" selection-end-line="84" selection-end-column="34" />
+        <state relative-caret-position="344">
+          <caret line="113" column="29" selection-start-line="113" selection-start-column="17" selection-end-line="113" selection-end-column="29" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -6913,67 +6987,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/layouts/components/vx-sidebar/sidebarItems.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="64" column="14" lean-forward="true" selection-start-line="64" selection-start-column="14" selection-end-line="64" selection-end-column="14" />
+        <state relative-caret-position="701">
+          <caret line="80" column="11" selection-start-line="80" selection-start-column="11" selection-end-line="80" selection-end-column="11" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/Settings/Delivery/Add/Index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1071" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/Management/Stage/All/Index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="145" column="31" lean-forward="true" selection-start-line="145" selection-end-line="146" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/bootstrap/ml.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="138" column="25" selection-start-line="138" selection-start-column="25" selection-end-line="138" selection-end-column="25" />
+        <state relative-caret-position="659">
+          <caret line="150" column="20" selection-start-line="150" selection-start-column="20" selection-end-line="150" selection-end-column="20" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/Management/Stage/Add/Index.vue">
+    <entry file="file://$PROJECT_DIR$/src/views/Teacher/Add/Index.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="146" column="24" lean-forward="true" selection-end-line="216" />
-          <folding>
-            <element signature="e#4380#4421#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/Management/Stage/Edit/Index2.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="154" column="8" lean-forward="true" selection-start-line="154" selection-start-column="8" selection-end-line="176" selection-end-column="8" />
+        <state relative-caret-position="51">
+          <caret line="114" column="17" lean-forward="true" selection-end-line="192" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/Management/Stage/Edit/Index.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="76" column="94" lean-forward="true" selection-start-line="76" selection-start-column="94" selection-end-line="76" selection-end-column="94" />
+        <state relative-caret-position="168">
+          <caret line="122" column="15" lean-forward="true" selection-start-line="122" selection-start-column="15" selection-end-line="123" selection-end-column="42" />
           <folding>
-            <element signature="e#4802#4843#0" expanded="true" />
+            <element signature="e#4813#4854#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/bootstrap/serviceAPI.js">
+    <entry file="file://$PROJECT_DIR$/src/views/Teacher/Edit/Index.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+        <state relative-caret-position="176">
+          <caret line="84" column="31" selection-start-line="84" selection-start-column="31" selection-end-line="84" selection-end-column="31" />
         </state>
       </provider>
     </entry>

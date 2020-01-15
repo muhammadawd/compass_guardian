@@ -137,11 +137,22 @@ export default new MLCreate({
       subjects: 'المواد الدراسية',
       stages: 'المراحل الدراسية',
       add_stages: 'اضافة المراحل الدراسية',
+      edit_stages: 'تعديل المراحل الدراسية',
       add_subject: 'اضافة مادة دراسية',
       edit_subject: 'تعديل مادة دراسية',
       size: 'عدد الطلاب بالفصل',
       class_title_ar: 'اسم الفصل بالعربية',
       class_title_en: 'اسم الفصل بالانجليزية',
+      add_teacher: "اضافة مدرس",
+      edit_teacher: "تعديل مدرس",
+      teachers: "المدرسين",
+      years_experience: "سنوات الخبرة",
+      qualification: "المؤهل",
+      gender: "الجنس",
+      male: "ذكر",
+      female: "انثي",
+      age: "العمر",
+      ssn: "الرقم المدنى",
     })
   ]
 })

@@ -21,6 +21,12 @@ export default {
   EDIT_STAGES: 'stage/update',
   DELETE_STAGES: 'stage/delete',
 
+  ALL_TEACHERS: 'teacher',
+  ADD_TEACHERS: 'teacher/create',
+  FIND_TEACHERS: 'teacher/find',
+  EDIT_TEACHERS: 'teacher/update',
+  DELETE_TEACHERS: 'teacher/delete',
+
 
 
   API: () => {

@@ -75,13 +75,15 @@ export default [
         slug: "",
         i18n: "",
       },
-      // {
-      //   url: '/meals/all_items',
-      //   name: "all_items",
-      //   slug: "",
-      //   i18n: "",
-      // },
     ]
+  },
+  {
+    url: '/teachers',
+    name: "teachers",
+    // tag: "2",
+    // tagColor: "primary",
+    icon: "UserCheckIcon",
+    i18n: "",
   },
   // {
   //   url: null,
