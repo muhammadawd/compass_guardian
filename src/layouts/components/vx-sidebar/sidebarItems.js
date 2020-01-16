@@ -75,6 +75,12 @@ export default [
         slug: "",
         i18n: "",
       },
+      {
+        url: '/management/terms',
+        name: "term",
+        slug: "",
+        i18n: "",
+      },
     ]
   },
   {
@@ -99,6 +105,14 @@ export default [
     // tag: "2",
     // tagColor: "primary",
     icon: "UserIcon",
+    i18n: "",
+  },
+  {
+    url: '/place_student',
+    name: "place_student",
+    // tag: "2",
+    // tagColor: "primary",
+    icon: "UserPlusIcon",
     i18n: "",
   },
   // {
@@ -215,36 +229,30 @@ export default [
   //     },
   //   ]
   // },
-  // {
-  //   header: "setting",
-  //   i18n: "",
-  // },
-  // {
-  //   url: null,
-  //   name: "settings",
-  //   // tag: "2",
-  //   // tagColor: "primary",
-  //   icon: "SettingsIcon",
-  //   i18n: "",
-  //   submenu: [
-  //     {
-  //       url: '/settings/admins',
-  //       name: "admins",
-  //       slug: "",
-  //       i18n: "",
-  //     },
-  //     {
-  //       url: '/settings/slider',
-  //       name: "slider",
-  //       slug: "",
-  //       i18n: "",
-  //     },
-  //   ]
-  // },
-  // {
-  //   url: "/80",
-  //   name: "invoices",
-  //   slug: "",
-  //   icon: "FileIcon",
-  // },
+  {
+    header: "setting",
+    i18n: "",
+  },
+  {
+    url: null,
+    name: "settings",
+    // tag: "2",
+    // tagColor: "primary",
+    icon: "SettingsIcon",
+    i18n: "",
+    submenu: [
+      {
+        url: '/settings/admins',
+        name: "admins",
+        slug: "",
+        i18n: "",
+      },
+      {
+        url: '/settings/roles',
+        name: "roles",
+        slug: "",
+        i18n: "",
+      },
+    ]
+  },
 ]

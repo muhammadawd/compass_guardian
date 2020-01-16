@@ -26,6 +26,14 @@
               <vs-input class="w-full" :label="$ml.get('age')" v-model="dataModel.age"/>
               <span class="span-text-validation text-danger text-bold" id="age_error"></span>
             </div>
+            <div class="vx-col md:w-1/6 mb-base">
+              <label class="vs-input--label">{{$ml.get('gender')}}</label>
+              <vs-select class="w-full" v-model="dataModel.gender">
+                <vs-select-item value="male" :text="$ml.get('male')"></vs-select-item>
+                <vs-select-item value="female" :text="$ml.get('female')"></vs-select-item>
+              </vs-select>
+              <span class="span-text-validation text-danger text-bold" id="gender_error"></span>
+            </div>
             <div class="vx-col md:w-1/4 mb-base">
               <div class="vs-component vs-con-input-label vs-input w-full vs-input-primary">
                 <label class="vs-input--label">{{$ml.get('image')}}</label>
@@ -57,6 +65,15 @@
               </multiselect>
               <span class="span-text-validation text-danger text-bold" id="stage_id_error"></span>
             </div>
+            <div class="vx-col md:w-1/3 mb-base">
+              <label class="vs-input--label">{{$ml.get('status')}}</label>
+              <multiselect v-model="selectedStatus" :options="status" :multiple="false" :close-on-select="true"
+                           :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')"
+                           :custom-label="customStageLabel"
+                           track-by="id" :preselect-first="true">
+              </multiselect>
+              <span class="span-text-validation text-danger text-bold" id="status_id_error"></span>
+            </div>
           </div>
 
           <div class="vx-row">
@@ -85,16 +102,19 @@
     data() {
       return {
         dataModel: {},
-        stages: [],
+        status: [],
         parents: [],
+        stages: [],
         selectedParent: null,
         selectedStage: null,
+        selectedStatus: null,
         loading: false
       }
     },
     computed: {},
     mounted() {
       this.getAllParents()
+      this.getAllstatus()
       this.getAllStages()
     },
     methods: {
@@ -114,6 +134,7 @@
         let request_data = vm.dataModel;
         request_data.parent_id = vm.selectedParent ? vm.selectedParent.id : '';
         request_data.stage_id = vm.selectedStage ? vm.selectedStage.id : '';
+        request_data.status_id = vm.selectedStatus ? vm.selectedStatus.id : '';
 
         let form_data = new FormData();
         $.each(request_data, (key, value) => {
@@ -161,6 +182,29 @@
             vm.$root.$children[0].$refs.loader.show_loader = false;
             window.helper.handleError(error, vm);
             vm.stages = [];
+          });
+        } catch (e) {
+          console.log(e)
+        }
+      },
+      getAllstatus() {
+        let vm = this;
+        vm.$root.$children[0].$refs.loader.show_loader = true;
+        try {
+          window.serviceAPI.API().get(window.serviceAPI.ALL_STATUS)
+            .then((response) => {
+              vm.$root.$children[0].$refs.loader.show_loader = false;
+              response = response.data;
+              console.log(response)
+              if (response.status) {
+                vm.status = response.data.status.student;
+                return
+              }
+              vm.status = [];
+            }).catch((error) => {
+            vm.$root.$children[0].$refs.loader.show_loader = false;
+            window.helper.handleError(error, vm);
+            vm.status = [];
           });
         } catch (e) {
           console.log(e)

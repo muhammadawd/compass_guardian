@@ -9,11 +9,19 @@ export default {
 
   AUTH_LOGIN: 'admin/login',
 
+  ALL_STATUS: 'common/status',
+
   ALL_SUBJECTS: 'subject',
   ADD_SUBJECTS: 'subject/create',
   FIND_SUBJECTS: 'subject/find',
   EDIT_SUBJECTS: 'subject/update',
   DELETE_SUBJECTS: 'subject/delete',
+
+  ALL_TERMS: 'term',
+  ADD_TERMS: 'term/create',
+  FIND_TERMS: 'term/find',
+  EDIT_TERMS: 'term/update',
+  DELETE_TERMS: 'term/delete',
 
   ALL_STAGES: 'stage',
   ADD_STAGES: 'stage/create',
@@ -39,6 +47,17 @@ export default {
   EDIT_STUDENTS: 'student/update',
   DELETE_STUDENTS: 'student/delete',
 
+  ALL_ROLES: 'admin/role',
+  ADD_ROLES: 'admin/role/create-update',
+  FIND_ROLES: 'admin/role',
+  EDIT_ROLES: 'admin/role/create-update',
+  DELETE_ROLES: 'admin/role/delete',
+
+  ALL_ADMIN: 'admin',
+  ADD_ADMIN: 'admin/create',
+  FIND_ADMIN: 'admin/find',
+  EDIT_ADMIN: 'admin/update',
+  DELETE_ADMIN: 'admin/delete',
 
 
   API: () => {

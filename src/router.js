@@ -105,6 +105,30 @@ const router = new Router({
         // Management Teachers Routes
         // =============================================================================
         {
+          path: '/management/terms',
+          name: 'terms',
+          component: () => import('./views/Terms/All/Index.vue')
+        },
+        {
+          path: '/management/terms/add',
+          name: 'terms_add',
+          meta: {
+            requiresAuth: true
+          },
+          component: () => import('./views/Terms/Add/Index.vue')
+        },
+        {
+          path: '/management/terms/edit/:id',
+          name: 'terms_edit',
+          meta: {
+            requiresAuth: true
+          },
+          component: () => import('./views/Terms/Edit/Index.vue')
+        },
+        // =============================================================================
+        // Management Teachers Routes
+        // =============================================================================
+        {
           path: '/teachers',
           name: 'teachers',
           component: () => import('./views/Teacher/All/Index.vue')
@@ -153,6 +177,11 @@ const router = new Router({
         // Management Students Routes
         // =============================================================================
         {
+          path: '/place_student',
+          name: 'place_student',
+          component: () => import('./views/Students/PlaceStudent/Index.vue')
+        },
+        {
           path: '/students',
           name: 'students',
           component: () => import('./views/Students/All/Index.vue')
@@ -176,95 +205,57 @@ const router = new Router({
         // =============================================================================
         // Settings Admin Routes
         // =============================================================================
-        // {
-        //   path: '/orders',
-        //   name: 'orders',
-        //   meta:{
-        //     requiresAuth:true
-        //   },
-        //   component: () => import('./views/Orders/NormalOrders/Index.vue')
-        // },
+        {
+          path: '/settings/admins',
+          name: 'settings_admins',
+          meta: {
+            requiresAuth: true
+          },
+          component: () => import('./views/Settings/Admins/All/Index.vue')
+        },
+        {
+          path: '/settings/admins/add',
+          name: 'settings_admins_add',
+          meta: {
+            requiresAuth: true
+          },
+          component: () => import('./views/Settings/Admins/Add/Index.vue')
+        },
+        {
+          path: '/settings/admins/edit/:id',
+          name: 'settings_admins_edit',
+          meta: {
+            requiresAuth: true
+          },
+          component: () => import('./views/Settings/Admins/Edit/Index.vue')
+        },
         // =============================================================================
-        // Settings Admin Routes
+        // Settings Roles Routes
         // =============================================================================
-        // {
-        //   path: '/delivery',
-        //   name: 'delivery',
-        //   meta:{
-        //     requiresAuth:true
-        //   },
-        //   component: () => import('./views/Settings/Delivery/All/Index.vue')
-        // },
-        // {
-        //   path: '/delivery/add',
-        //   name: 'delivery_add',
-        //   meta:{
-        //     requiresAuth:true
-        //   },
-        //   component: () => import('./views/Settings/Delivery/Add/Index.vue')
-        // },
-        // {
-        //   path: '/delivery/edit/:id',
-        //   name: 'delivery_edit',
-        //   meta:{
-        //     requiresAuth:true
-        //   },
-        //   component: () => import('./views/Settings/Delivery/Edit/Index.vue')
-        // },
-        // =============================================================================
-        // Settings Slider Routes
-        // =============================================================================
-        // {
-        //   path: '/settings/slider',
-        //   name: 'settings_slider',
-        //   meta:{
-        //     requiresAuth:true
-        //   },
-        //   component: () => import('./views/Settings/Slider/All/Index.vue')
-        // },
-        // {
-        //   path: '/settings/slider/add',
-        //   name: 'settings_slider_add',
-        //   meta:{
-        //     requiresAuth:true
-        //   },
-        //   component: () => import('./views/Settings/Slider/Add/Index.vue')
-        // },
-        // {
-        //   path: '/settings/slider/edit/:id',
-        //   name: 'settings_slider_edit',
-        //   meta:{
-        //     requiresAuth:true
-        //   },
-        //   component: () => import('./views/Settings/Slider/Edit/Index.vue')
-        // },
-        // =============================================================================
-        // Settings Admin Routes
-        // =============================================================================
-        // {
-        //   path: '/settings/admins',
-        //   name: 'settings_admins',
-        //   meta:{
-        //     requiresAuth:true
-        //   },
-        //   component: () => import('./views/Settings/Admins/All/Index.vue')
-        // },
-        // {
-        //   path: '/settings/admins/add',
-        //   name: 'settings_admins_add',
-        //   meta:{
-        //     requiresAuth:true
-        //   },
-        //   component: () => import('./views/Settings/Admins/Add/Index.vue')
-        // },
-        // {
-        //   path: '/settings/admins/edit/:id',
-        //   name: 'settings_admins_edit',
-        //   meta:{
-        //     requiresAuth:true
-        //   },
-        //   component: () => import('./views/Settings/Admins/Edit/Index.vue')
-        // },
+        {
+          path: '/settings/roles',
+          name: 'settings_roles',
+          meta: {
+            requiresAuth: true
+          },
+          component: () => import('./views/Settings/Roles/All/Index.vue')
+        },
+        {
+          path: '/settings/roles/add',
+          name: 'settings_roles_add',
+          meta: {
+            requiresAuth: true
+          },
+          component: () => import('./views/Settings/Roles/Add/Index.vue')
+        },
+        {
+          path: '/settings/roles/edit/:id',
+          name: 'settings_roles_edit',
+          meta: {
+            requiresAuth: true
+          },
+          component: () => import('./views/Settings/Roles/Edit/Index.vue')
+        },
       ],
     },
     // =============================================================================

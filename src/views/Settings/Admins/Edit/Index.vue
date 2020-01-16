@@ -32,6 +32,14 @@
               <vs-input class="w-full" :label="$ml.get('email')" v-model="dataModel.email"/>
               <span class="span-text-validation text-danger text-bold" id="email_error"></span>
             </div>
+            <div class="vx-col md:w-1/4 mb-base">
+              <label class="vs-input--label">{{$ml.get('role')}}</label>
+              <vs-select class="w-full" v-model="dataModel.role_id">
+                <vs-select-item v-for="(item , key) in roles" :key="key" :value="item.id"
+                                :text="item.translated.title"></vs-select-item>
+              </vs-select>
+              <span class="span-text-validation text-danger text-bold" id="role_id_error"></span>
+            </div>
           </div>
           <div class="vx-row">
             <div class="vx-col w-full text-center mb-base">
@@ -55,12 +63,14 @@
       return {
         findId: null,
         loading: false,
+        roles: [],
         dataModel: {}
       }
     },
     computed: {},
     mounted() {
       this.findId = this.$route.params.id;
+      this.getAllRoles();
       this.findAdmin();
     },
     methods: {
@@ -68,17 +78,40 @@
         let vm = this;
         vm.dataModel.image = vm.$refs.image.files[0];
       },
+      getAllRoles() {
+        let vm = this;
+        vm.$root.$children[0].$refs.loader.show_loader = true;
+        try {
+          window.serviceAPI.API().get(window.serviceAPI.ALL_ROLES)
+            .then((response) => {
+              vm.$root.$children[0].$refs.loader.show_loader = false;
+              response = response.data;
+              console.log(response)
+              if (response.status) {
+                vm.roles = response.data.roles.data;
+                return
+              }
+              vm.roles = [];
+            }).catch((error) => {
+            vm.$root.$children[0].$refs.loader.show_loader = false;
+            window.helper.handleError(error, vm);
+            vm.roles = [];
+          });
+        } catch (e) {
+          console.log(e)
+        }
+      },
       findAdmin() {
         let vm = this;
         let id = vm.findId;
         vm.$root.$children[0].$refs.loader.show_loader = true;
         try {
-          window.serviceAPI.API().get(window.serviceAPI.FIND_ADMIN+ `/${id}`)
+          window.serviceAPI.API().get(window.serviceAPI.FIND_ADMIN + `/${id}`)
             .then((response) => {
               vm.$root.$children[0].$refs.loader.show_loader = false;
               response = response.data;
               if (response.status) {
-                vm.dataModel =  response.data.admin
+                vm.dataModel = response.data.admin
                 return
               }
             }).catch((error) => {

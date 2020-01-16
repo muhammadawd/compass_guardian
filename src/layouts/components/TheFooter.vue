@@ -11,7 +11,7 @@
 
 <template>
   <footer class="the-footer flex-wrap justify-between" :class="classes">
-    <span>COPYRIGHT @ {{ new Date().getFullYear() }} <a href="" target="_blank" rel="nofollow">Approc</a>, All rights Reserved <small>V0.12.30</small></span>
+    <span>COPYRIGHT @ {{ new Date().getFullYear() }} <a href="" target="_blank" rel="nofollow">Approc</a>, All rights Reserved <small>V1.01.15</small></span>
 <!--    <span class="md:flex hidden items-center"> -->
     <!--            <feather-icon icon="HeartIcon" svgClasses="stroke-current text-danger w-6 h-6" class="ml-2"/>-->
     <!--        </span>-->

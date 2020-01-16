@@ -128,11 +128,11 @@
                 vm.admins = response.data.admins.data;
                 return
               }
-              vm.options = [];
+              vm.roles = [];
             }).catch((error) => {
             vm.$root.$children[0].$refs.loader.show_loader = false;
             window.helper.handleError(error, vm);
-            vm.options = [];
+            vm.roles = [];
           });
         } catch (e) {
           console.log(e)

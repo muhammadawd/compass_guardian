@@ -143,6 +143,7 @@ export default new MLCreate({
       size: 'عدد الطلاب بالفصل',
       class_title_ar: 'اسم الفصل بالعربية',
       class_title_en: 'اسم الفصل بالانجليزية',
+      class_room: 'اسم الفصل',
       add_teacher: "اضافة مدرس",
       edit_teacher: "تعديل مدرس",
       teachers: "المدرسين",
@@ -167,6 +168,19 @@ export default new MLCreate({
       students: 'الطلاب',
       add_students: 'اضافة طالب',
       edit_students: 'تعديل طالب',
+      role: 'الصلاحية',
+      add_role: 'اضافة الصلاحية',
+      edit_role: 'تعديل الصلاحية',
+      term: 'التيرمات',
+      add_term: 'اضافة تيرم',
+      edit_term: 'تعديل تيرم',
+      roles: 'الصلاحيات',
+      status: 'الحالة',
+      start_date: 'تاريخ البداية',
+      end_date: 'تاريخ النهاية',
+      place_student: 'تسكين الطلاب',
+      place_auto_student: 'تسكين تلقائي',
+      place_selected_student: 'تسكين الطلاب المحددين',
     })
   ]
 })
