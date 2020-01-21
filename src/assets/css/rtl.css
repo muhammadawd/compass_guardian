@@ -10134,7 +10134,18 @@ pre[class*=language-] {
 .vs-con-table .vs-con-tbody {
   min-height: 400px;
 }
-body[dir=rtl]  > div.con-vs-dropdown--menu.vs-dropdown-menu.vx-navbar-dropdown.log{
+
+body[dir=rtl] > div.con-vs-dropdown--menu.vs-dropdown-menu.vx-navbar-dropdown.log {
   left: 140px !important;
   z-index: 99999999;
+}
+
+.multiselect__content-wrapper {
+  z-index: 99999999 !important;
+}
+
+@media print {
+  .d-print-none {
+    display: none;
+  }
 }

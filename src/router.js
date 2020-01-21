@@ -102,7 +102,31 @@ const router = new Router({
           component: () => import('./views/Management/Stage/Edit/Index.vue')
         },
         // =============================================================================
-        // Management Teachers Routes
+        // Management _SCHEDULE Routes
+        // =============================================================================
+        {
+          path: '/management/schedule',
+          name: 'management_schedule',
+          component: () => import('./views/Management/Schedule/All/Index.vue')
+        },
+        {
+          path: '/management/schedule/add',
+          name: 'management_schedule_add',
+          meta: {
+            requiresAuth: true
+          },
+          component: () => import('./views/Management/Schedule/Add/Index.vue')
+        },
+        {
+          path: '/management/schedule/edit/:id',
+          name: 'management_schedule_edit',
+          meta: {
+            requiresAuth: true
+          },
+          component: () => import('./views/Management/Schedule/Edit/Index.vue')
+        },
+        // =============================================================================
+        // Management Terms Routes
         // =============================================================================
         {
           path: '/management/terms',
@@ -126,12 +150,110 @@ const router = new Router({
           component: () => import('./views/Terms/Edit/Index.vue')
         },
         // =============================================================================
+        // Management TeacherLeave Routes
+        // =============================================================================
+        {
+          path: '/teacher_leave',
+          name: 'teacher_leave',
+          component: () => import('./views/TeacherLeave/All/Index.vue')
+        },
+        {
+          path: '/teacher_leave/add',
+          name: 'teacher_leave_add',
+          meta: {
+            requiresAuth: true
+          },
+          component: () => import('./views/TeacherLeave/Add/Index.vue')
+        },
+        {
+          path: '/teacher_leave/edit/:id',
+          name: 'teacher_leave_edit',
+          meta: {
+            requiresAuth: true
+          },
+          component: () => import('./views/TeacherLeave/Edit/Index.vue')
+        },
+        // =============================================================================
+        // Management StudnetLeave Routes
+        // =============================================================================
+        {
+          path: '/student_leave',
+          name: 'student_leave',
+          component: () => import('./views/StudentsLeave/All/Index.vue')
+        },
+        {
+          path: '/student_leave/add',
+          name: 'student_leave_add',
+          meta: {
+            requiresAuth: true
+          },
+          component: () => import('./views/StudentsLeave/Add/Index.vue')
+        },
+        {
+          path: '/student_leave/edit/:id',
+          name: 'student_leave_edit',
+          meta: {
+            requiresAuth: true
+          },
+          component: () => import('./views/StudentsLeave/Edit/Index.vue')
+        },
+        // =============================================================================
+        // Management notifications Routes
+        // =============================================================================
+        {
+          path: '/teacher_notifications/add',
+          name: 'teacher_notifications_add',
+          meta: {
+            requiresAuth: true
+          },
+          component: () => import('./views/Notifications/Teachers/Add.vue')
+        },
+        {
+          path: '/teacher_notifications',
+          name: 'teacher_notifications',
+          meta: {
+            requiresAuth: true
+          },
+          component: () => import('./views/Notifications/Teachers/All.vue')
+        },
+        {
+          path: '/students_notifications/add',
+          name: 'students_notifications_add',
+          meta: {
+            requiresAuth: true
+          },
+          component: () => import('./views/Notifications/Students/Add.vue')
+        },
+        {
+          path: '/students_notifications',
+          name: 'students_notifications',
+          meta: {
+            requiresAuth: true
+          },
+          component: () => import('./views/Notifications/Students/All.vue')
+        },
+        // =============================================================================
         // Management Teachers Routes
         // =============================================================================
+        {
+          path: '/teachers/complaints',
+          name: 'teacher_complaints',
+          component: () => import('./views/Complaints/AllTeacher/Index.vue')
+        },
         {
           path: '/teachers',
           name: 'teachers',
           component: () => import('./views/Teacher/All/Index.vue')
+        },
+        {
+          path: '/attendance_teacher',
+          name: 'attendance_teacher',
+          component: () => import('./views/Attendance/Teacher/AttendanceReport.vue')
+        },
+        {
+          path: '/attendance_teacher/add',
+          name: 'attendance_teacher_add',
+          component: () => import('./views/Attendance/Teacher/Add.vue')
         },
         {
           path: '/teachers/add',
@@ -174,12 +296,41 @@ const router = new Router({
           component: () => import('./views/Parents/Edit/Index.vue')
         },
         // =============================================================================
+        // Management Magazine Routes
+        // =============================================================================
+        {
+          path: '/magazine',
+          name: 'magazine',
+          component: () => import('./views/Magazine/All/Index.vue')
+        },
+        {
+          path: '/magazine/add',
+          name: 'magazine_add',
+          meta: {
+            requiresAuth: true
+          },
+          component: () => import('./views/Magazine/Add/Index.vue')
+        },
+        {
+          path: '/magazine/edit/:id',
+          name: 'magazine_edit',
+          meta: {
+            requiresAuth: true
+          },
+          component: () => import('./views/Magazine/Edit/Index.vue')
+        },
+        // =============================================================================
         // Management Students Routes
         // =============================================================================
         {
           path: '/place_student',
           name: 'place_student',
           component: () => import('./views/Students/PlaceStudent/Index.vue')
+        },
+        {
+          path: '/attendance_student',
+          name: 'attendance_student',
+          component: () => import('./views/Attendance/Student/AttendanceReport.vue')
         },
         {
           path: '/students',

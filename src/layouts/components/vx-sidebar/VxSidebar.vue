@@ -10,9 +10,9 @@
 
 
 <template>
-    <div class="parentx">
+    <div class="parentx d-print-none">
         <vs-sidebar v-hammer:swipe.left="onSwipeLeft" ref="mainSidebar" :parent="parent" :hiddenBackground="clickNotClose" :reduce="reduce" default-index="-1" class="sidebarx main-menu-sidebar items-no-padding" v-model="isSidebarActive" :click-not-close="clickNotClose" :reduce-not-rebound="reduceNotRebound">
-            <div @mouseenter="sidebarMouseEntered" @mouseleave="sidebarMouseLeave">
+            <div @mouseenter="sidebarMouseEntered" @mouseleave="sidebarMouseLeave" class="d-print-none">
                 <div class="header-sidebar flex items-end justify-between" slot="header">
                     <div class="logo flex items-center">
                         <img :src="logo" alt="logo" class="w-10 " v-if="logo">
@@ -31,7 +31,7 @@
 
                 <div class="shadow-bottom" v-show="showShadowBottom"></div>
 
-                <VuePerfectScrollbar ref="mainSidebarPs" class="scroll-area--main-sidebar pt-2" :settings="settings" @ps-scroll-y="psSectionScroll">
+                <VuePerfectScrollbar ref="mainSidebarPs" class="scroll-area--main-sidebar  pt-2" :settings="settings" @ps-scroll-y="psSectionScroll">
                     <template v-for="(sidebarItem, index) in sidebarItems">
 
                         <!-- GROUP ITEM HEADER -->

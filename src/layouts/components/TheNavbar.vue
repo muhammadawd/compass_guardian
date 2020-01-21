@@ -10,7 +10,7 @@
 
 
 <template>
-  <div class="relative">
+  <div class="relative d-print-none">
     <div class="vx-navbar-wrapper">
       <vs-navbar class="vx-navbar navbar-custom" :color="navbarColor" :class="classObj">
 

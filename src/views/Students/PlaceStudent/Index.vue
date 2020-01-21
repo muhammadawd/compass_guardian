@@ -32,14 +32,15 @@
                                  track-by="id" :preselect-first="true">
                     </multiselect>
                     <span class="span-text-validation text-danger text-bold" id="class_room_id_error"></span>
+                    <span class="span-text-validation text-danger text-bold" id="class_room_ids_error"></span>
                   </div>
                   <div class="vx-col md:w-1/1 mb-base">
                     <!-- ADD NEW -->
                     <vs-button color="primary" class="text-bold m-4" :disabled="selected.length != 0"
-                               @click="$router.push({name: 'students_add'})">
+                               @click="addStudentClass()">
                       {{$ml.get('place_auto_student')}}
                     </vs-button>
-                    <vs-button @click="deleteSelected()" class="text-bold m-4" :disabled="selected.length == 0">
+                    <vs-button @click="addStudentClass()" class="text-bold m-4" :disabled="selected.length == 0">
                       {{$ml.get('place_selected_student')}}
                     </vs-button>
                   </div>
@@ -73,6 +74,8 @@
                 </vs-dropdown-menu>
               </vs-dropdown>
             </div>
+
+            <span class="span-text-validation text-danger text-bold" id="student_ids_error"></span>
 
             <template slot="thead">
               <vs-th>{{$ml.get('name')}}</vs-th>
@@ -147,13 +150,14 @@
     },
     watch: {
       selected: function (n, o) {
+        this.selectedClassRooms = null;
         n.length > 0 ? this.isMulti = false : this.isMulti = true;
       },
       selectedStage: function (newStage, oldStage) {
         // if (oldStage != null) {
-        console.log(newStage)
         this.selectedClassRooms = null;
         this.classRooms = newStage.class_rooms;
+        this.getAllStudents();
         // }
       }
     },
@@ -169,7 +173,6 @@
             .then((response) => {
               vm.$root.$children[0].$refs.loader.show_loader = false;
               response = response.data;
-              console.log(response)
               if (response.status) {
                 vm.stages = response.data.stages.data;
                 // vm.classRooms = vm.stages.length > 0 ? vm.stages[0].class_rooms : [];
@@ -188,12 +191,16 @@
       getAllStudents() {
         let vm = this;
         vm.$root.$children[0].$refs.loader.show_loader = true;
+        let stage_id = vm.selectedStage ? vm.selectedStage.id : -1;
         try {
-          window.serviceAPI.API().get(window.serviceAPI.ALL_STUDENTS)
+          window.serviceAPI.API().get(window.serviceAPI.ALL_STUDENTS, {
+            params: {
+              stage_id: stage_id
+            }
+          })
             .then((response) => {
               vm.$root.$children[0].$refs.loader.show_loader = false;
               response = response.data;
-              console.log(response)
               if (response.status) {
                 vm.students = response.data.students.data;
                 return
@@ -203,6 +210,40 @@
             vm.$root.$children[0].$refs.loader.show_loader = false;
             window.helper.handleError(error, vm);
             vm.students = [];
+          });
+        } catch (e) {
+          console.log(e)
+        }
+      },
+      addStudentClass() {
+        let vm = this;
+        vm.$root.$children[0].$refs.loader.show_loader = true;
+        let stage_id = vm.selectedStage ? vm.selectedStage.id : null;
+
+
+        let room_ids = vm.selectedClassRooms ? (_.isArray(vm.selectedClassRooms) ? _.map(vm.selectedClassRooms, 'id') : [vm.selectedClassRooms.id]) : [];
+        let ids = vm.selected;
+        ids = _.map(ids, 'id');
+        $('.span-text-validation').text('');
+
+        let request_data = {
+          student_ids: ids,
+          stage_id: stage_id,
+          class_room_ids: room_ids
+        };
+
+        try {
+          window.serviceAPI.API().post(window.serviceAPI.ADD_STUDENT_CLASS, request_data)
+            .then((response) => {
+              vm.$root.$children[0].$refs.loader.show_loader = false;
+              response = response.data;
+              if (response.status) {
+                window.helper.showMessage('success', vm);
+                return
+              }
+            }).catch((error) => {
+            vm.$root.$children[0].$refs.loader.show_loader = false;
+            window.helper.handleError(error, vm);
           });
         } catch (e) {
           console.log(e)
@@ -219,10 +260,9 @@
       },
       acceptAlert() {
         let vm = this;
-        let ids = vm.selected;
         vm.$root.$children[0].$refs.loader.show_loader = true;
+        let ids = vm.selected;
         ids = _.map(ids, 'id');
-        console.log(ids)
         try {
           window.serviceAPI.API().post(window.serviceAPI.DELETE_STUDENTS, {
             ids: ids

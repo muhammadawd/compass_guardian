@@ -1,21 +1,24 @@
 import axios from 'axios'
 
 let BASE_URL = `http://approc.com/~approctest/school/api/`;
-// let BASE_URL = `http://192.168.1.2/school/api/`;
+// let BASE_URL = `http://192.168.1.9/school/api/`;
 
 export default {
   BASE_URL: 'http://approc.com/~approctest/school/api/',
-  // BASE_URL: 'http://192.168.1.2/school/api/',
+  // BASE_URL: 'http://192.168.1.9/school/api/',
 
   AUTH_LOGIN: 'admin/login',
 
   ALL_STATUS: 'common/status',
+  ALL_DAYS: 'common/days',
 
   ALL_SUBJECTS: 'subject',
   ADD_SUBJECTS: 'subject/create',
   FIND_SUBJECTS: 'subject/find',
   EDIT_SUBJECTS: 'subject/update',
   DELETE_SUBJECTS: 'subject/delete',
+  ADD_STUDENT_CLASS: 'student-term/create',
+  ALL_STUDENT_GET_ABSENCE: 'student/get-student-absence',
 
   ALL_TERMS: 'term',
   ADD_TERMS: 'term/create',
@@ -29,11 +32,26 @@ export default {
   EDIT_STAGES: 'stage/update',
   DELETE_STAGES: 'stage/delete',
 
+  ALL_SCHEDULE: 'schedule',
+  ADD_SCHEDULE: 'schedule/create',
+  FIND_SCHEDULE: 'schedule/find',
+  EDIT_SCHEDULE: 'schedule/update',
+  DELETE_SCHEDULE: 'schedule/delete',
+
   ALL_TEACHERS: 'teacher',
   ADD_TEACHERS: 'teacher/create',
   FIND_TEACHERS: 'teacher/find',
   EDIT_TEACHERS: 'teacher/update',
   DELETE_TEACHERS: 'teacher/delete',
+  ALL_TEACHERS_COMPLAINTS: 'teacher-complaint',
+  ALL_TEACHERS_GET_ABSENCE: 'teacher/get-absence',
+  ALL_TEACHERS_CREATE_ABSENCE: 'teacher/create-absence',
+
+  ALL_TEACHER_LEAVES: 'teacher-leave',
+  ADD_TEACHER_LEAVES: 'teacher-leave/create',
+  FIND_TEACHER_LEAVES: 'teacher-leave/find',
+  EDIT_TEACHER_LEAVES: 'teacher-leave/update',
+  DELETE_TEACHER_LEAVES: 'teacher-leave/delete',
 
   ALL_PARENTS: 'parent',
   ADD_PARENTS: 'parent/create',
@@ -47,6 +65,12 @@ export default {
   EDIT_STUDENTS: 'student/update',
   DELETE_STUDENTS: 'student/delete',
 
+  ALL_STUDENT_LEAVES: 'student-leave',
+  CREATE_STUDENT_LEAVES: 'student-leave/create',
+  FIND_STUDENT_LEAVES: 'student-leave/find',
+  EDIT_STUDENT_LEAVES: 'student-leave/update',
+  DELETE_STUDENT_LEAVES: 'student-leave/delete',
+
   ALL_ROLES: 'admin/role',
   ADD_ROLES: 'admin/role/create-update',
   FIND_ROLES: 'admin/role',
@@ -58,6 +82,20 @@ export default {
   FIND_ADMIN: 'admin/find',
   EDIT_ADMIN: 'admin/update',
   DELETE_ADMIN: 'admin/delete',
+
+  ALL_MAGAZINE: 'magazine',
+  ADD_MAGAZINE: 'magazine/create',
+  FIND_MAGAZINE: 'magazine/find',
+  EDIT_MAGAZINE: 'magazine/update',
+  DELETE_MAGAZINE: 'magazine/delete',
+
+  ALL_STUDENT_NOTIFICATIONS: 'student-alert',
+  ADD_STUDENT_NOTIFICATIONS: 'student-alert/create',
+  DELETE_STUDENT_NOTIFICATIONS: 'student-alert/delete',
+
+  ALL_TEACHER_NOTIFICATIONS: 'teacher-alert',
+  ADD_TEACHER_NOTIFICATIONS: 'teacher-alert/create',
+  DELETE_TEACHER_NOTIFICATIONS: 'teacher-alert/delete',
 
 
   API: () => {

@@ -37,18 +37,6 @@ export default [
         slug: "",
         i18n: "",
       },
-      // {
-      //   url: '/10',
-      //   name: "notifications",
-      //   slug: "",
-      //   i18n: "",
-      // },
-      // {
-      //   url: '/11',
-      //   name: "statistics",
-      //   slug: "",
-      //   i18n: "",
-      // },
     ]
   },
   {
@@ -81,15 +69,35 @@ export default [
         slug: "",
         i18n: "",
       },
+      {
+        url: '/management/schedule',
+        name: "schedule",
+        slug: "",
+        i18n: "",
+      },
     ]
   },
   {
-    url: '/teachers',
+    url: null,
     name: "teachers",
     // tag: "2",
     // tagColor: "primary",
     icon: "UserCheckIcon",
     i18n: "",
+    submenu: [
+      {
+        url: '/teachers',
+        name: "teachers",
+        slug: "",
+        i18n: "",
+      },
+      {
+        url: '/teachers/complaints',
+        name: "teacher_complaints",
+        slug: "",
+        i18n: "",
+      },
+    ]
   },
   {
     url: '/parents',
@@ -115,46 +123,74 @@ export default [
     icon: "UserPlusIcon",
     i18n: "",
   },
-  // {
-  //   url: null,
-  //   name: "menu",
-  //   // tag: "2",
-  //   // tagColor: "primary",
-  //   icon: "GridIcon",
-  //   i18n: "",
-  //   submenu: [
-  //     {
-  //       url: '/menu/categories',
-  //       name: "categories",
-  //       slug: "",
-  //       i18n: "",
-  //     },
-  //     {
-  //       url: '/menu/units',
-  //       name: "units",
-  //       slug: "",
-  //       i18n: "",
-  //     },
-  //     {
-  //       url: '/menu/extra_options',
-  //       name: "extra_options",
-  //       slug: "",
-  //       i18n: "",
-  //     },
-  //     {
-  //       url: '/menu/options',
-  //       name: "options",
-  //       slug: "",
-  //       i18n: "",
-  //     },
-  //     {
-  //       url: '/menu/items',
-  //       name: "all_items",
-  //       slug: "",
-  //       i18n: "",
-  //     },
-  //   ]
-  // },
+  {
+    url: '/magazine',
+    name: "magazine",
+    // tag: "2",
+    // tagColor: "primary",
+    icon: "FileTextIcon",
+    i18n: "",
+  },
+  {
+    url: '/teacher_leave',
+    name: "teacher_leave",
+    // tag: "2",
+    // tagColor: "primary",
+    icon: "FramerIcon",
+    i18n: "",
+  },
+  {
+    url: '/student_leave',
+    name: "student_leave",
+    // tag: "2",
+    // tagColor: "primary",
+    icon: "LayoutIcon",
+    i18n: "",
+  },
+  {
+    url: null,
+    name: "attendance",
+    // tag: "2",
+    // tagColor: "primary",
+    icon: "GridIcon",
+    i18n: "",
+    submenu: [
+      {
+        url: '/attendance_teacher',
+        name: "attendance_teacher",
+        slug: "",
+        i18n: "",
+      },
+      {
+        url: '/attendance_student',
+        name: "attendance_student",
+        slug: "",
+        i18n: "",
+      },
+    ]
+  },
+  {
+    url: null,
+    name: "notifications",
+    // tag: "2",
+    // tagColor: "primary",
+    icon: "GlobeIcon",
+    i18n: "",
+    submenu: [
+      {
+        url: '/teacher_notifications',
+        name: "teacher_notifications",
+        slug: "",
+        i18n: "",
+      },
+      {
+        url: '/students_notifications',
+        name: "student_notifications",
+        slug: "",
+        i18n: "",
+      },
+    ]
+  },
   // {
   //   url: "/orders",
   //   name: "orders",
