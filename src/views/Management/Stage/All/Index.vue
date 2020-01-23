@@ -52,7 +52,7 @@
             </template>
 
             <template slot-scope="{data}">
-              <vs-tr  :data="tr"  :key="indextr" v-for="(tr, indextr) in data">
+              <vs-tr :data="tr" :key="indextr" v-for="(tr, indextr) in data">
                 <vs-td class="text-right">
                   {{tr.title_ar}}
                 </vs-td>
@@ -136,6 +136,8 @@
           color: 'danger',
           title: this.$ml.get('confirm'),
           text: this.$ml.get('are_sure'),
+          acceptText: this.$ml.get('yes'),
+          cancelText: this.$ml.get('no'),
           accept: this.acceptAlert
         })
       },
@@ -154,7 +156,7 @@
               response = response.data;
               if (response.status) {
                 vm.stages = window.helper.deleteMulti(ids, vm.stages)
-                // location.reload()
+                location.reload()
               }
             }).catch((error) => {
             vm.$root.$children[0].$refs.loader.show_loader = false;
@@ -166,25 +168,35 @@
       },
       deleteSingle(id) {
         let vm = this;
-        vm.$root.$children[0].$refs.loader.show_loader = true;
-        try {
-          window.serviceAPI.API().post(window.serviceAPI.DELETE_STAGES, {
-            ids: [id]
-          })
-            .then((response) => {
-              vm.$root.$children[0].$refs.loader.show_loader = false;
-              response = response.data;
-              if (response.status) {
-                vm.stages = window.helper.deleteMulti([id], vm.stages)
-                // location.reload()
-              }
-            }).catch((error) => {
-            vm.$root.$children[0].$refs.loader.show_loader = false;
-            window.helper.handleError(error, vm);
-          });
-        } catch (e) {
-          console.log(e)
-        }
+        this.$vs.dialog({
+          type: 'confirm',
+          color: 'danger',
+          title: this.$ml.get('confirm'),
+          text: this.$ml.get('are_sure'),
+          acceptText: this.$ml.get('yes'),
+          cancelText: this.$ml.get('no'),
+          accept: () => {
+            vm.$root.$children[0].$refs.loader.show_loader = true;
+            try {
+              window.serviceAPI.API().post(window.serviceAPI.DELETE_STAGES, {
+                ids: [id]
+              })
+                .then((response) => {
+                  vm.$root.$children[0].$refs.loader.show_loader = false;
+                  response = response.data;
+                  if (response.status) {
+                    vm.stages = window.helper.deleteMulti([id], vm.stages)
+                    location.reload()
+                  }
+                }).catch((error) => {
+                vm.$root.$children[0].$refs.loader.show_loader = false;
+                window.helper.handleError(error, vm);
+              });
+            } catch (e) {
+              console.log(e)
+            }
+          }
+        })
       },
     },
   }

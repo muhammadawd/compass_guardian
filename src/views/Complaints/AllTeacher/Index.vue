@@ -126,11 +126,21 @@
           color: 'danger',
           title: this.$ml.get('confirm'),
           text: this.$ml.get('are_sure'),
+          acceptText: this.$ml.get('yes'),
+          cancelText: this.$ml.get('no'),
           accept: this.acceptAlert
         })
       },
       deleteSingle(id) {
         let vm = this;
+        this.$vs.dialog({
+          type: 'confirm',
+          color: 'danger',
+          title: this.$ml.get('confirm'),
+          text: this.$ml.get('are_sure'),
+          acceptText: this.$ml.get('yes'),
+          cancelText: this.$ml.get('no'),
+          accept: () => {
         vm.$root.$children[0].$refs.loader.show_loader = true;
         try {
           window.serviceAPI.API().post(window.serviceAPI.DELETE_TEACHERS, {
@@ -141,7 +151,7 @@
               response = response.data;
               if (response.status) {
                 vm.teachers = window.helper.deleteMulti([id], vm.teachers)
-                // location.reload()
+                location.reload()
               }
             }).catch((error) => {
             vm.$root.$children[0].$refs.loader.show_loader = false;
@@ -150,6 +160,8 @@
         } catch (e) {
           console.log(e)
         }
+        }
+        })
       },
     },
   }

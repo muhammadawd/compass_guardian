@@ -78,34 +78,42 @@ export default [
     ]
   },
   {
-    url: null,
+    url: '/teachers',
     name: "teachers",
     // tag: "2",
     // tagColor: "primary",
     icon: "UserCheckIcon",
     i18n: "",
-    submenu: [
-      {
-        url: '/teachers',
-        name: "teachers",
-        slug: "",
-        i18n: "",
-      },
-      {
-        url: '/teachers/complaints',
-        name: "teacher_complaints",
-        slug: "",
-        i18n: "",
-      },
-    ]
+    // submenu: [
+    //   {
+    //     url: '/teachers',
+    //     name: "teachers",
+    //     slug: "",
+    //     i18n: "",
+    //   },
+    // ]
   },
   {
-    url: '/parents',
+    url: null,
     name: "parents",
     // tag: "2",
     // tagColor: "primary",
     icon: "CoffeeIcon",
     i18n: "",
+    submenu: [
+      {
+        url: '/parents',
+        name: "parents",
+        slug: "",
+        i18n: "",
+      },
+      {
+        url: '/parents/complaints',
+        name: "parents_complaints",
+        slug: "",
+        i18n: "",
+      },
+    ]
   },
   {
     url: '/students',

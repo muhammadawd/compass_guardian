@@ -41,7 +41,7 @@
               <span class="span-text-validation text-danger text-bold" id="end_date_error"></span>
             </div>
             <div class="vx-col md:w-1/3 mb-base">
-               <vs-textarea class="w-full" :label="$ml.get('notes')"
+              <vs-textarea class="w-full" :label="$ml.get('notes')"
                            v-model="dataModel.notes"/>
               <span class="span-text-validation text-danger text-bold" id="notes_error"></span>
             </div>
@@ -98,7 +98,11 @@
         let vm = this;
         vm.$root.$children[0].$refs.loader.show_loader = true;
         try {
-          window.serviceAPI.API().get(window.serviceAPI.ALL_STUDENTS)
+          window.serviceAPI.API().get(window.serviceAPI.ALL_STUDENTS, {
+            params: {
+              student_term: 1
+            }
+          })
             .then((response) => {
               vm.$root.$children[0].$refs.loader.show_loader = false;
               response = response.data;

@@ -133,7 +133,11 @@
         let vm = this;
         vm.$root.$children[0].$refs.loader.show_loader = true;
         try {
-          window.serviceAPI.API().get(window.serviceAPI.ALL_STUDENTS)
+          window.serviceAPI.API().get(window.serviceAPI.ALL_STUDENTS, {
+            params: {
+              student_term: 1
+            }
+          })
             .then((response) => {
               vm.$root.$children[0].$refs.loader.show_loader = false;
               response = response.data;

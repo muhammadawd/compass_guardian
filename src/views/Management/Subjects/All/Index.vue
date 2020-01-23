@@ -25,12 +25,12 @@
                      @click="addNewDataSidebar = true">
             {{$ml.get('add_new')}}
           </vs-button>
-<!--          <div-->
-<!--            class="p-3 mb-4 mr-4 rounded-lg cursor-pointer flex items-center justify-between text-lg font-medium text-base text-primary border border-solid border-primary"-->
-<!--            @click="addNewDataSidebar = true">-->
-<!--            <feather-icon icon="PlusIcon" svgClasses="h-4 w-4"/>-->
-<!--            <span class="ml-2 text-base text-primary">{{$ml.get('add_new')}}</span>-->
-<!--          </div>-->
+          <!--          <div-->
+          <!--            class="p-3 mb-4 mr-4 rounded-lg cursor-pointer flex items-center justify-between text-lg font-medium text-base text-primary border border-solid border-primary"-->
+          <!--            @click="addNewDataSidebar = true">-->
+          <!--            <feather-icon icon="PlusIcon" svgClasses="h-4 w-4"/>-->
+          <!--            <span class="ml-2 text-base text-primary">{{$ml.get('add_new')}}</span>-->
+          <!--          </div>-->
         </div>
 
         <!-- ITEMS PER PAGE -->
@@ -84,6 +84,10 @@
                          color="primary">
                 <i class="fa fa-edit"></i>
               </vs-button>
+              <vs-button @click="deleteSingle(tr.id)" type="line"
+                         color="danger">
+                <i class="fa fa-times"></i>
+              </vs-button>
             </div>
           </vs-td>
 
@@ -131,7 +135,6 @@
             .then((response) => {
               vm.$root.$children[0].$refs.loader.show_loader = false;
               response = response.data;
-              console.log(response)
               if (response.status) {
                 vm.subjects = response.data.subjects.data;
                 return
@@ -155,7 +158,42 @@
           color: 'danger',
           title: this.$ml.get('confirm'),
           text: this.$ml.get('are_sure'),
+          acceptText: this.$ml.get('yes'),
+          cancelText: this.$ml.get('no'),
           accept: this.acceptAlert
+        })
+      },
+      deleteSingle(id) {
+        let vm = this;
+        this.$vs.dialog({
+          type: 'confirm',
+          color: 'danger',
+          title: this.$ml.get('confirm'),
+          text: this.$ml.get('are_sure'),
+          acceptText: this.$ml.get('yes'),
+          cancelText: this.$ml.get('no'),
+          accept: () => {
+
+            vm.$root.$children[0].$refs.loader.show_loader = true;
+            try {
+              window.serviceAPI.API().post(window.serviceAPI.DELETE_SUBJECTS, {
+                ids: [id]
+              })
+                .then((response) => {
+                  vm.$root.$children[0].$refs.loader.show_loader = false;
+                  response = response.data;
+                  if (response.status) {
+                    vm.subjects = window.helper.deleteMulti([id], vm.subjects)
+                    location.reload()
+                  }
+                }).catch((error) => {
+                vm.$root.$children[0].$refs.loader.show_loader = false;
+                window.helper.handleError(error, vm);
+              });
+            } catch (e) {
+              console.log(e)
+            }
+          }
         })
       },
       acceptAlert() {
@@ -173,7 +211,7 @@
               response = response.data;
               if (response.status) {
                 vm.subjects = window.helper.deleteMulti(ids, vm.subjects)
-                // location.reload()
+                location.reload()
               }
             }).catch((error) => {
             vm.$root.$children[0].$refs.loader.show_loader = false;
@@ -187,6 +225,7 @@
     created() {
       const vm = this;
       vm.getAllSubjects()
+      console.log(this.$vs.dialog)
     },
     mounted() {
       this.isMounted = true;

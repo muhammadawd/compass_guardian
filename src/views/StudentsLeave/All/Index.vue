@@ -195,6 +195,8 @@
           color: 'danger',
           title: this.$ml.get('confirm'),
           text: this.$ml.get('are_sure'),
+          acceptText: this.$ml.get('yes'),
+          cancelText: this.$ml.get('no'),
           accept: this.acceptAlert
         })
       },
@@ -213,7 +215,7 @@
               response = response.data;
               if (response.status) {
                 vm.student_leaves = window.helper.deleteMulti(ids, vm.student_leaves)
-                // location.reload()
+                location.reload()
               }
             }).catch((error) => {
             vm.$root.$children[0].$refs.loader.show_loader = false;
@@ -225,6 +227,14 @@
       },
       deleteSingle(id) {
         let vm = this;
+        this.$vs.dialog({
+          type: 'confirm',
+          color: 'danger',
+          title: this.$ml.get('confirm'),
+          text: this.$ml.get('are_sure'),
+          acceptText: this.$ml.get('yes'),
+          cancelText: this.$ml.get('no'),
+          accept: () => {
         vm.$root.$children[0].$refs.loader.show_loader = true;
         try {
           window.serviceAPI.API().post(window.serviceAPI.DELETE_STUDENT_LEAVES, {
@@ -235,7 +245,7 @@
               response = response.data;
               if (response.status) {
                 vm.student_leaves = window.helper.deleteMulti([id], vm.student_leaves)
-                // location.reload()
+                location.reload()
               }
             }).catch((error) => {
             vm.$root.$children[0].$refs.loader.show_loader = false;
@@ -244,6 +254,8 @@
         } catch (e) {
           console.log(e)
         }
+        }
+        })
       },
     },
   }

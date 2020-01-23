@@ -101,7 +101,7 @@ export default new MLCreate({
       error: 'خطأ',
       success_msg: 'تمت العملية بنجاح',
       error_msg: 'حدث خطأ',
-      are_sure: 'هل انت متأكد',
+      are_sure: 'هل انت متأكد سيتم حذف جميع البيانات المرتبطة بها !',
       confirm: 'تأكيد',
       yes: 'نعم',
       no: 'ﻻ',
@@ -209,8 +209,14 @@ export default new MLCreate({
       late_number: 'عدد مرات التأخير',
       student_leave: 'استئذان الطلاب',
       notes: 'ملاحظات',
+      url: 'الرابط',
       teacher_notifications: 'تنبيهات المدرسين',
       student_notifications: 'تنبيهات الطلاب',
+      show_file: 'عرض الملف',
+      end_at: 'تاريخ انتهاء الشكوي',
+      edit_parent_complaint: 'تعديل الشكوي',
+      parents_complaints: 'شكاوي اولياء الامور',
+      files: 'ملفات'
     })
   ]
 })

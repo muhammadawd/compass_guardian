@@ -10145,7 +10145,11 @@ body[dir=rtl] > div.con-vs-dropdown--menu.vs-dropdown-menu.vx-navbar-dropdown.lo
 }
 
 @media print {
-  .d-print-none {
+  .d-print-none, .vs-sidebar {
     display: none;
+  }
+
+  #content-area {
+    width: 100% !important
   }
 }

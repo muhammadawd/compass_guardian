@@ -19,15 +19,19 @@
 
             <div class="vx-col md:w-1/4 mb-base">
               <div class="vs-component vs-con-input-label vs-input w-full vs-input-primary">
-                <label class="vs-input--label">{{$ml.get('image')}}</label>
+                <label class="vs-input--label">{{$ml.get('files')}}</label>
                 <div class="vs-con-input">
-                  <input type="file" accept="image/*" ref="image" class="vs-inputx vs-input--input normal" multiple
+                  <input type="file" ref="image" class="vs-inputx vs-input--input normal" multiple
                          v-on:change="handleFileUpload()">
-                  <span class="span-text-validation text-danger text-bold" id="image_error"></span>
+                  <span class="span-text-validation text-danger text-bold" id="files_error"></span>
                 </div>
-                <a v-for="(image,key) in dataModel.image_paths" :key="key" target="_blank"
-                   class="text-bold" :href="image">{{$ml.get('show_image')}}
-                <span v-if="key+1 != dataModel.image_paths.length"> | </span>
+                <!--                <a v-for="(image,key) in dataModel.image_paths" :key="key" target="_blank"-->
+                <!--                   class="text-bold" :href="image">{{$ml.get('show_image')}}-->
+                <!--                <span v-if="key+1 != dataModel.image_paths.length"> | </span>-->
+                <!--                </a>-->
+                <a v-for="(file,key) in dataModel.file_paths" :key="key" target="_blank"
+                   class="text-bold" :href="file.path">{{$ml.get('show_file')}}
+                  <span v-if="key+1 != dataModel.file_paths.length"> | </span>
                 </a>
               </div>
             </div>
@@ -43,6 +47,21 @@
               <label class="vs-input--label">{{$ml.get('description_en')}}</label>
               <vs-textarea class="w-full" v-model="dataModel.description_en" rows="6"></vs-textarea>
               <span class="span-text-validation text-danger text-bold" id="description_en_error"></span>
+            </div>
+          </div>
+
+          <div class="vx-row">
+            <div class="vx-col w-full mb-base">
+              <vs-button color="primary" class="text-bold" type="filled" icon-pack="feather" icon="icon-plus"
+                         @click="dataModel.videos.push({url: ''})">
+              </vs-button>
+            </div>
+          </div>
+          <div class="vx-row">
+            <div class="vx-col md:w-1/4 mb-base" v-for="(url,key) in dataModel.videos" :key="key">
+              <label class="vs-input--label">{{$ml.get('url')}}</label>
+              <vs-input class="w-full" v-model="dataModel.videos[key].url"></vs-input>
+              <span class="span-text-validation text-danger text-bold" :id="`videos.${key}.url_error`"></span>
             </div>
           </div>
 
@@ -94,10 +113,13 @@
 
         let form_data = new FormData();
         $.each(request_data, (key, value) => {
-          form_data.append(key, value)
+          form_data.append(key, value ? value : '')
+        })
+        $.each(request_data.videos, (i, video) => {
+          form_data.append(`videos[${i}][url]`, video.url);
         })
         $.each(vm.images, (i, file) => {
-          form_data.append(`images[${i}]`, file);
+          form_data.append(`files[${i}]`, file);
         })
         $('.span-text-validation').text('');
         try {

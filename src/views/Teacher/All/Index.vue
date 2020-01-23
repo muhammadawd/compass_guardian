@@ -6,7 +6,8 @@
       <div class="vx-col w-full">
         <vx-card class="text-center cursor-pointer">
 
-          <vs-table ref="table" multiple v-model="selected" pagination :max-items="itemsPerPage" search :data="teachers">
+          <vs-table ref="table" multiple v-model="selected" pagination :max-items="itemsPerPage" search
+                    :data="teachers">
 
             <div slot="header" class="flex flex-wrap-reverse items-center flex-grow justify-between">
 
@@ -54,7 +55,7 @@
             </template>
 
             <template slot-scope="{data}">
-              <vs-tr  :data="tr"  :key="indextr" v-for="(tr, indextr) in data">
+              <vs-tr :data="tr" :key="indextr" v-for="(tr, indextr) in data">
                 <vs-td class="text-right">
                   {{tr.name}}
                 </vs-td>
@@ -144,6 +145,8 @@
           color: 'danger',
           title: this.$ml.get('confirm'),
           text: this.$ml.get('are_sure'),
+          acceptText: this.$ml.get('yes'),
+          cancelText: this.$ml.get('no'),
           accept: this.acceptAlert
         })
       },
@@ -162,7 +165,7 @@
               response = response.data;
               if (response.status) {
                 vm.teachers = window.helper.deleteMulti(ids, vm.teachers)
-                // location.reload()
+                location.reload()
               }
             }).catch((error) => {
             vm.$root.$children[0].$refs.loader.show_loader = false;
@@ -175,24 +178,34 @@
       deleteSingle(id) {
         let vm = this;
         vm.$root.$children[0].$refs.loader.show_loader = true;
-        try {
-          window.serviceAPI.API().post(window.serviceAPI.DELETE_TEACHERS, {
-            ids: [id]
-          })
-            .then((response) => {
-              vm.$root.$children[0].$refs.loader.show_loader = false;
-              response = response.data;
-              if (response.status) {
-                vm.teachers = window.helper.deleteMulti([id], vm.teachers)
-                // location.reload()
-              }
-            }).catch((error) => {
-            vm.$root.$children[0].$refs.loader.show_loader = false;
-            window.helper.handleError(error, vm);
-          });
-        } catch (e) {
-          console.log(e)
-        }
+        this.$vs.dialog({
+          type: 'confirm',
+          color: 'danger',
+          title: this.$ml.get('confirm'),
+          text: this.$ml.get('are_sure'),
+          acceptText: this.$ml.get('yes'),
+          cancelText: this.$ml.get('no'),
+          accept: () => {
+            try {
+              window.serviceAPI.API().post(window.serviceAPI.DELETE_TEACHERS, {
+                ids: [id]
+              })
+                .then((response) => {
+                  vm.$root.$children[0].$refs.loader.show_loader = false;
+                  response = response.data;
+                  if (response.status) {
+                    vm.teachers = window.helper.deleteMulti([id], vm.teachers)
+                    location.reload()
+                  }
+                }).catch((error) => {
+                vm.$root.$children[0].$refs.loader.show_loader = false;
+                window.helper.handleError(error, vm);
+              });
+            } catch (e) {
+              console.log(e)
+            }
+          }
+        })
       },
     },
   }

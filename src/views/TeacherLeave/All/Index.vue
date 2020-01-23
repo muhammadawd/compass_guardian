@@ -53,7 +53,6 @@
                   <span class="mr-2">{{ currentPage * itemsPerPage - (itemsPerPage - 1) }} - {{ teacher_leaves.length - currentPage * itemsPerPage > 0 ? currentPage * itemsPerPage : teacher_leaves.length }} of {{ teacher_leaves.length }}</span>
                   <feather-icon icon="ChevronDownIcon" svgClasses="h-4 w-4"/>
                 </div>
-                <!-- <vs-button class="btn-drop" type="line" color="primary" icon-pack="feather" icon="icon-chevron-down"></vs-button> -->
                 <vs-dropdown-menu>
 
                   <vs-dropdown-item @click="itemsPerPage=5">
@@ -84,21 +83,21 @@
             <template slot-scope="{data}">
               <vs-tr :data="tr" :key="indextr" v-for="(tr, indextr) in data">
                 <vs-td class="text-right">
-                  <slot v-if="tr.teacher">
+                  <span v-if="tr.teacher">
                     {{tr.teacher.name}}
-                  </slot>
+                  </span>
                 </vs-td>
                 <vs-td class="text-right">
                   {{$ml.get(tr.type)}}
                 </vs-td>
                 <vs-td class="text-right">
-                  <slot v-if="tr.status">
+                  <span v-if="tr.status">
                     <div class="con-vs-chip ml-auto  con-color" :class="getStatusClass(tr.status.name)"
                          style="color: rgba(255, 255, 255, 0.9);">
                       <span class="text-chip vs-chip--text">{{tr.status.translated.title}}</span>
                     </div>
 
-                  </slot>
+                  </span>
                 </vs-td>
                 <vs-td class="text-right">
                   {{tr.start_date}}
@@ -120,6 +119,7 @@
                 </vs-td>
               </vs-tr>
             </template>
+
           </vs-table>
         </vx-card>
         <vs-button @click="deleteSelected()" class="mt-4" :disabled="selected.length == 0">
@@ -218,6 +218,7 @@
       },
       getAllTeacherLeaves() {
         let vm = this;
+
         vm.$root.$children[0].$refs.loader.show_loader = true;
         let params = vm.prepareFilter(vm.filterModel);
         try {
@@ -227,9 +228,14 @@
             .then((response) => {
               vm.$root.$children[0].$refs.loader.show_loader = false;
               response = response.data;
-              console.log(response)
               if (response.status) {
                 vm.teacher_leaves = response.data.teacherLeaves.data;
+                _.transform(response.data.teacherLeaves.data, function (result, value, key) {
+                  // console.log(result, value, key);
+                  value.teacher_name = value.teacher.name;
+                  value.status_name = value.status.translated.title;
+                  result[key] = value;
+                }, {});
                 return
               }
               vm.teacher_leaves = [];
@@ -248,6 +254,8 @@
           color: 'danger',
           title: this.$ml.get('confirm'),
           text: this.$ml.get('are_sure'),
+          acceptText: this.$ml.get('yes'),
+          cancelText: this.$ml.get('no'),
           accept: this.acceptAlert
         })
       },
@@ -266,7 +274,7 @@
               response = response.data;
               if (response.status) {
                 vm.teacher_leaves = window.helper.deleteMulti(ids, vm.teacher_leaves)
-                // location.reload()
+                location.reload()
               }
             }).catch((error) => {
             vm.$root.$children[0].$refs.loader.show_loader = false;
@@ -278,25 +286,35 @@
       },
       deleteSingle(id) {
         let vm = this;
-        vm.$root.$children[0].$refs.loader.show_loader = true;
-        try {
-          window.serviceAPI.API().post(window.serviceAPI.DELETE_TEACHER_LEAVES, {
-            ids: [id]
-          })
-            .then((response) => {
-              vm.$root.$children[0].$refs.loader.show_loader = false;
-              response = response.data;
-              if (response.status) {
-                vm.teacher_leaves = window.helper.deleteMulti([id], vm.teacher_leaves)
-                // location.reload()
-              }
-            }).catch((error) => {
-            vm.$root.$children[0].$refs.loader.show_loader = false;
-            window.helper.handleError(error, vm);
-          });
-        } catch (e) {
-          console.log(e)
-        }
+        this.$vs.dialog({
+          type: 'confirm',
+          color: 'danger',
+          title: this.$ml.get('confirm'),
+          text: this.$ml.get('are_sure'),
+          acceptText: this.$ml.get('yes'),
+          cancelText: this.$ml.get('no'),
+          accept: () => {
+            vm.$root.$children[0].$refs.loader.show_loader = true;
+            try {
+              window.serviceAPI.API().post(window.serviceAPI.DELETE_TEACHER_LEAVES, {
+                ids: [id]
+              })
+                .then((response) => {
+                  vm.$root.$children[0].$refs.loader.show_loader = false;
+                  response = response.data;
+                  if (response.status) {
+                    vm.teacher_leaves = window.helper.deleteMulti([id], vm.teacher_leaves)
+                    location.reload()
+                  }
+                }).catch((error) => {
+                vm.$root.$children[0].$refs.loader.show_loader = false;
+                window.helper.handleError(error, vm);
+              });
+            } catch (e) {
+              console.log(e)
+            }
+          }
+        })
       },
     },
   }

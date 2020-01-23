@@ -58,6 +58,10 @@ export default {
   FIND_PARENTS: 'parent/find',
   EDIT_PARENTS: 'parent/update',
   DELETE_PARENTS: 'parent/delete',
+  ALL_PARENTS_COMPLAINTS: 'parent-complaint',
+  FIND_PARENTS_COMPLAINTS: 'parent-complaint/find',
+  EDIT_PARENTS_COMPLAINTS: 'parent-complaint/update',
+
 
   ALL_STUDENTS: 'student',
   ADD_STUDENTS: 'student/create',

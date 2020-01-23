@@ -236,11 +236,6 @@ const router = new Router({
         // Management Teachers Routes
         // =============================================================================
         {
-          path: '/teachers/complaints',
-          name: 'teacher_complaints',
-          component: () => import('./views/Complaints/AllTeacher/Index.vue')
-        },
-        {
           path: '/teachers',
           name: 'teachers',
           component: () => import('./views/Teacher/All/Index.vue')
@@ -294,6 +289,16 @@ const router = new Router({
             requiresAuth: true
           },
           component: () => import('./views/Parents/Edit/Index.vue')
+        },
+        {
+          path: '/parents/complaints',
+          name: 'parents_complaints',
+          component: () => import('./views/Complaints/AllParents/Index.vue')
+        },
+        {
+          path: '/parents/edit_parent_complaint/:id',
+          name: 'edit_parent_complaint',
+          component: () => import('./views/Complaints/AllParents/Edit.vue')
         },
         // =============================================================================
         // Management Magazine Routes
