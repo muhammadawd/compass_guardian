@@ -177,6 +177,12 @@
               response = response.data;
               if (response.status) {
                 vm.student_leaves = response.data.studentLeaves.data;
+                _.transform(response.data.studentLeaves.data, function (result, value, key) {
+                  // console.log(result, value, key);
+                  value.teacher_name = value.teacher.name;
+                  value.student_name = value.student_term.student.name;
+                  result[key] = value;
+                }, {});
                 return
               }
               vm.student_leaves = [];

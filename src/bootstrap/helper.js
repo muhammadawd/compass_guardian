@@ -61,6 +61,7 @@ export const helper = {
     for (const [key, value] of Object.entries(errors)) {
       try{
       console.log(key)
+        $(`#${key}_error`).text(value[0]);
         document.getElementById(key + '_error').innerText = value[0];
       } catch (e) {
       }
