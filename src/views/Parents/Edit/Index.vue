@@ -62,6 +62,21 @@
               <vs-input class="w-full" :label="$ml.get('mother_work')" v-model="dataModel.mother_work"/>
               <span class="span-text-validation text-danger text-bold" id="mother_work_error"></span>
             </div>
+            <div class="vx-col w-full mb-base">
+              <GmapMap
+                :center="{lat:29.306993, lng:47.978227}"
+                :zoom="7"
+                map-type-id="terrain"
+                @click="placeMarker"
+              >
+                <GmapMarker
+                  :position="{lat:dataModel.lat,lng:dataModel.lng}"
+                  :clickable="true"
+                  :draggable="true"
+                />
+                <!--                @click="center=m.position"-->
+              </GmapMap>
+            </div>
           </div>
 
           <div class="vx-row">
@@ -83,6 +98,21 @@
   import Multiselect from 'vue-multiselect'
   import 'vue-multiselect/dist/vue-multiselect.min.css'
 
+  import * as VueGoogleMaps from 'vue2-google-maps'
+  import Vue from 'vue'
+
+  Vue.use(VueGoogleMaps, {
+    load: {
+      key: 'AIzaSyDUFGuZ9Xk0cQvZJHv_cUm0b0Jr5CgpvWY',
+      libraries: 'places', // This is required if you use the Autocomplete plugin
+      // OR: libraries: 'places,drawing'
+      // OR: libraries: 'places,drawing,visualization'
+      // (as you require)
+
+      //// If you want to set the version, you can do so:
+      // v: '3.26',
+    },
+  })
   export default {
     components: {
       Multiselect
@@ -92,6 +122,8 @@
         dataModel: {
           title_ar: '',
           title_en: '',
+          lat:0,
+          lng: 0,
           class_rooms: []
         },
         subjects: [],
@@ -108,6 +140,13 @@
     methods: {
       customLabel({translated}) {
         return `${translated.title}`
+      },
+      placeMarker(location) {
+        let lat  = location.latLng.lat()
+        let lng  = location.latLng.lng()
+        let vm = this;
+        vm.dataModel.lat = lat;
+        vm.dataModel.lng = lng;
       },
       findParent() {
 
@@ -174,4 +213,8 @@
 </script>
 
 <style lang="scss">
+  .vue-map-container {
+    width: 100% !important;
+    height: 450px !important;
+  }
 </style>

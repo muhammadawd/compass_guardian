@@ -116,19 +116,31 @@ export default [
     ]
   },
   {
-    url: '/students',
+    url: null,
     name: "students",
     // tag: "2",
     // tagColor: "primary",
     icon: "UserIcon",
     i18n: "",
+    submenu: [
+      {
+        url: '/students',
+        name: "students",
+        i18n: "",
+      },
+      {
+        url: '/place_student',
+        name: "place_student",
+        i18n: "",
+      },
+    ]
   },
   {
-    url: '/place_student',
-    name: "place_student",
+    url: '/scientific_attachment',
+    name: "scientific_attachment",
     // tag: "2",
     // tagColor: "primary",
-    icon: "UserPlusIcon",
+    icon: "BookIcon",
     i18n: "",
   },
   {
@@ -199,80 +211,6 @@ export default [
       },
     ]
   },
-  // {
-  //   url: "/orders",
-  //   name: "orders",
-  //   slug: "",
-  //   icon: "ShoppingCartIcon",
-  // },
-  // {
-  //   url: "/50",
-  //   name: "subscription",
-  //   slug: "",
-  //   icon: "SlackIcon",
-  // },
-  // {
-  //   url: "/delivery",
-  //   name: "delivery",
-  //   slug: "",
-  //   icon: "PhoneCallIcon",
-  // },
-  // {
-  //   url: "/60",
-  //   name: "offers",
-  //   slug: "",
-  //   icon: "GiftIcon",
-  // },
-  // {
-  //   header: "printing",
-  //   i18n: "",
-  // },
-  // {
-  //   url: null,
-  //   name: "reports",
-  //   // tag: "2",
-  //   // tagColor: "primary",
-  //   icon: "CalendarIcon",
-  //   i18n: "",
-  //   submenu: [
-  //     {
-  //       url: '/70',
-  //       name: "uncompleted_order_report",
-  //       slug: "",
-  //       i18n: "",
-  //     },
-  //     {
-  //       url: '/71',
-  //       name: "cancelled_order_report",
-  //       slug: "",
-  //       i18n: "",
-  //     },
-  //     {
-  //       url: '/72',
-  //       name: "subscriptions_report",
-  //       slug: "",
-  //       i18n: "",
-  //     },
-  //     {
-  //       url: '/73',
-  //       name: "user_rates_report",
-  //       slug: "",
-  //       i18n: "",
-  //     },
-  //     {
-  //       url: '/74',
-  //       name: "uses_monthly_report",
-  //       slug: "",
-  //       i18n: "",
-  //     },
-  //     {
-  //       url: '/75',
-  //       name: "orders_monthly_report",
-  //       slug: "",
-  //       i18n: "",
-  //     },
-  //   ]
-  // },
   {
     header: "setting",
     i18n: "",

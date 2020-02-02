@@ -43,7 +43,7 @@
             <div class="vx-col w-full text-center mb-base">
               <div class="text-right">
                 <vs-button type="border" color="primary" @click="addOption()">
-                  <i class="fa fa-plus"></i>
+                  {{$ml.get('add_classes')}}
                 </vs-button>
               </div>
               <span class="span-text-validation text-danger text-bold" id="class_rooms_error"></span>

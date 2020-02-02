@@ -25,7 +25,7 @@
             </div>
             <div class="vx-col md:w-1/3 mb-base">
               <label class="vs-input--label">{{$ml.get('stages')}}</label>
-              <multiselect v-model="selectedStage" :options="stages" :multiple="false" :close-on-select="true"
+              <multiselect v-model="selectedStage" :options="stages" :multiple="false" :close-on-select="true" open-direction="bottom"
                            :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')"
                            :custom-label="customStageLabel"
                            track-by="id" :preselect-first="true">
@@ -34,7 +34,7 @@
             </div>
             <div class="vx-col md:w-1/3 mb-base">
               <label class="vs-input--label">{{$ml.get('class_room')}}</label>
-              <multiselect v-model="selectedClassRooms" :options="classRooms" :multiple="false"
+              <multiselect v-model="selectedClassRooms" :options="classRooms" :multiple="false" open-direction="bottom"
                            :close-on-select="true"
                            :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')"
                            :custom-label="customStageLabel"
@@ -81,7 +81,8 @@
                     </vs-td>
                     <vs-td class="text-right">
 
-                      <vs-select class="w-full" v-model="dataModel.details[indextr].is_break">
+                      <vs-select class="w-full" v-model="dataModel.details[indextr].is_break"
+                                 @change="changeBreak(dataModel.details[indextr])">
                         <vs-select-item value="1" :text="$ml.get('yes')"></vs-select-item>
                         <vs-select-item value="0" :text="$ml.get('no')"></vs-select-item>
                       </vs-select>
@@ -90,8 +91,9 @@
                     </vs-td>
                     <vs-td class="text-right">
 
-                      <multiselect v-model="dataModel.details[indextr].subject" :options="teachers" :multiple="false"
+                      <multiselect v-model="dataModel.details[indextr].subject" :options="teachers" :multiple="false" open-direction="bottom"
                                    group-values="subjects"
+                                   :disabled="dataModel.details[indextr].is_break == 0 ? false : true"
                                    group-label="name" :group-select="false" :placeholder="$ml.get('search')"
                                    track-by="id" label="title_ar"><span slot="noResult">Oops! No elements found. Consider changing the search query.</span>
                       </multiselect>
@@ -173,7 +175,7 @@
     },
     watch: {
       selectedStage: function (newStage, oldStage) {
-        if (oldStage!=null){
+        if (oldStage != null) {
 
           this.selectedClassRooms = null;
           this.classRooms = newStage.class_rooms;
@@ -190,6 +192,15 @@
       this.getAllDays()
     },
     methods: {
+      changeBreak(currentState) {
+        if (currentState.is_break == 1) {
+          currentState.subject_id = null;
+          currentState.subject = null;
+          currentState.teacher_id = null;
+          currentState.teacher = null;
+        }
+        return currentState;
+      },
       customStageLabel({translated}) {
         return `${translated.title}`
       },
@@ -202,7 +213,7 @@
         let id = vm.findId;
         vm.$root.$children[0].$refs.loader.show_loader = true;
         try {
-          window.serviceAPI.API().get(window.serviceAPI.FIND_SCHEDULE+ `/${id}`)
+          window.serviceAPI.API().get(window.serviceAPI.FIND_SCHEDULE + `/${id}`)
             .then((response) => {
               vm.$root.$children[0].$refs.loader.show_loader = false;
               response = response.data;
@@ -268,7 +279,7 @@
         $.each(model.details, (i, row) => {
           console.log(row)
           if (row.subject) {
-            if (row.subject.pivot){
+            if (row.subject.pivot) {
               row.teacher_id = row.subject.pivot.teacher_id;
               row.subject_id = row.subject.pivot.subject_id;
             }

@@ -20,31 +20,19 @@
             <div class="vx-col sm:w-full md:w-full lg:w-1/2 d-theme-dark-bg">
               <div class="p-8">
                 <div class="vx-card__title mb-8">
-                  <h4 class="mb-4">{{$ml.get('sign_in')}}</h4>
-                  <!--                                    <p>Welcome back, please login to your account.</p>-->
+                  <h4 class="mb-4 text-center text-bold">{{$ml.get('sign_in')}}</h4>
+                  <router-link :to="{name:'login_admin'}">
+                    <b>* مدير مسئول</b>
+                  </router-link>
+                  <br>
+                  <router-link :to="{name:'login_teacher'}">
+                    <b>* مدرس</b>
+                  </router-link>
+                  <br>
+                  <router-link :to="{name:'login_student'}">
+                    <b>* طالب</b>
+                  </router-link>
                 </div>
-                <vs-input
-                  name="email"
-                  icon="icon icon-user"
-                  icon-pack="feather"
-                  :label-placeholder="$ml.get('username')"
-                  v-model="username"
-                  class="w-full no-icon-border"/>
-                <span class="span-text-validation text-danger text-bold" id="username_error"></span>
-                <br>
-
-                <vs-input
-                  type="password"
-                  name="password"
-                  icon="icon icon-lock"
-                  icon-pack="feather"
-                  :label-placeholder="$ml.get('password')"
-                  v-model="password"
-                  class="w-full mt-6 no-icon-border"/>
-                <span class="span-text-validation text-danger text-bold" id="password_error"></span>
-                <br>
-                <vs-button class="float-left" @click="login()">{{$ml.get('login')}}</vs-button>
-                <br>
               </div>
             </div>
           </div>
@@ -82,7 +70,7 @@
                   admin: response.data.admin,
                   token: response.data.token
                 };
-                window.ls.saveToStorage('auth_data',auth_data)
+                window.ls.saveToStorage('auth_data', auth_data)
                 vm.$router.push({name: 'home'});
                 return null;
               }

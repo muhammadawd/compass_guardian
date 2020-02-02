@@ -53,17 +53,20 @@ export const helper = {
   addErrors: (inputs, errors) => {
     for (let input in inputs) {
       try {
+        // console.log(input)
         document.getElementById(input + '_error').innerText = ' ';
       } catch (e) {
 
+        console.log(e)
       }
     }
     for (const [key, value] of Object.entries(errors)) {
       try{
-      console.log(key)
+      // console.log(key)
         $(`#${key}_error`).text(value[0]);
         document.getElementById(key + '_error').innerText = value[0];
       } catch (e) {
+        console.log(e)
       }
     }
   },

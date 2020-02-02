@@ -15,7 +15,7 @@
       <div class="vx-col w-full md:w-1/1 mb-base">
         <vx-card class="text-right">
           <vs-alert class="mb-4" color="dark">
-            <span class="text-bold">{{$ml.get('add_teacher')}}</span>
+            <span class="text-bold">{{$ml.get('edit_teacher')}}</span>
           </vs-alert>
           <div class="vx-row">
             <div class="vx-col md:w-1/4 mb-base">

@@ -58,7 +58,7 @@
                       </tr>
 
                       <tr class="cells" v-for="(person , index) in tableData" :key="index">
-                        <td class="cells__names text-right" dir="rtl">{{person.name}}</td>
+                        <td class="cells__names text-right" dir="rtl">{{person.name}} - <slot v-if="person.student_term"> ({{person.student_term.class_room.translated.title}}) </slot></td>
                         <td class="cells__alphabet text-center bg-white"
                             v-for="(day , key) in person.days" :key="key">
                           <div v-if="!getDates(day).length">
@@ -72,6 +72,8 @@
                             <slot v-if="!is_present">
                               <i class="fas fa-times text-danger"></i>
                             </slot>
+                            <vs-button v-if="getVacations(day)" radius color="primary" type="gradient" icon="info"
+                                       :title="getVacations(day)"></vs-button>
                           </div>
                         </td>
                       </tr>
@@ -87,9 +89,14 @@
                 <table class="vs-table--content">
                   <thead class="text-right">
                   <tr>
-                    <th style="border:1px solid #888;font-size: 15px;" class="p-1 text-right">{{$ml.get('students')}}</th>
-                    <th style="border:1px solid #888;font-size: 15px;" class="p-1 text-right">{{$ml.get('late_number')}}</th>
-                    <th style="border:1px solid #888;font-size: 15px;" class="p-1 text-right">{{$ml.get('absent_continue')}}</th>
+                    <th style="border:1px solid #888;font-size: 15px;" class="p-1 text-right">{{$ml.get('students')}}
+                    </th>
+                    <th style="border:1px solid #888;font-size: 15px;" class="p-1 text-right">
+                      {{$ml.get('late_number')}}
+                    </th>
+                    <th style="border:1px solid #888;font-size: 15px;" class="p-1 text-right">
+                      {{$ml.get('absent_continue')}}
+                    </th>
                   </tr>
                   </thead>
                   <tbody>
@@ -101,7 +108,7 @@
                         {{person.absent_continue}}
                       </slot>
                       <slot v-if="!person.absent_continue.length">
-<!--                        {{person.absent_continue}}-->
+                        <!--                        {{person.absent_continue}}-->
                       </slot>
                     </td>
                   </tr>
@@ -201,6 +208,9 @@
     methods: {
       getDates(day) {
         return _.map(day, 'is_present')
+      },
+      getVacations(day) {
+        return _.map(day, 'vacation.notes')[0]
       },
       print() {
         window.print()

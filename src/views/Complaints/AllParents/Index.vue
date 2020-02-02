@@ -12,6 +12,11 @@
             <div slot="header" class="flex flex-wrap-reverse items-center flex-grow justify-between">
 
               <div class="flex flex-wrap-reverse items-center">
+                <!-- ADD NEW -->
+                <vs-button color="primary" class="text-bold" type="filled" icon-pack="feather" icon="icon-plus"
+                           @click="$router.push({name: 'parents_complaints_add'})">
+                  {{$ml.get('add_new')}}
+                </vs-button>
               </div>
 
               <!-- ITEMS PER PAGE -->
@@ -42,6 +47,7 @@
 
             <template slot="thead">
               <vs-th width="15%">{{$ml.get('father_name')}}</vs-th>
+              <vs-th>{{$ml.get('type')}}</vs-th>
               <vs-th>{{$ml.get('text')}}</vs-th>
               <vs-th>{{$ml.get('teachers')}}</vs-th>
               <vs-th>{{$ml.get('end_at')}}</vs-th>
@@ -54,6 +60,12 @@
                   <slot v-if="tr.parent">
                     {{tr.parent.father_name}}
                   </slot>
+                </vs-td>
+                <vs-td class="text-right">
+                  <div class="con-vs-chip ml-auto  con-color" :class="tr.type == 'complaint' ? 'vs-chip-danger':'vs-chip-primary'"
+                       style="color: rgba(255, 255, 255, 0.9);">
+                    <span class="text-chip vs-chip--text">{{$ml.get(tr.type)}}</span>
+                  </div>
                 </vs-td>
                 <vs-td class="text-right">
                   {{tr.text}}
@@ -71,6 +83,10 @@
                     <vs-button @click="$router.push({name:'edit_parent_complaint',params:{id:tr.id}})" type="line"
                                color="primary">
                       <i class="fa fa-edit"></i>
+                    </vs-button>
+                    <vs-button @click="deleteSingle(tr.id)" type="line"
+                               color="danger">
+                      <i class="fa fa-times"></i>
                     </vs-button>
                   </div>
                 </vs-td>
@@ -118,6 +134,13 @@
               console.log(response)
               if (response.status) {
                 vm.complaints = response.data.complaints.data;
+                _.transform(response.data.complaints.data, function (result, value, key) {
+                  // console.log(result, value, key);
+                  value.teacher_name = value.teacher ? value.teacher.name : '';
+                  value.father_name = value.parent.father_name;
+                  value.trans_type = vm.$ml.get(value.type);
+                  result[key] = value;
+                }, {});
                 return
               }
               vm.complaints = [];
@@ -151,26 +174,26 @@
           acceptText: this.$ml.get('yes'),
           cancelText: this.$ml.get('no'),
           accept: () => {
-        vm.$root.$children[0].$refs.loader.show_loader = true;
-        try {
-          window.serviceAPI.API().post(window.serviceAPI.DELETE_TEACHERS, {
-            ids: [id]
-          })
-            .then((response) => {
-              vm.$root.$children[0].$refs.loader.show_loader = false;
-              response = response.data;
-              if (response.status) {
-                vm.teachers = window.helper.deleteMulti([id], vm.teachers)
-                location.reload()
-              }
-            }).catch((error) => {
-            vm.$root.$children[0].$refs.loader.show_loader = false;
-            window.helper.handleError(error, vm);
-          });
-        } catch (e) {
-          console.log(e)
-        }
-        }
+            vm.$root.$children[0].$refs.loader.show_loader = true;
+            try {
+              window.serviceAPI.API().post(window.serviceAPI.DELETE_PARENTS_COMPLAINTS, {
+                ids: [id]
+              })
+                .then((response) => {
+                  vm.$root.$children[0].$refs.loader.show_loader = false;
+                  response = response.data;
+                  if (response.status) {
+                    vm.complaints = window.helper.deleteMulti([id], vm.complaints)
+                    location.reload()
+                  }
+                }).catch((error) => {
+                vm.$root.$children[0].$refs.loader.show_loader = false;
+                window.helper.handleError(error, vm);
+              });
+            } catch (e) {
+              console.log(e)
+            }
+          }
         })
       },
     },

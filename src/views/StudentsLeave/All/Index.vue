@@ -49,8 +49,8 @@
             <template slot="thead">
               <vs-th>{{$ml.get('students')}}</vs-th>
               <vs-th>{{$ml.get('teachers')}}</vs-th>
-              <vs-th>{{$ml.get('start_date')}}</vs-th>
-              <vs-th>{{$ml.get('end_date')}}</vs-th>
+              <vs-th>{{$ml.get('type')}}</vs-th>
+              <vs-th>{{$ml.get('date')}}</vs-th>
               <vs-th>{{$ml.get('notes')}}</vs-th>
               <vs-th></vs-th>
             </template>
@@ -68,10 +68,13 @@
                   </slot>
                 </vs-td>
                 <vs-td class="text-right">
-                  {{tr.start_date}}
+                  <div class="con-vs-chip ml-auto  con-color" :class="tr.type == 'vacation' ? 'vs-chip-success':'vs-chip-danger'"
+                       style="color: rgba(255, 255, 255, 0.9);">
+                    <span class="text-chip vs-chip--text">{{$ml.get(tr.type)}}</span>
+                  </div>
                 </vs-td>
                 <vs-td class="text-right">
-                  {{tr.end_date}}
+                  {{tr.date}}
                 </vs-td>
                 <vs-td class="text-right">
                   {{tr.notes}}
@@ -179,8 +182,8 @@
                 vm.student_leaves = response.data.studentLeaves.data;
                 _.transform(response.data.studentLeaves.data, function (result, value, key) {
                   // console.log(result, value, key);
-                  value.teacher_name = value.teacher.name;
-                  value.student_name = value.student_term.student.name;
+                  value.teacher_name = value.teacher ? value.teacher.name : '';
+                  value.student_name = value.student_term ? value.student_term.student.name : '';
                   result[key] = value;
                 }, {});
                 return
@@ -241,26 +244,26 @@
           acceptText: this.$ml.get('yes'),
           cancelText: this.$ml.get('no'),
           accept: () => {
-        vm.$root.$children[0].$refs.loader.show_loader = true;
-        try {
-          window.serviceAPI.API().post(window.serviceAPI.DELETE_STUDENT_LEAVES, {
-            ids: [id]
-          })
-            .then((response) => {
-              vm.$root.$children[0].$refs.loader.show_loader = false;
-              response = response.data;
-              if (response.status) {
-                vm.student_leaves = window.helper.deleteMulti([id], vm.student_leaves)
-                location.reload()
-              }
-            }).catch((error) => {
-            vm.$root.$children[0].$refs.loader.show_loader = false;
-            window.helper.handleError(error, vm);
-          });
-        } catch (e) {
-          console.log(e)
-        }
-        }
+            vm.$root.$children[0].$refs.loader.show_loader = true;
+            try {
+              window.serviceAPI.API().post(window.serviceAPI.DELETE_STUDENT_LEAVES, {
+                ids: [id]
+              })
+                .then((response) => {
+                  vm.$root.$children[0].$refs.loader.show_loader = false;
+                  response = response.data;
+                  if (response.status) {
+                    vm.student_leaves = window.helper.deleteMulti([id], vm.student_leaves)
+                    location.reload()
+                  }
+                }).catch((error) => {
+                vm.$root.$children[0].$refs.loader.show_loader = false;
+                window.helper.handleError(error, vm);
+              });
+            } catch (e) {
+              console.log(e)
+            }
+          }
         })
       },
     },

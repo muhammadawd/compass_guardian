@@ -16,6 +16,12 @@
               </vs-select>
               <span class="span-text-validation text-danger text-bold" id="teacher_id_error"></span>
             </div>
+            <div class="vx-col md:w-1/4 mb-base">
+              <label class="vs-input--label">{{$ml.get('date')}}</label>
+              <flat-pickr class="w-full" :config="timeConfig" :label="$ml.get('date')"
+                          v-model="dataModel.date"></flat-pickr>
+              <span class="span-text-validation text-danger text-bold" id="date_error"></span>
+            </div>
           </div>
           <div class="vx-row">
             <div class="vx-col w-full text-center mb-base">
@@ -34,15 +40,23 @@
 
 <script>
 
+  import flatPickr from 'vue-flatpickr-component';
+  import 'flatpickr/dist/flatpickr.css';
   export default {
     data() {
       return {
         loading: false,
         dataModel: {},
+        timeConfig: {
+          enableTime: true,
+          time_24hr: true
+        },
         teachers: []
       }
     },
     computed: {},
+    components: {flatPickr},
+
     mounted() {
       this.getAllTeachers();
     },

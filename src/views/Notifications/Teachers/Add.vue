@@ -18,7 +18,7 @@
             <!--            </div>-->
             <div class="vx-col w-full mb-base">
               <label class="vs-input--label">{{$ml.get('teachers')}}</label>
-              <multiselect v-model="selectedTeacher" :options="teachers" :multiple="true" :close-on-select="true"
+              <multiselect v-model="selectedTeacher" :options="teachers" :multiple="true" :close-on-select="true" open-direction="bottom"
                            :clear-on-select="true" :preserve-search="true" :placeholder="$ml.get('search')"
                            :custom-label="customLabel"
                            track-by="id" :preselect-first="true">

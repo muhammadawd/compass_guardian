@@ -1,16 +1,28 @@
 import axios from 'axios'
 
 let BASE_URL = `http://approc.com/~approctest/school/api/`;
-// let BASE_URL = `http://192.168.1.9/school/api/`;
 
 export default {
   BASE_URL: 'http://approc.com/~approctest/school/api/',
-  // BASE_URL: 'http://192.168.1.9/school/api/',
 
   AUTH_LOGIN: 'admin/login',
+  AUTH_LOGIN_TEACHER: 'teacher/login',
+  AUTH_LOGIN_STUDENT: 'student/login',
 
   ALL_STATUS: 'common/status',
   ALL_DAYS: 'common/days',
+
+  ALL_QUESTION: 'question',
+  ADD_QUESTION: 'question/create',
+  FIND_QUESTION: 'question/find',
+  EDIT_QUESTION: 'question/update',
+  DELETE_QUESTION: 'question/delete',
+
+  ALL_SCIENTIFIC_ATTACHMENT: 'scientific-attachment',
+  ADD_SCIENTIFIC_ATTACHMENT: 'scientific-attachment/create',
+  FIND_SCIENTIFIC_ATTACHMENT: 'scientific-attachment/find',
+  EDIT_SCIENTIFIC_ATTACHMENT: 'scientific-attachment/update',
+  DELETE_SCIENTIFIC_ATTACHMENT: 'scientific-attachment/delete',
 
   ALL_SUBJECTS: 'subject',
   ADD_SUBJECTS: 'subject/create',
@@ -60,8 +72,9 @@ export default {
   DELETE_PARENTS: 'parent/delete',
   ALL_PARENTS_COMPLAINTS: 'parent-complaint',
   FIND_PARENTS_COMPLAINTS: 'parent-complaint/find',
+  ADD_PARENTS_COMPLAINTS: 'parent-complaint/create',
   EDIT_PARENTS_COMPLAINTS: 'parent-complaint/update',
-
+  DELETE_PARENTS_COMPLAINTS: 'parent-complaint/delete',
 
   ALL_STUDENTS: 'student',
   ADD_STUDENTS: 'student/create',

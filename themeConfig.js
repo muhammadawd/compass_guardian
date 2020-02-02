@@ -23,7 +23,7 @@ Vue.use(Vuesax, { theme:{ colors } });
 
 
 // CONFIGS
-const themeConfig = {
+let themeConfig = {
 	theme: 'light',						// options[String]: 'light'(default), 'dark', 'semi-dark'
 	sidebarCollapsed: false,			// options[Boolean]: true, false(default)
 	navbarColor: "#fff",				// options[String]: HEX color / rgb / rgba / Valid HTML Color name - (default: #fff)

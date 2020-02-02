@@ -22,9 +22,17 @@
               <vs-input class="w-full" :label="$ml.get('name')" v-model="dataModel.name"/>
               <span class="span-text-validation text-danger text-bold" id="name_error"></span>
             </div>
-            <div class="vx-col md:w-1/4 mb-base">
+            <div class="vx-col md:w-1/6 mb-base">
               <vs-input class="w-full" :label="$ml.get('age')" v-model="dataModel.age"/>
               <span class="span-text-validation text-danger text-bold" id="age_error"></span>
+            </div>
+            <div class="vx-col md:w-1/4 mb-base">
+              <vs-input class="w-full" :label="$ml.get('username')" v-model="dataModel.username"/>
+              <span class="span-text-validation text-danger text-bold" id="username_error"></span>
+            </div>
+            <div class="vx-col md:w-1/4 mb-base">
+              <vs-input class="w-full" :label="$ml.get('password')" type="password" v-model="dataModel.password"/>
+              <span class="span-text-validation text-danger text-bold" id="password_error"></span>
             </div>
             <div class="vx-col md:w-1/6 mb-base">
               <label class="vs-input--label">{{$ml.get('gender')}}</label>
@@ -49,7 +57,7 @@
           <div class="vx-row">
             <div class="vx-col md:w-1/3 mb-base">
               <label class="vs-input--label">{{$ml.get('parents')}}</label>
-              <multiselect v-model="selectedParent" :options="parents" :multiple="false" :close-on-select="true"
+              <multiselect v-model="selectedParent" :options="parents" :multiple="false" :close-on-select="true" open-direction="bottom"
                            :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')"
                            :custom-label="customParentLabel"
                            track-by="id" :preselect-first="true">
@@ -58,7 +66,7 @@
             </div>
             <div class="vx-col md:w-1/3 mb-base">
               <label class="vs-input--label">{{$ml.get('stages')}}</label>
-              <multiselect v-model="selectedStage" :options="stages" :multiple="false" :close-on-select="true"
+              <multiselect v-model="selectedStage" :options="stages" :multiple="false" :close-on-select="true" open-direction="bottom"
                            :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')"
                            :custom-label="customStageLabel"
                            track-by="id" :preselect-first="true">

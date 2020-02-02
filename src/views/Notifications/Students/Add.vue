@@ -16,19 +16,9 @@
             <!--              </vs-select>-->
             <!--              <span class="span-text-validation text-danger text-bold" id="teacher_id_error"></span>-->
             <!--            </div>-->
-            <div class="vx-col md:w-1/3  mb-base">
-              <label class="vs-input--label">{{$ml.get('students')}}</label>
-              <multiselect v-model="selectedStudents" :options="students" :multiple="true" :close-on-select="true"
-                           :clear-on-select="true" :preserve-search="true" :placeholder="$ml.get('search')"
-                           :custom-label="customLabel"
-                           track-by="id" :preselect-first="true">
-              </multiselect>
-              <span class="span-text-validation text-danger text-bold" id="student_id_error"></span>
-              <span class="span-text-validation text-danger text-bold" id="student_ids_error"></span>
-            </div>
             <div class="vx-col md:w-1/3 mb-base">
               <label class="vs-input--label">{{$ml.get('stages')}}</label>
-              <multiselect v-model="selectedStage" :options="stages" :multiple="false" :close-on-select="true"
+              <multiselect v-model="selectedStage" :options="stages" :multiple="false" :close-on-select="true" open-direction="bottom"
                            :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')"
                            :custom-label="customStageLabel"
                            track-by="id" :preselect-first="true">
@@ -37,7 +27,7 @@
             </div>
             <div class="vx-col md:w-1/3 mb-base">
               <label class="vs-input--label">{{$ml.get('class_room')}}</label>
-              <multiselect v-model="selectedClassRooms" :options="classRooms" :multiple="false"
+              <multiselect v-model="selectedClassRooms" :options="classRooms" :multiple="false" open-direction="bottom"
                            :close-on-select="true"
                            :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')"
                            :custom-label="customStageLabel"
@@ -46,9 +36,30 @@
               <span class="span-text-validation text-danger text-bold" id="class_room_id_error"></span>
               <span class="span-text-validation text-danger text-bold" id="class_room_ids_error"></span>
             </div>
+            <div class="vx-col md:w-1/3  mb-base">
+              <label class="vs-input--label">{{$ml.get('students')}}</label>
+              <multiselect v-model="selectedStudents" :options="students" :multiple="true" :close-on-select="true" open-direction="bottom"
+                           :clear-on-select="true" :preserve-search="true" :placeholder="$ml.get('search')"
+                           :custom-label="customLabel"
+                           track-by="id" :preselect-first="true">
+              </multiselect>
+              <span class="span-text-validation text-danger text-bold" id="student_id_error"></span>
+              <span class="span-text-validation text-danger text-bold" id="student_ids_error"></span>
+              <span class="span-text-validation text-danger text-bold" id="student_term_ids_error"></span>
+            </div>
           </div>
           <div class="vx-row">
-            <div class="vx-col w-full mb-base">
+            <div class="vx-col md:w-1/4 mb-base">
+              <div class="vs-component vs-con-input-label vs-input w-full vs-input-primary">
+                <label class="vs-input--label">{{$ml.get('images')}}</label>
+                <div class="vs-con-input">
+                  <input type="file" ref="image" accept="image/*"  class="vs-inputx vs-input--input normal" multiple
+                         v-on:change="handleFileUpload()">
+                  <span class="span-text-validation text-danger text-bold" id="images_error"></span>
+                </div>
+              </div>
+            </div>
+            <div class="vx-col md:w-3/4  mb-base">
               <label class="vs-input--label">{{$ml.get('notes')}}</label>
               <vs-textarea v-model="dataModel.notes" rows="7"></vs-textarea>
               <span class="span-text-validation text-danger text-bold" id="notes_error"></span>
@@ -80,6 +91,7 @@
         loading: false,
         dataModel: {},
 
+        images: [],
         stages: [],
         selectedStage: null,
         classRooms: [],
@@ -156,6 +168,10 @@
           console.log(e)
         }
       },
+      handleFileUpload() {
+        let vm = this;
+        vm.images = vm.$refs.image.files;
+      },
       addNotifications() {
         let vm = this;
         vm.openLoadingContained();
@@ -164,10 +180,24 @@
         request_data.student_term_ids = _.map(student_ids, 'student_term.id');
         request_data.class_room_id = vm.selectedClassRooms ? vm.selectedClassRooms.id : null;
 
+        let form_data = new FormData();
+        $.each(request_data, (key, value) => {
+          form_data.append(key, value ? value : '')
+        })
+        $.each(request_data.student_term_ids, (i, id) => {
+          form_data.append(`student_term_ids[${i}]`, id);
+        })
+        $.each(vm.images, (i, file) => {
+          form_data.append(`images[${i}]`, file);
+        })
         $('.span-text-validation').text('');
 
         try {
-          window.serviceAPI.API().post(window.serviceAPI.ADD_STUDENT_NOTIFICATIONS, request_data)
+          window.serviceAPI.API().post(window.serviceAPI.ADD_STUDENT_NOTIFICATIONS, form_data, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+          })
             .then((response) => {
               response = response.data;
               if (response.status) {

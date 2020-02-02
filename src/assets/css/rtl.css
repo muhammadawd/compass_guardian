@@ -10153,3 +10153,11 @@ body[dir=rtl] > div.con-vs-dropdown--menu.vs-dropdown-menu.vx-navbar-dropdown.lo
     width: 100% !important
   }
 }
+
+.vs-con-table .vs-con-tbody, .vs-table--content {
+  overflow: visible;
+}
+
+star {
+  color: red;
+}

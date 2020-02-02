@@ -10,7 +10,7 @@
           <div class="vx-row">
             <div class="vx-col md:w-1/3 mb-base">
               <label class="vs-input--label">{{$ml.get('students')}}</label>
-              <multiselect v-model="selectedStudent" :options="students" :multiple="false" :close-on-select="true"
+              <multiselect v-model="selectedStudent" :options="students" :multiple="false" :close-on-select="true" open-direction="bottom"
                            :clear-on-select="true" :preserve-search="true" :placeholder="$ml.get('search')"
                            :custom-label="customLabel"
                            track-by="id" :preselect-first="true">
@@ -19,28 +19,37 @@
             </div>
             <div class="vx-col md:w-1/3 mb-base">
               <label class="vs-input--label">{{$ml.get('teachers')}}</label>
-              <multiselect v-model="selectedTeacher" :options="teachers" :multiple="false" :close-on-select="true"
+              <multiselect v-model="selectedTeacher" :options="teachers" :multiple="false" :close-on-select="true" open-direction="bottom"
                            :clear-on-select="true" :preserve-search="true" :placeholder="$ml.get('search')"
                            :custom-label="customLabel"
                            track-by="id" :preselect-first="true">
               </multiselect>
               <span class="span-text-validation text-danger text-bold" id="teacher_id_error"></span>
             </div>
+            <div class="vx-col md:w-1/5 mb-base">
+
+              <label class="vs-input--label">{{$ml.get('type')}}</label>
+              <vs-select  class="w-full"  v-model="dataModel.type">
+                <vs-select-item value="leave" :text="$ml.get('leave')"></vs-select-item>
+                <vs-select-item value="vacation" :text="$ml.get('vacation')"></vs-select-item>
+              </vs-select>
+              <span class="span-text-validation text-danger text-bold" id="type_error"></span>
+            </div>
           </div>
           <div class="vx-row">
             <div class="vx-col md:w-1/3 mb-base">
-              <label class="vs-input--label">{{$ml.get('start_date')}}</label>
-              <flat-pickr class="w-full" :config="timeConfig" :label="$ml.get('start_date')"
-                          v-model="dataModel.start_date"></flat-pickr>
-              <span class="span-text-validation text-danger text-bold" id="start_date_error"></span>
+              <label class="vs-input--label">{{$ml.get('date')}}</label>
+              <flat-pickr class="w-full" :config="timeConfig" :label="$ml.get('date')"
+                          v-model="dataModel.date"></flat-pickr>
+              <span class="span-text-validation text-danger text-bold" id="date_error"></span>
             </div>
-            <div class="vx-col md:w-1/3 mb-base">
-              <label class="vs-input--label">{{$ml.get('end_date')}}</label>
-              <flat-pickr class="w-full" :config="timeConfig" :label="$ml.get('end_date')"
-                          v-model="dataModel.end_date"></flat-pickr>
-              <span class="span-text-validation text-danger text-bold" id="end_date_error"></span>
-            </div>
-            <div class="vx-col md:w-1/3 mb-base">
+<!--            <div class="vx-col md:w-1/3 mb-base">-->
+<!--              <label class="vs-input&#45;&#45;label">{{$ml.get('end_date')}}</label>-->
+<!--              <flat-pickr class="w-full" :config="timeConfig" :label="$ml.get('end_date')"-->
+<!--                          v-model="dataModel.end_date"></flat-pickr>-->
+<!--              <span class="span-text-validation text-danger text-bold" id="end_date_error"></span>-->
+<!--            </div>-->
+            <div class="vx-col md:w-1/2 mb-base">
               <vs-textarea class="w-full" :label="$ml.get('notes')"
                            v-model="dataModel.notes"/>
               <span class="span-text-validation text-danger text-bold" id="notes_error"></span>

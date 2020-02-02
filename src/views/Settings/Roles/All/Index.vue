@@ -148,7 +148,7 @@
         ids = _.map(ids, 'id');
         console.log(ids)
         try {
-          window.serviceAPI.API().post(window.serviceAPI.DELETE_ADMIN, {
+          window.serviceAPI.API().post(window.serviceAPI.DELETE_ROLES, {
             ids: ids
           })
             .then((response) => {
@@ -178,7 +178,7 @@
           accept: () => {
         vm.$root.$children[0].$refs.loader.show_loader = true;
         try {
-          window.serviceAPI.API().post(window.serviceAPI.DELETE_ADMIN, {
+          window.serviceAPI.API().post(window.serviceAPI.DELETE_ROLES, {
             ids: [id]
           })
             .then((response) => {

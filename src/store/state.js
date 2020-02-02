@@ -11,7 +11,6 @@ import navbarSearchAndPinList from '@/layouts/components/navbarSearchAndPinList'
 import themeConfig from '@/../themeConfig.js'
 import colors from '@/../themeConfig.js'
 
-const auth_data = JSON.parse(window.ls.getFromStorage('auth_data'));
 
 const state = {
   isSidebarActive: true,
@@ -24,9 +23,9 @@ const state = {
   navbarSearchAndPinList: navbarSearchAndPinList,
   AppActiveUser: {
     id: 0,
-    name: auth_data ? auth_data.admin.name : '',
+    name:  '',
     about: '...',
-    role: auth_data ? auth_data.admin.username : '',
+    role: '',
     img: 'avatar-s-11.png',
     status: 'online',
   },

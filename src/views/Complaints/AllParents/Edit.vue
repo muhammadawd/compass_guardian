@@ -19,10 +19,19 @@
           </vs-alert>
 
           <div class="vx-row">
+            <div class="vx-col md:w-1/6 mb-base">
+
+              <label class="vs-input--label">{{$ml.get('type')}}</label>
+              <vs-select  class="w-full"  v-model="dataModel.type">
+                <vs-select-item value="complaint" :text="$ml.get('complaint')"></vs-select-item>
+                <vs-select-item value="proposal" :text="$ml.get('proposal')"></vs-select-item>
+              </vs-select>
+              <span class="span-text-validation text-danger text-bold" id="type_error"></span>
+            </div>
             <div class="vx-col md:w-1/4 mb-base">
 
               <label class="vs-input--label">{{$ml.get('teachers')}}</label>
-              <multiselect v-model="dataModel.teacher" :options="teachers" :multiple="false" :close-on-select="true"
+              <multiselect v-model="dataModel.teacher" :options="teachers" :multiple="false" :close-on-select="true" open-direction="bottom"
                            :clear-on-select="true" :preserve-search="true" :placeholder="$ml.get('search')"
                            :custom-label="customLabel"
                            track-by="id" :preselect-first="true">
@@ -34,6 +43,16 @@
               <flat-pickr class="w-full" :label="$ml.get('end_date')"
                           v-model="dataModel.end_at"></flat-pickr>
               <span class="span-text-validation text-danger text-bold" id="end_at_error"></span>
+            </div>
+            <div class="vx-col md:w-1/4 mb-base">
+              <label class="vs-input--label">{{$ml.get('rate')}}</label>
+              <h3>{{dataModel.rate ? dataModel.rate : 0}}/5</h3>
+            </div>
+          </div>
+          <div class="vx-row">
+            <div class="vx-col   mb-base">
+              <label class="vs-input--label">{{$ml.get('text')}}</label>
+              <h3>{{dataModel.text}}</h3>
             </div>
           </div>
           <div class="vx-row">

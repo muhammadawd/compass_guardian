@@ -16,7 +16,7 @@
                 <div class="vx-row  text-right">
                   <div class="vx-col md:w-1/2 mb-base">
                     <label class="vs-input--label">{{$ml.get('stages')}}</label>
-                    <multiselect v-model="selectedStage" :options="stages" :multiple="false" :close-on-select="true"
+                    <multiselect v-model="selectedStage" :options="stages" :multiple="false" :close-on-select="true" open-direction="bottom"
                                  :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')"
                                  :custom-label="customStageLabel"
                                  track-by="id" :preselect-first="true">
@@ -25,7 +25,7 @@
                   </div>
                   <div class="vx-col md:w-1/2 mb-base">
                     <label class="vs-input--label">{{$ml.get('class_room')}}</label>
-                    <multiselect v-model="selectedClassRooms" :options="classRooms" :multiple="isMulti"
+                    <multiselect v-model="selectedClassRooms" :options="classRooms" :multiple="isMulti" open-direction="bottom"
                                  :close-on-select="true"
                                  :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')"
                                  :custom-label="customStageLabel"
@@ -82,6 +82,7 @@
               <vs-th>{{$ml.get('age')}}</vs-th>
               <vs-th>{{$ml.get('father_name')}}</vs-th>
               <vs-th>{{$ml.get('father_phone')}}</vs-th>
+              <vs-th>{{$ml.get('class_room')}}</vs-th>
             </template>
 
             <template slot-scope="{data}">
@@ -100,6 +101,14 @@
                 <vs-td class="text-right">
                   <slot v-if="tr.parent">
                     {{tr.parent.father_phone}}
+                  </slot>
+                </vs-td>
+                <vs-td class="text-right">
+                  <slot v-if="tr.student_term">
+                    {{tr.student_term.class_room.translated.title}}
+                  </slot>
+                  <slot v-if="!tr.student_term">
+                    -
                   </slot>
                 </vs-td>
               </vs-tr>
