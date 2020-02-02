@@ -30,6 +30,33 @@ const router = new Router({
           },
           component: () => import('./views/HomeStudent.vue')
         },
+        {
+          path: '/all_student_exam',
+          name: 'all_student_exam',
+          meta: {
+            requiresAuth: true,
+            actorType: 'student',
+          },
+          component: () => import('./views/Students/AllExams/Index.vue')
+        },
+        {
+          path: '/show_exam/:serial',
+          name: 'show_exam',
+          meta: {
+            requiresAuth: true,
+            actorType: 'student',
+          },
+          component: () => import('./views/Students/showExam/Index.vue')
+        },
+        {
+          path: '/student_start_exam/:serial',
+          name: 'student_start_exam',
+          meta: {
+            requiresAuth: true,
+            actorType: 'student',
+          },
+          component: () => import('./views/Students/Exam/Index.vue')
+        },
       ],
     },
 
@@ -370,6 +397,36 @@ const router = new Router({
             actorType: 'admin'
           },
           component: () => import('./views/Notifications/Students/All.vue')
+        },
+        // =============================================================================
+        // Management Supervisor Routes
+        // =============================================================================
+        {
+          path: '/supervisor',
+          name: 'supervisor',
+          meta: {
+            requiresAuth: true,
+            actorType: 'admin'
+          },
+          component: () => import('./views/Supervisor/All/Index.vue')
+        },
+        {
+          path: '/supervisor/add',
+          name: 'supervisor_add',
+          meta: {
+            requiresAuth: true,
+            actorType: 'admin'
+          },
+          component: () => import('./views/Supervisor/Add/Index.vue')
+        },
+        {
+          path: '/supervisor/edit/:id',
+          name: 'supervisor_edit',
+          meta: {
+            requiresAuth: true,
+            actorType: 'admin'
+          },
+          component: () => import('./views/Supervisor/Edit/Index.vue')
         },
         // =============================================================================
         // Management Teachers Routes

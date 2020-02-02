@@ -5,7 +5,7 @@
       <div class="vx-col w-full md:w-1/1 mb-base">
         <vx-card class="text-right">
           <vs-alert class="mb-4" color="dark">
-            <span class="text-bold">{{$ml.get('add_scientific_attachment')}}</span>
+            <span class="text-bold">{{$ml.get('edit_scientific_attachment')}}</span>
           </vs-alert>
           <div class="vx-row">
 
@@ -132,11 +132,10 @@
     computed: {},
     watch: {
       selectedStage: function (newStage, oldStage) {
-        // if (oldStage != null) {
+        if (oldStage != null) {
         this.selectedClassRooms = [];
-        // console.log(newStage)
         this.classRooms = newStage.class_rooms;
-        // }
+        }
       }
     },
     mounted() {

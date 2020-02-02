@@ -17,4 +17,12 @@ export default [
       },
     ]
   },
+  {
+    url: '/all_student_exam',
+    name: "all_student_exam",
+    // tag: "2",
+    // tagColor: "primary",
+    icon: "BookIcon",
+    i18n: "",
+  },
 ]

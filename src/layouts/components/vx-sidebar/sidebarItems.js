@@ -94,6 +94,12 @@ export default [
     // ]
   },
   {
+    url: '/supervisor',
+    name: "supervisor",
+    icon: "UserPlusIcon",
+    i18n: "",
+  },
+  {
     url: null,
     name: "parents",
     // tag: "2",

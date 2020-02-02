@@ -232,7 +232,7 @@
                 vm.teacher_leaves = response.data.teacherLeaves.data;
                 _.transform(response.data.teacherLeaves.data, function (result, value, key) {
                   // console.log(result, value, key);
-                  value.teacher_name = value.teacher.name;
+                  value.teacher_name = value.teacher ? value.teacher.name : '';
                   value.status_name = value.status.translated.title;
                   result[key] = value;
                 }, {});

@@ -7,7 +7,7 @@
         <vx-card class="text-center cursor-pointer">
 
           <vs-table ref="table" multiple v-model="selected" pagination :max-items="itemsPerPage" search
-                    :data="teachers">
+                    :data="exams">
 
             <div slot="header" class="flex flex-wrap-reverse items-center flex-grow justify-between">
 
@@ -24,7 +24,7 @@
               <vs-dropdown vs-trigger-click class="cursor-pointer mb-4 ml-4">
                 <div dir="ltr"
                      class="p-4 border border-solid d-theme-border-grey-light rounded-full d-theme-dark-bg cursor-pointer flex items-center justify-between font-medium">
-                  <span class="mr-2">{{ currentPage * itemsPerPage - (itemsPerPage - 1) }} - {{ teachers.length - currentPage * itemsPerPage > 0 ? currentPage * itemsPerPage : teachers.length }} of {{ teachers.length }}</span>
+                  <span class="mr-2">{{ currentPage * itemsPerPage - (itemsPerPage - 1) }} - {{ exams.length - currentPage * itemsPerPage > 0 ? currentPage * itemsPerPage : exams.length }} of {{ exams.length }}</span>
                   <feather-icon icon="ChevronDownIcon" svgClasses="h-4 w-4"/>
                 </div>
                 <!-- <vs-button class="btn-drop" type="line" color="primary" icon-pack="feather" icon="icon-chevron-down"></vs-button> -->
@@ -48,9 +48,9 @@
 
             <template slot="thead">
               <vs-th>{{$ml.get('name')}}</vs-th>
-              <vs-th>{{$ml.get('username')}}</vs-th>
-              <vs-th>{{$ml.get('email')}}</vs-th>
-              <vs-th>{{$ml.get('phone')}}</vs-th>
+              <vs-th>{{$ml.get('exam_period')}}</vs-th>
+              <vs-th>{{$ml.get('date')}}</vs-th>
+              <vs-th>{{$ml.get('status')}}</vs-th>
               <vs-th></vs-th>
             </template>
 
@@ -60,13 +60,15 @@
                   {{tr.name}}
                 </vs-td>
                 <vs-td class="text-right">
-                  {{tr.username}}
+                  {{tr.duration}}
                 </vs-td>
                 <vs-td class="text-right">
-                  {{tr.email}}
+                  {{tr.date}}
                 </vs-td>
                 <vs-td class="text-right">
-                  {{tr.phone}}
+                  <slot v-if="tr.status">
+                    {{tr.status.translated.title}}
+                  </slot>
                 </vs-td>
                 <vs-td class="text-right">
                   <div class="btn-group" dir="ltr">
@@ -74,7 +76,7 @@
                                color="danger">
                       <i class="fa fa-times"></i>
                     </vs-button>
-                    <vs-button @click="$router.push({name:'edit_questions_bank',params:{id:tr.id}})" type="line"
+                    <vs-button @click="$router.push({name:'edit_teacher_exams',params:{id:tr.id}})" type="line"
                                color="primary">
                       <i class="fa fa-edit"></i>
                     </vs-button>
@@ -97,7 +99,7 @@
   export default {
     data() {
       return {
-        teachers: [],
+        exams: [],
         selected: [],
         itemsPerPage: 5,
         isMounted: false,
@@ -105,7 +107,7 @@
     },
     mounted() {
       this.isMounted = true;
-      this.getAllTeachers()
+      this.getAllExams()
     },
     computed: {
       currentPage() {
@@ -116,24 +118,24 @@
       },
     },
     methods: {
-      getAllTeachers() {
+      getAllExams() {
         let vm = this;
         vm.$root.$children[0].$refs.loader.show_loader = true;
         try {
-          window.serviceAPI.API().get(window.serviceAPI.ALL_TEACHERS)
+          window.serviceAPI.API().get(window.serviceAPI.ALL_EXAM)
             .then((response) => {
               vm.$root.$children[0].$refs.loader.show_loader = false;
               response = response.data;
               console.log(response)
               if (response.status) {
-                vm.teachers = response.data.teachers.data;
+                vm.exams = response.data.exams.data;
                 return
               }
-              vm.teachers = [];
+              vm.exams = [];
             }).catch((error) => {
             vm.$root.$children[0].$refs.loader.show_loader = false;
             window.helper.handleError(error, vm);
-            vm.teachers = [];
+            vm.exams = [];
           });
         } catch (e) {
           console.log(e)
@@ -157,14 +159,14 @@
         ids = _.map(ids, 'id');
         console.log(ids)
         try {
-          window.serviceAPI.API().post(window.serviceAPI.DELETE_TEACHERS, {
+          window.serviceAPI.API().post(window.serviceAPI.DELETE_EXAM, {
             ids: ids
           })
             .then((response) => {
               vm.$root.$children[0].$refs.loader.show_loader = false;
               response = response.data;
               if (response.status) {
-                vm.teachers = window.helper.deleteMulti(ids, vm.teachers)
+                vm.exams = window.helper.deleteMulti(ids, vm.exams)
                 location.reload()
               }
             }).catch((error) => {
@@ -187,14 +189,14 @@
           cancelText: this.$ml.get('no'),
           accept: () => {
             try {
-              window.serviceAPI.API().post(window.serviceAPI.DELETE_TEACHERS, {
+              window.serviceAPI.API().post(window.serviceAPI.DELETE_EXAM, {
                 ids: [id]
               })
                 .then((response) => {
                   vm.$root.$children[0].$refs.loader.show_loader = false;
                   response = response.data;
                   if (response.status) {
-                    vm.teachers = window.helper.deleteMulti([id], vm.teachers)
+                    vm.exams = window.helper.deleteMulti([id], vm.exams)
                     location.reload()
                   }
                 }).catch((error) => {

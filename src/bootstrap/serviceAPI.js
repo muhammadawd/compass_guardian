@@ -12,6 +12,18 @@ export default {
   ALL_STATUS: 'common/status',
   ALL_DAYS: 'common/days',
 
+  ALL_EXAM: 'exam',
+  ADD_EXAM: 'exam/create',
+  FIND_EXAM: 'exam/find',
+  EDIT_EXAM: 'exam/update',
+  DELETE_EXAM: 'exam/delete',
+
+  ALL_SUPERVISOR: 'supervisor',
+  ADD_SUPERVISOR: 'supervisor/create',
+  FIND_SUPERVISOR: 'supervisor/find',
+  EDIT_SUPERVISOR: 'supervisor/update',
+  DELETE_SUPERVISOR: 'supervisor/delete',
+
   ALL_QUESTION: 'question',
   ADD_QUESTION: 'question/create',
   FIND_QUESTION: 'question/find',

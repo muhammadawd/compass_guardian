@@ -32,6 +32,9 @@ const options = {
   ]
 }
 
+import VueMoment from 'vue-moment'
+
+Vue.use(VueMoment)
 Vue.use(VueHtmlToPaper, options);
 
 // Theme Configurations
