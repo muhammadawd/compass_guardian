@@ -16,9 +16,20 @@
             <!--              </vs-select>-->
             <!--              <span class="span-text-validation text-danger text-bold" id="teacher_id_error"></span>-->
             <!--            </div>-->
-            <div class="vx-col w-full mb-base">
+            <div class="vx-col md:w-1/4 mb-base">
+              <div class="vs-component vs-con-input-label vs-input w-full vs-input-primary">
+                <label class="vs-input--label">{{$ml.get('images')}}</label>
+                <div class="vs-con-input">
+                  <input type="file" ref="image" accept="image/*" class="vs-inputx vs-input--input normal" multiple
+                         v-on:change="handleFileUpload()">
+                  <span class="span-text-validation text-danger text-bold" id="images_error"></span>
+                </div>
+              </div>
+            </div>
+            <div class="vx-col md:w-3/4 mb-base">
               <label class="vs-input--label">{{$ml.get('teachers')}}</label>
-              <multiselect v-model="selectedTeacher" :options="teachers" :multiple="true" :close-on-select="true" open-direction="bottom"
+              <multiselect v-model="selectedTeacher" :options="teachers" :multiple="true" :close-on-select="true"
+                           open-direction="bottom"
                            :clear-on-select="true" :preserve-search="true" :placeholder="$ml.get('search')"
                            :custom-label="customLabel"
                            track-by="id" :preselect-first="true">
@@ -60,7 +71,8 @@
         loading: false,
         dataModel: {},
         teachers: [],
-        selectedTeacher: []
+        images: [],
+        selectedTeacher: [],
       }
     },
     components: {Multiselect},
@@ -70,6 +82,10 @@
     methods: {
       customLabel({name}) {
         return `${name}`
+      },
+      handleFileUpload() {
+        let vm = this;
+        vm.images = vm.$refs.image.files;
       },
       getAllTeachers() {
         let vm = this;
@@ -99,12 +115,26 @@
         vm.openLoadingContained();
         let request_data = vm.dataModel;
         let teacher_ids = vm.selectedTeacher;
-        request_data.teacher_ids = _.map(teacher_ids, 'id');
+        teacher_ids = _.map(teacher_ids, 'id');
 
+        let form_data = new FormData();
+        $.each(request_data, (key, value) => {
+          form_data.append(key, value ? value : '')
+        })
+        $.each(vm.images, (i, file) => {
+          form_data.append(`images[${i}]`, file);
+        })
+        $.each(teacher_ids, (i, val) => {
+          form_data.append(`teacher_ids[${i}]`, val);
+        })
         $('.span-text-validation').text('');
 
         try {
-          window.serviceAPI.API().post(window.serviceAPI.ADD_TEACHER_NOTIFICATIONS, request_data)
+          window.serviceAPI.API().post(window.serviceAPI.ADD_TEACHER_NOTIFICATIONS, form_data, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+          })
             .then((response) => {
               response = response.data;
               if (response.status) {

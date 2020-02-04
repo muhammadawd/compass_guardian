@@ -39,15 +39,15 @@
               <span class="span-text-validation text-danger text-bold" id="class_room_id_error"></span>
               <span class="span-text-validation text-danger text-bold" id="class_room_ids_error"></span>
             </div>
-            <div class="vx-col md:w-1/5 mb-base">
+            <div class="vx-col md:w-1/6 mb-base">
               <vs-input class="w-full" :label="$ml.get('name')" v-model="dataModel.name"/>
               <span class="span-text-validation text-danger text-bold" id="name_error"></span>
             </div>
-            <div class="vx-col md:w-1/5 mb-base">
+            <div class="vx-col md:w-1/6 mb-base">
               <vs-input class="w-full" :label="$ml.get('exam_period')" v-model="dataModel.duration"/>
               <span class="span-text-validation text-danger text-bold" id="duration_error"></span>
             </div>
-            <div class="vx-col md:w-1/4 mb-base">
+            <div class="vx-col md:w-1/6 mb-base">
               <label class="vs-input--label">{{$ml.get('date')}}</label>
               <flat-pickr class="w-full" :config="timeConfig" :label="$ml.get('date')"
                           v-model="dataModel.date"></flat-pickr>
@@ -60,6 +60,14 @@
                                 :text="state.translated.title"></vs-select-item>
               </vs-select>
               <span class="span-text-validation text-danger text-bold" id="status_id_error"></span>
+            </div>
+            <div class="vx-col md:w-1/6 mb-base">
+              <vs-input class="w-full" :label="$ml.get('question_number')" v-model="dataModel.question_number"/>
+              <span class="span-text-validation text-danger text-bold" id="question_number_error"></span>
+            </div>
+            <div class="vx-col md:w-1/6 mb-base">
+              <vs-input class="w-full" :label="$ml.get('degree')" v-model="dataModel.degree"/>
+              <span class="span-text-validation text-danger text-bold" id="degree_error"></span>
             </div>
             <div class="vx-col w-full mb-base">
               <vs-textarea class="w-full" :label="$ml.get('notes')" v-model="dataModel.notes"/>

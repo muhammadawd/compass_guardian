@@ -7,24 +7,42 @@
             <span class="text-bold">{{$ml.get('all_student_exam')}}</span>
           </vs-alert>
           <div class="vx-row">
-            <div class="vx-col md:w-1/2 mb-base">
+            <div class="vx-col w-full mb-base" v-if="dataModel">
               <vs-row vs-justify="center" class="w-full">
                 <vs-col type="flex" vs-justify="centesr" vs-align="center">
                   <vs-card>
                     <div slot="header">
                       <h3 class="text-bold">
-                        امتحان مادة اللغة العربية
+                        {{dataModel.name}}
                       </h3>
-                      <span>الاستاذ محمد عبدالله نصر</span> <br>
-                      <span class="text-primary text-bold">60 دقيقة</span>
+                      <span class="text-bold text-primary" v-if="dataModel.subject">{{dataModel.subject.translated.title}}</span>
+                      <br>
+                      <ul class="mr-4" style="list-style: square">
+                        <li>
+                          <span class="text-info text-bold" v-if="dataModel.teacher" dir="ltr">{{dataModel.teacher.name}} - ({{dataModel.teacher.username}})</span>
+                        </li>
+                        <li>
+                          <span class="text-info text-bold">{{dataModel.duration}} {{$ml.get('mins')}}</span>
+                        </li>
+                        <li>
+                          <span class="text-info text-bold" v-if="dataModel.status" dir="ltr">{{dataModel.stage.translated.title}}</span>
+                        </li>
+                        <li>
+                          <span class="text-info text-bold" v-if="dataModel.status" dir="ltr">{{dataModel.status.translated.title}}</span>
+                        </li>
+                      </ul>
+
+                      <span class="span-text-validation text-danger text-bold" id="error_id_error"></span>
+
                     </div>
                     <div>
 
                     </div>
                     <div slot="footer">
                       <vs-row vs-justify="flex-end">
-                        <vs-button
-                          @click="$router.push({name:'student_start_exam',params:{'serial':'8WCB7R27#4h1V9&HG&!5644SDA&1d1dDFF6@64'}})">
+                        <vs-button ref="loadableButton" id="button-with-loading" :disabled="loading"
+                                   class="vs-con-loading__container vs-button-dark text-bold"
+                                   @click="startExam()">
                           {{$ml.get('start_exam')}}
                         </vs-button>
                       </vs-row>
@@ -58,26 +76,51 @@
     },
     computed: {},
     mounted() {
+      this.findStudentExams();
     },
     methods: {
-      getAllParents() {
+      startExam() {
+        const vm = this;
+        vm.openLoadingContained();
+        let request_data = vm.dataModel;
+
+        $('.span-text-validation').text('');
+        try {
+          window.serviceAPI.API().post(window.serviceAPI.CREATE_STUDENT_EXAM, request_data)
+            .then((response) => {
+              response = response.data;
+              if (response.status) {
+                window.ls.saveToStorage('current_exam', response.data.studentExam);
+
+                vm.$router.push({name: 'student_start_exam', params: {serial: request_data.serial}});
+                return null;
+              }
+              vm.closeLoadingContained()
+            }).catch((error) => {
+            vm.closeLoadingContained()
+            window.helper.handleError(error, vm);
+          });
+        } catch (e) {
+          console.log(e)
+        }
+      },
+      findStudentExams() {
         let vm = this;
+        let serial = vm.$route.params.serial;
         vm.$root.$children[0].$refs.loader.show_loader = true;
         try {
-          window.serviceAPI.API().get(window.serviceAPI.ALL_PARENTS)
+          window.serviceAPI.API().get(window.serviceAPI.FIND_STUDENT_EXAM + `/${serial}`)
             .then((response) => {
               vm.$root.$children[0].$refs.loader.show_loader = false;
               response = response.data;
-              console.log(response)
               if (response.status) {
-                vm.parents = response.data.parents.data;
+                vm.dataModel = response.data.exam;
+                console.log(vm.dataModel)
                 return
               }
-              vm.parents = [];
             }).catch((error) => {
             vm.$root.$children[0].$refs.loader.show_loader = false;
             window.helper.handleError(error, vm);
-            vm.parents = [];
           });
         } catch (e) {
           console.log(e)
@@ -91,28 +134,6 @@
           container: "#button-with-loading",
           scale: 0.45
         })
-      },
-      diffTwoDates(start, end) {
-        start = this.$moment(start, 'YYYY.MM.DD HH:mm')
-        end = this.$moment(end, 'YYYY.MM.DD HH:mm')
-        let seconds = end.diff(start, 'seconds');
-        return this.fancyTimeFormat(seconds)
-      },
-      fancyTimeFormat(time) {
-        // // Hours, minutes and seconds
-        // var hrs = ~~(time / 3600);
-        var mins = ~~((time % 3600) / 60);
-        var secs = ~~time % 60;
-
-        var ret = "";
-
-        // if (hrs > 0) {
-        //   ret += "" + hrs + ":" + (mins < 10 ? "0" : "");
-        // }
-
-        ret += "" + mins + ":" + (secs < 10 ? "0" : "");
-        ret += "" + secs;
-        return ret;
       },
       closeLoadingContained() {
         setTimeout(() => {

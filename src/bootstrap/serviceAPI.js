@@ -1,9 +1,9 @@
 import axios from 'axios'
 
-let BASE_URL = `http://approc.com/~approctest/school/api/`;
+let BASE_URL = `http://approc.com/~approctest/school/school/api/`;
 
 export default {
-  BASE_URL: 'http://approc.com/~approctest/school/api/',
+  BASE_URL: 'http://approc.com/~approctest/school/school/api/',
 
   AUTH_LOGIN: 'admin/login',
   AUTH_LOGIN_TEACHER: 'teacher/login',
@@ -12,17 +12,27 @@ export default {
   ALL_STATUS: 'common/status',
   ALL_DAYS: 'common/days',
 
+  ALL_STUDENT_EXAM: 'student-exam/get-available-exams',
+  ALL_STUDENT_EXAM_NATEGA: 'student-exam',
+  FIND_STUDENT_EXAM: 'exam/find-serial',
+  CREATE_STUDENT_EXAM: 'student-exam/create',
+  UPDATE_STUDENT_EXAM: 'student-exam/update',
+  FIND_STUDENT_EXAM_ID: 'student-exam/find',
+
   ALL_EXAM: 'exam',
   ADD_EXAM: 'exam/create',
   FIND_EXAM: 'exam/find',
   EDIT_EXAM: 'exam/update',
   DELETE_EXAM: 'exam/delete',
+  FIND_TEACHERS_EXAMS: 'exam/find-question-text',
+  UPDATE_TEACHERS_EXAMS: 'exam/update-questions',
 
   ALL_SUPERVISOR: 'supervisor',
   ADD_SUPERVISOR: 'supervisor/create',
   FIND_SUPERVISOR: 'supervisor/find',
   EDIT_SUPERVISOR: 'supervisor/update',
   DELETE_SUPERVISOR: 'supervisor/delete',
+  ATTACH_SUPERVISORS: 'supervisor/attach-student',
 
   ALL_QUESTION: 'question',
   ADD_QUESTION: 'question/create',

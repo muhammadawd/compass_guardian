@@ -37,11 +37,15 @@
             </div>
           </div>
           <div class="vx-row">
-            <div class="vx-col md:w-1/3 mb-base">
+            <div class="vx-col md:w-1/4 mb-base">
               <label class="vs-input--label">{{$ml.get('date')}}</label>
               <flat-pickr class="w-full" :config="timeConfig" :label="$ml.get('date')"
                           v-model="dataModel.date"></flat-pickr>
               <span class="span-text-validation text-danger text-bold" id="date_error"></span>
+            </div>
+            <div class="vx-col md:w-1/4 mb-base">
+              <vs-input class="w-full" :label="$ml.get('relation')" v-model="dataModel.relation"/>
+              <span class="span-text-validation text-danger text-bold" id="relation_error"></span>
             </div>
 <!--            <div class="vx-col md:w-1/3 mb-base">-->
 <!--              <label class="vs-input&#45;&#45;label">{{$ml.get('end_date')}}</label>-->

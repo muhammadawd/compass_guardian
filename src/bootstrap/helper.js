@@ -33,14 +33,14 @@ export const helper = {
     }
     return list.join('&');
   },
-  showMessage: (type, vm) => {
+  showMessage: (type, vm, message = '') => {
     vm.$vs.notify({
       icon: 'icon-alert-circle',
       iconPack: 'feather',
       horizontalAlign: 'center',
       verticalAlign: 'top',
       title: `${type == 'success' ? vm.$ml.get('success') : vm.$ml.get('error')}`,
-      text: `${type == 'success' ? vm.$ml.get('success_msg') : vm.$ml.get('error_msg')}`,
+      text: `${type == 'success' ? vm.$ml.get('success_msg') + message : vm.$ml.get('error_msg') + message}`,
       color: type
     });
   },
@@ -61,8 +61,8 @@ export const helper = {
       }
     }
     for (const [key, value] of Object.entries(errors)) {
-      try{
-      // console.log(key)
+      try {
+        // console.log(key)
         $(`#${key}_error`).text(value[0]);
         document.getElementById(key + '_error').innerText = value[0];
       } catch (e) {
@@ -86,6 +86,9 @@ export const helper = {
 
         }
         return;
+      }
+      if (error.response.status == 401) {
+        vm.$router.push({name: 'login'})
       }
 
       vm.$vs.notify({

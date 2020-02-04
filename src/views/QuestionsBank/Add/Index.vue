@@ -132,7 +132,7 @@
       this.findId = auth_data.user.id;
       this.findTeacher()
       this.getAllStages()
-      this.getAllSubjects()
+      // this.getAllSubjects()
     },
     methods: {
       customLabel({translated}) {

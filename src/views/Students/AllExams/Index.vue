@@ -7,45 +7,23 @@
             <span class="text-bold">{{$ml.get('all_student_exam')}}</span>
           </vs-alert>
           <div class="vx-row">
-            <div class="vx-col md:w-1/4 mb-base">
-              <vs-row vs-justify="center" class="w-full">
-                <vs-col type="flex" vs-justify="centesr" vs-align="center">
-                  <vs-card>
-                    <div slot="header">
-                      <h3 class="text-bold">
-                        امتحان مادة اللغة العربية
-                      </h3>
-                      <span>الاستاذ محمد عبدالله نصر</span> <br>
-                      <span class="text-primary text-bold">60 دقيقة</span>
-                    </div>
-                    <div>
-                      <span>
-                          <img
-                            width="50%"
-                            src="@/assets/images/elements/212256.svg"
-                            alt="">
-                      </span>
-                    </div>
-                    <div slot="footer">
-                      <vs-row vs-justify="flex-end">
-                        <vs-button type="gradient" color="primary" icon="remove_red_eye"
-                                   @click="$router.push({name:'show_exam',params:{'serial':'8WCB7R27#4h1V9&HG&!5644SDA&1d1dDFF6@64'}})"></vs-button>
-                      </vs-row>
-                    </div>
-                  </vs-card>
-                </vs-col>
-              </vs-row>
+            <div class="vx-col w-full mb-base" v-if="exams.length == 0">
+              <vs-alert class="mb-4" color="danger">
+              <h2 class="text-bold">{{$ml.get('sorry')}}</h2>
+              <p>{{$ml.get('no_exams')}}</p>
+              </vs-alert>
             </div>
-            <div class="vx-col md:w-1/4 mb-base">
+            <div class="vx-col md:w-1/3 mb-base" v-for="(item , key) in exams" :key="key">
               <vs-row vs-justify="center" class="w-full">
                 <vs-col type="flex" vs-justify="centesr" vs-align="center">
-                  <vs-card>
+                  <vs-card style="background: #efefef;box-shadow: 1px 2px 13px #ccc">
                     <div slot="header">
                       <h3 class="text-bold">
-                        امتحان مادة اللغة العربية
+                        {{item.name}}
                       </h3>
-                      <span>الاستاذ محمد عبدالله نصر</span> <br>
-                      <span class="text-primary text-bold">60 دقيقة</span>
+                      <span class="text-bold text-primary">{{item.subject.translated.title}}</span> <br>
+                      <span dir="ltr">{{item.teacher.name}} - ({{item.teacher.username}})</span> <br>
+                      <!--                      <span class="text-primary text-bold">{{item.duration}} {{$ml.get('mins')}}</span>-->
                     </div>
                     <div>
                       <span>
@@ -57,8 +35,8 @@
                     </div>
                     <div slot="footer">
                       <vs-row vs-justify="flex-end">
-                        <vs-button type="gradient" color="primary" icon="remove_red_eye"
-                                   @click="$router.push({name:'show_exam',params:{'serial':'8WCB7R27#4h1V9&HG&!5644SDA&1d1dDFF6@64'}})"></vs-button>
+                        <vs-button type="gradient" color="primary" label="remove_red_eye"
+                                   @click="$router.push({name:'show_exam',params:{'serial':item.serial}})">{{$ml.get('show')}}</vs-button>
                       </vs-row>
                     </div>
                   </vs-card>
@@ -85,31 +63,33 @@
     data() {
       return {
         dataModel: {},
+        exams: [],
         loading: false,
       }
     },
     computed: {},
     mounted() {
+      this.getAllStudentExams();
     },
     methods: {
-      getAllParents() {
+      getAllStudentExams() {
         let vm = this;
         vm.$root.$children[0].$refs.loader.show_loader = true;
         try {
-          window.serviceAPI.API().get(window.serviceAPI.ALL_PARENTS)
+          window.serviceAPI.API().get(window.serviceAPI.ALL_STUDENT_EXAM)
             .then((response) => {
               vm.$root.$children[0].$refs.loader.show_loader = false;
               response = response.data;
               console.log(response)
               if (response.status) {
-                vm.parents = response.data.parents.data;
+                vm.exams = response.data.exams.data;
                 return
               }
-              vm.parents = [];
+              vm.exams = [];
             }).catch((error) => {
             vm.$root.$children[0].$refs.loader.show_loader = false;
             window.helper.handleError(error, vm);
-            vm.parents = [];
+            vm.exams = [];
           });
         } catch (e) {
           console.log(e)

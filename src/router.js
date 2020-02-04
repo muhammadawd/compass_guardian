@@ -57,6 +57,24 @@ const router = new Router({
           },
           component: () => import('./views/Students/Exam/Index.vue')
         },
+        {
+          path: '/all_student_exam_result',
+          name: 'all_student_exam_result',
+          meta: {
+            requiresAuth: true,
+            actorType: 'student',
+          },
+          component: () => import('./views/Students/AllExamsNatega/Index.vue')
+        },
+        {
+          path: '/student_exam_result/:id',
+          name: 'student_exam_result',
+          meta: {
+            requiresAuth: true,
+            actorType: 'student',
+          },
+          component: () => import('./views/Students/showExamResult/Index.vue')
+        },
       ],
     },
 
@@ -112,6 +130,24 @@ const router = new Router({
         // =============================================================================
         //  TeacherExams Routes
         // =============================================================================
+        {
+          path: '/teacher_all_exams',
+          name: 'teacher_all_exams',
+          meta: {
+            requiresAuth: true,
+            actorType: 'teacher',
+          },
+          component: () => import('./views/TeacherExams/AllExams/Index.vue')
+        },
+        {
+          path: '/correct_teacher_exams/:serial',
+          name: 'correct_teacher_exams',
+          meta: {
+            requiresAuth: true,
+            actorType: 'teacher',
+          },
+          component: () => import('./views/TeacherExams/CorrectExam/Index.vue')
+        },
         {
           path: '/teacher_exams',
           name: 'teacher_exams',
@@ -409,6 +445,15 @@ const router = new Router({
             actorType: 'admin'
           },
           component: () => import('./views/Supervisor/All/Index.vue')
+        },
+        {
+          path: '/supervisor_students/:id',
+          name: 'supervisor_students',
+          meta: {
+            requiresAuth: true,
+            actorType: 'admin'
+          },
+          component: () => import('./views/Supervisor/AllStudents/Index.vue')
         },
         {
           path: '/supervisor/add',

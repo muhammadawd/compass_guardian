@@ -52,7 +52,7 @@
               <vs-th>{{$ml.get('bus_number')}}</vs-th>
               <vs-th>{{$ml.get('ssn')}}</vs-th>
               <vs-th>{{$ml.get('phone')}}</vs-th>
-              <vs-th></vs-th>
+              <vs-th width="250px"></vs-th>
             </template>
 
             <template slot-scope="{data}">
@@ -77,6 +77,10 @@
                     <vs-button @click="deleteSingle(tr.id)" type="line"
                                color="danger">
                       <i class="fa fa-times"></i>
+                    </vs-button>
+                    <vs-button @click="$router.push({name:'supervisor_students',params:{id:tr.id}})" type="line" class="text-bold"
+                               color="warning">
+                      {{$ml.get('attach_students')}}
                     </vs-button>
                     <vs-button @click="$router.push({name:'supervisor_edit',params:{id:tr.id}})" type="line"
                                color="primary">

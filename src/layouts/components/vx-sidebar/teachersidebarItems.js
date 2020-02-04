@@ -41,4 +41,10 @@ export default [
       },
     ]
   },
+  {
+    url: '/teacher_all_exams',
+    name: "teacher_all_exams",
+    icon: "SunsetIcon",
+    i18n: "",
+  },
 ]
