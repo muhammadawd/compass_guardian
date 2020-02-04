@@ -2,187 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55110bd7-8ede-484f-93cc-6f3454507933" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/views/Students/AllExamsNatega/Index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/Students/showExamResult/Index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/Supervisor/AllStudents/Index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/TeacherExams/AllExams/Index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/TeacherExams/CorrectExam/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/css/chunk-032971de.1a2b623b.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/css/chunk-08a269fc.a44faf31.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/dist/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/img/logo.d59ee83e.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/app.eda4f81b.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/app.eda4f81b.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-032971de.4f70f89a.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-032971de.4f70f89a.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-03c26bdf.bdeb4120.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-03c26bdf.bdeb4120.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-05e12927.3acc7111.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-05e12927.3acc7111.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-08a269fc.6873e167.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-08a269fc.6873e167.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-0f05146c.885bd4f8.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-0f05146c.885bd4f8.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-11b03c7f.b96be6bd.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-11b03c7f.b96be6bd.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-16175f64.0cf043ff.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-16175f64.0cf043ff.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-1c8bbc39.6cd6c29a.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-1c8bbc39.6cd6c29a.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-1f73a26d.80064367.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-1f73a26d.80064367.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-20a270ce.638271e9.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-20a270ce.638271e9.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-23d763d8.f0e886f8.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-23d763d8.f0e886f8.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0a467a.74dff0ee.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0a467a.74dff0ee.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0ac950.9e4f9e30.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0ac950.9e4f9e30.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0ac97d.b8ba4619.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0ac97d.b8ba4619.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0ae96b.f86f3baf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0ae96b.f86f3baf.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0ae974.f87d6825.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0ae974.f87d6825.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0aeaf5.cd262ffd.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0aeaf5.cd262ffd.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0af45b.8929420b.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0af45b.8929420b.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0b9f0a.d6796a4c.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0b9f0a.d6796a4c.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0bd7f0.642958c4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0bd7f0.642958c4.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0be6f9.e58fadce.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0be6f9.e58fadce.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0cbe85.f244ee50.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0cbe85.f244ee50.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0cc7c8.73c4cca8.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0cc7c8.73c4cca8.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0d32d3.d14b8e3b.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0d32d3.d14b8e3b.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0d7808.fb610d66.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0d7808.fb610d66.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0da914.872d5f47.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0da914.872d5f47.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0db266.595fc2aa.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0db266.595fc2aa.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0de547.b273ee39.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0de547.b273ee39.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0e1a20.1706da4a.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0e1a20.1706da4a.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d20863b.9c73d4bb.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d20863b.9c73d4bb.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d208ab8.91af43cb.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d208ab8.91af43cb.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d209207.d0a9fbcc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d209207.d0a9fbcc.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d20f179.3f03f373.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d20f179.3f03f373.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d21443b.0afc9ddb.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d21443b.0afc9ddb.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d216799.659db05f.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d216799.659db05f.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d216bd7.bcc5173b.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d216bd7.bcc5173b.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d21a3d2.6fcbd7e2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d21a3d2.6fcbd7e2.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d2262cc.67160df7.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d2262cc.67160df7.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d22c341.39026832.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d22c341.39026832.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-334f06cf.6fe46552.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-334f06cf.6fe46552.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-3bc23898.038fbaa6.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-3bc23898.038fbaa6.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-4e64ddb6.4804d8b2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-4e64ddb6.4804d8b2.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-52dd1ecf.6d04a118.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-52dd1ecf.6d04a118.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-54341077.23b4b42c.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-54341077.23b4b42c.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-634c71cd.f32eb680.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-634c71cd.f32eb680.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-7ad3adf8.20c2fcee.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-7ad3adf8.20c2fcee.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-9710884a.0068c511.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-9710884a.0068c511.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-c71217f8.0c7b8f8a.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-c71217f8.0c7b8f8a.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-c9608bd0.4ca11da0.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-c9608bd0.4ca11da0.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-d0499a22.f6dbb7ce.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-d0499a22.f6dbb7ce.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-dcc648ec.27035097.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-dcc648ec.27035097.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-f7bd0156.9fefc1f8.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-f7bd0156.9fefc1f8.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-vendors.d22615e8.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-vendors.d22615e8.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/dist/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/update.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/05823cb71324dd7e40813cb3c2a38c3e.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/05823cb71324dd7e40813cb3c2a38c3e.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/0e0576f2452e08f11ecab14c69cff26d.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/0e0576f2452e08f11ecab14c69cff26d.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/0f0d9fd3f8cf04d1bb15b8f14bab2774.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/0f0d9fd3f8cf04d1bb15b8f14bab2774.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/17ef3276c057802a1f61c0a5252769dc.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/17ef3276c057802a1f61c0a5252769dc.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/1be9cf18831be308ae95bdc967b5a3b4.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/1be9cf18831be308ae95bdc967b5a3b4.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/27e6c958cea197de1039b70f5740fb90.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/27e6c958cea197de1039b70f5740fb90.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/27ebfad66d0302583e416f8ed8584b84.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/27ebfad66d0302583e416f8ed8584b84.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/28cc427e8e7e3b6f901aaaefb0ee1064.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/28cc427e8e7e3b6f901aaaefb0ee1064.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/2db3dd69c6ae60854e264fb55c06d532.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/2db3dd69c6ae60854e264fb55c06d532.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/33119a3c4b3576dd62d8465a53bd8f4c.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/33119a3c4b3576dd62d8465a53bd8f4c.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/46d84820ceaca0969a0a781b5ae678d7.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/46d84820ceaca0969a0a781b5ae678d7.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/4b10f4d38921f3b89b82621fa6f87bf6.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/4b10f4d38921f3b89b82621fa6f87bf6.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/4ceda1a11c3a6bd52c04c9e8b33b9197.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/4ceda1a11c3a6bd52c04c9e8b33b9197.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/55e0a5dbe989efdeeb4bafc18bfa3ed2.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/55e0a5dbe989efdeeb4bafc18bfa3ed2.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/5dc6ed499bec8b7bb5271efc72ecbdde.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/5dc6ed499bec8b7bb5271efc72ecbdde.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/5e3b978f902aefa51d0c4a132e446a0d.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/5e3b978f902aefa51d0c4a132e446a0d.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/5f6da82a19c3fc48c38d2ae5817dde43.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/5f6da82a19c3fc48c38d2ae5817dde43.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/5f84b78041d9ffa77ac0057bfc093476.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/5f84b78041d9ffa77ac0057bfc093476.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/61d5c6d4b1f861d16977126a412ca44b.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/61d5c6d4b1f861d16977126a412ca44b.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/68811a2f3aef03f3b7b3fe5481871a6c.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/68811a2f3aef03f3b7b3fe5481871a6c.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/6aad2da997f11070d824022f6944208c.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/6aad2da997f11070d824022f6944208c.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/7ea682ce66b152fe0535f6a291eb3143.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/7ea682ce66b152fe0535f6a291eb3143.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/8a3f4b14013980407502cd03a96ea781.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/8a3f4b14013980407502cd03a96ea781.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/8b4ec8e645d0d79b752c24e82834b560.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/8b4ec8e645d0d79b752c24e82834b560.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/8dd85dc78da20f32bd656d645a09c6e2.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/8dd85dc78da20f32bd656d645a09c6e2.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/964269a284948002060d2e17f9085b8f.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/964269a284948002060d2e17f9085b8f.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/9b43cb689b2a882c2a783fed73f74026.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/9b43cb689b2a882c2a783fed73f74026.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/9e1f41bdd23e7dc8b81f28ef5189d207.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/9e1f41bdd23e7dc8b81f28ef5189d207.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/a10f3b1f392ef716c86a7923f19a77a7.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/a10f3b1f392ef716c86a7923f19a77a7.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/abf50848a965e42edde049d4c1f7ff7e.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/abf50848a965e42edde049d4c1f7ff7e.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/ade69b626cbc0a87647ebb02c36779af.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/ade69b626cbc0a87647ebb02c36779af.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/af239e704793293b3c6b3e1bce6f13f8.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/af239e704793293b3c6b3e1bce6f13f8.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/b938c31f06a236f5d07e3aa9a4120285.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/b938c31f06a236f5d07e3aa9a4120285.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/bff835267bd69a8eb7fbed6f6da42244.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/bff835267bd69a8eb7fbed6f6da42244.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/c247b4ebb4de36b8a80b3196aac435d6.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/c247b4ebb4de36b8a80b3196aac435d6.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/c35fac5731fc84ad93fcf097cc180c6b.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/c35fac5731fc84ad93fcf097cc180c6b.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/c78c8a76770b7ac72211374dfcd589aa.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/c78c8a76770b7ac72211374dfcd589aa.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/daca7b18caabd64df105d658197b6d20.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/daca7b18caabd64df105d658197b6d20.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/e3bd7c06a42e77591e120bb4a814266d.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/e3bd7c06a42e77591e120bb4a814266d.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/eb85d4681af3094df268ecf0c7610dd7.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/eb85d4681af3094df268ecf0c7610dd7.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/facbd59af95d448c987f42f959168084.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/facbd59af95d448c987f42f959168084.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/fee6e6dea7e3840557b282d049b3f106.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/fee6e6dea7e3840557b282d049b3f106.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/scss/vuesax/components/vxSidebar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/vuesax/components/vxSidebar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bootstrap/helper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/bootstrap/helper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bootstrap/ml.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/bootstrap/ml.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bootstrap/serviceAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/bootstrap/serviceAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/components/vx-sidebar/studnetsidebarItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/components/vx-sidebar/studnetsidebarItems.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/components/vx-sidebar/teachersidebarItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/components/vx-sidebar/teachersidebarItems.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Notifications/Teachers/Add.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Notifications/Teachers/Add.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/QuestionsBank/Add/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/QuestionsBank/Add/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/QuestionsBank/Edit/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/QuestionsBank/Edit/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Students/AllExams/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Students/AllExams/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/2b24dcdd9d766cefd46d915782d51c2a.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/2b24dcdd9d766cefd46d915782d51c2a.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/42cc24e774ad326f85d6aa9d8ec4645a.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/42cc24e774ad326f85d6aa9d8ec4645a.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/5094b6d32e8ae43baa82a27568705f42.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/5094b6d32e8ae43baa82a27568705f42.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/9b3c1acc55c901d656691fdc75e8f228.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/9b3c1acc55c901d656691fdc75e8f228.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/da6d95175aa638ad6d6910f734ff652f.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/da6d95175aa638ad6d6910f734ff652f.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/css/rtl.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/css/rtl.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/Students/Exam/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Students/Exam/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Students/showExam/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Students/showExam/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/StudentsLeave/Add/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/StudentsLeave/Add/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/StudentsLeave/Edit/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/StudentsLeave/Edit/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Supervisor/All/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Supervisor/All/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/TeacherExams/Add/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/TeacherExams/Add/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/TeacherExams/Edit/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/TeacherExams/Edit/Index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue.config.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -240,20 +67,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vue.config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="1" column="48" selection-start-line="1" selection-start-column="48" selection-end-line="1" selection-end-column="48" />
+            <state relative-caret-position="63">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/views/Students/Exam/Index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="323" column="3" selection-start-line="323" selection-start-column="3" selection-end-line="323" selection-end-column="3" />
+            <state relative-caret-position="168">
+              <caret line="8" column="67" selection-start-line="8" selection-start-column="67" selection-end-line="8" selection-end-column="67" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -280,7 +107,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>find</find>
       <find>magazines</find>
       <find>book</find>
       <find>subject_id</find>
@@ -310,6 +136,7 @@
       <find>question</find>
       <find>super</find>
       <find>sup</find>
+      <find>.vs-avatar--text</find>
     </findStrings>
     <replaceStrings>
       <replace>class_rooms</replace>
@@ -342,7 +169,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/views/pages/LoginTeacher.vue" />
         <option value="$PROJECT_DIR$/src/views/HomeTeacher.vue" />
         <option value="$PROJECT_DIR$/src/views/Home.vue" />
         <option value="$PROJECT_DIR$/themeConfig.js" />
@@ -391,8 +217,9 @@
         <option value="$PROJECT_DIR$/src/bootstrap/ml.js" />
         <option value="$PROJECT_DIR$/src/views/QuestionsBank/Add/Index.vue" />
         <option value="$PROJECT_DIR$/src/views/QuestionsBank/Edit/Index.vue" />
-        <option value="$PROJECT_DIR$/src/views/Students/Exam/Index.vue" />
         <option value="$PROJECT_DIR$/vue.config.js" />
+        <option value="$PROJECT_DIR$/src/assets/css/rtl.css" />
+        <option value="$PROJECT_DIR$/src/views/Students/Exam/Index.vue" />
       </list>
     </option>
   </component>
@@ -587,12 +414,12 @@
       <workItem from="1580366069817" duration="26277000" />
       <workItem from="1580623384581" duration="26448000" />
       <workItem from="1580711574343" duration="26534000" />
-      <workItem from="1580796151171" duration="22267000" />
+      <workItem from="1580796151171" duration="22612000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="245254000" />
+    <option name="totallyTimeSpent" value="245599000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1057" extended-state="6" />
@@ -4254,22 +4081,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/Students/Exam/Index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="323" column="3" selection-start-line="323" selection-start-column="3" selection-end-line="323" selection-end-column="3" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#vx-card#0;n#div#1;n#div#1;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#vx-card#1;n#div#1;n#div#1;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#vs-textarea#0;n#div#0;n#div#2;n#div#0;n#div#0;n#vx-card#1;n#div#1;n#div#1;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/router.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="461">
@@ -4291,8 +4102,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vue.config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="48" selection-start-line="1" selection-start-column="48" selection-end-line="1" selection-end-column="48" />
+        <state relative-caret-position="63">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/Students/Exam/Index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="67" selection-start-line="8" selection-start-column="67" selection-end-line="8" selection-end-column="67" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#vx-card#0;n#div#1;n#div#1;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#vx-card#1;n#div#1;n#div#1;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#vs-textarea#0;n#div#0;n#div#2;n#div#0;n#div#0;n#vx-card#1;n#div#1;n#div#1;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

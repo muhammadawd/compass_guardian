@@ -3,11 +3,13 @@
     <div class="vx-row" >
       <div class="vx-col w-full md:w-1/1 mb-base">
         <vx-card class="text-right">
-          <vs-alert class="mb-4" color="dark">
-            <span class="text-bold">{{$ml.get('student_exam')}}</span>
-          </vs-alert>
           <div class="vx-row"
                style="background: linear-gradient(to left, rgb(15, 32, 39), rgb(32, 58, 67), rgb(44, 83, 100));padding: 10px 4px;border-radius: 10px 10px 0">
+            <div class="vx-col w-full mb-base ">
+              <vs-alert class="mb-4 m-0" style="background: #274b59;color: #fff">
+                <span class="text-bold">{{$ml.get('student_exam')}}</span>
+              </vs-alert>
+            </div>
             <div class="vx-col md:w-1/4 mb-base ">
               <h3 v-if="dataModel.exam" class="text-white text-bold">{{$ml.get('exam_period')}} : <span
                 class="text-primary text-bold">{{dataModel.exam.duration}}</span>
