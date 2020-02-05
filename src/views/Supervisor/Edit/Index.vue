@@ -9,11 +9,17 @@
           </vs-alert>
           <div class="vx-row">
             <div class="vx-col md:w-1/4 mb-base">
-              <vs-input class="w-full" :label="$ml.get('name')" v-model="dataModel.name"/>
+              <label class="vs-input--label">{{$ml.get('name')}}
+                <span class="star">*</span>
+              </label>
+              <vs-input class="w-full" v-model="dataModel.name"/>
               <span class="span-text-validation text-danger text-bold" id="name_error"></span>
             </div>
             <div class="vx-col md:w-1/4 mb-base">
-              <vs-input class="w-full" :label="$ml.get('username')" v-model="dataModel.username"/>
+              <label class="vs-input--label">{{$ml.get('username')}}
+                <span class="star">*</span>
+              </label>
+              <vs-input class="w-full" v-model="dataModel.username"/>
               <span class="span-text-validation text-danger text-bold" id="username_error"></span>
             </div>
             <div class="vx-col md:w-1/4 mb-base">
@@ -21,7 +27,10 @@
               <span class="span-text-validation text-danger text-bold" id="email_error"></span>
             </div>
             <div class="vx-col md:w-1/4 mb-base">
-              <vs-input class="w-full" :label="$ml.get('password')" type="password" v-model="dataModel.password"/>
+              <label class="vs-input--label">{{$ml.get('password')}}
+                <span class="star">*</span>
+              </label>
+              <vs-input class="w-full" type="password" v-model="dataModel.password"/>
               <span class="span-text-validation text-danger text-bold" id="password_error"></span>
             </div>
           </div>
@@ -31,7 +40,10 @@
               <span class="span-text-validation text-danger text-bold" id="age_error"></span>
             </div>
             <div class="vx-col md:w-1/4 mb-base">
-              <vs-input class="w-full" :label="$ml.get('ssn')" v-model="dataModel.ssn"/>
+              <label class="vs-input--label">{{$ml.get('ssn')}}
+                <span class="star">*</span>
+              </label>
+              <vs-input class="w-full" v-model="dataModel.ssn"/>
               <span class="span-text-validation text-danger text-bold" id="ssn_error"></span>
             </div>
             <div class="vx-col md:w-1/4 mb-base">
@@ -39,7 +51,7 @@
               <span class="span-text-validation text-danger text-bold" id="phone_error"></span>
             </div>
             <div class="vx-col md:w-1/4 mb-base">
-              <label class="vs-input--label">{{$ml.get('gender')}}</label>
+              <label class="vs-input--label">{{$ml.get('gender')}} <span class="star">*</span></label>
               <vs-select class="w-full" v-model="dataModel.gender">
                 <vs-select-item value="male" :text="$ml.get('male')"></vs-select-item>
                 <vs-select-item value="female" :text="$ml.get('female')"></vs-select-item>
@@ -49,19 +61,31 @@
           </div>
           <div class="vx-row">
             <div class="vx-col md:w-1/4 mb-base">
-              <vs-input class="w-full" :label="$ml.get('qualification')" v-model="dataModel.qualification"/>
+              <label class="vs-input--label">{{$ml.get('qualification')}}
+                <span class="star">*</span>
+              </label>
+              <vs-input class="w-full" v-model="dataModel.qualification"/>
               <span class="span-text-validation text-danger text-bold" id="qualification_error"></span>
             </div>
             <div class="vx-col md:w-1/4 mb-base">
-              <vs-input class="w-full" :label="$ml.get('bus_number')" v-model="dataModel.bus_number"/>
+              <label class="vs-input--label">{{$ml.get('bus_number')}}
+                <span class="star">*</span>
+              </label>
+              <vs-input class="w-full" v-model="dataModel.bus_number"/>
               <span class="span-text-validation text-danger text-bold" id="bus_number_error"></span>
             </div>
             <div class="vx-col md:w-1/4 mb-base">
-              <vs-input class="w-full" :label="$ml.get('student_number')" v-model="dataModel.student_number"/>
+              <label class="vs-input--label">{{$ml.get('student_number')}}
+                <span class="star">*</span>
+              </label>
+              <vs-input class="w-full" v-model="dataModel.student_number"/>
               <span class="span-text-validation text-danger text-bold" id="student_number_error"></span>
             </div>
             <div class="vx-col md:w-1/4 mb-base">
-              <vs-input class="w-full" :label="$ml.get('service_location')" v-model="dataModel.service_location"/>
+              <label class="vs-input--label">{{$ml.get('service_location')}}
+                <span class="star">*</span>
+              </label>
+              <vs-input class="w-full" v-model="dataModel.service_location"/>
               <span class="span-text-validation text-danger text-bold" id="service_location_error"></span>
             </div>
           </div>

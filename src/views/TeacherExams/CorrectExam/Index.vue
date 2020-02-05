@@ -14,7 +14,7 @@
 
           <div class="vx-row">
             <div class="vx-col w-full mb-base" v-for="(question , key) in questions" :key="key">
-              <h3 class="text-bold">{{question.question.name}}</h3>
+              <h3 class="text-bold">{{question.question.name}} <span class="star">*</span></h3>
               <vs-input type="number" :max="question.exam_question.degree" min="0" v-model="questions[key].degree"
                         :label="$ml.get('degree') + ` (${question.exam_question.degree})`" class="mb-3"/>
               <span class="span-text-validation text-danger text-bold" :id="`questions.${key}.degree_error`"></span>

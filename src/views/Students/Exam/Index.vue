@@ -1,13 +1,15 @@
 <template>
   <div id="knowledge-base-page">
-    <div class="vx-row" >
+    <div class="vx-row">
       <div class="vx-col w-full md:w-1/1 mb-base">
         <vx-card class="text-right">
           <div class="vx-row"
                style="background: linear-gradient(to left, rgb(15, 32, 39), rgb(32, 58, 67), rgb(44, 83, 100));padding: 10px 4px;border-radius: 10px 10px 0">
             <div class="vx-col w-full mb-base ">
               <vs-alert class="mb-4 m-0" style="background: #274b59;color: #fff">
-                <span class="text-bold">{{$ml.get('student_exam')}}</span>
+                <!--                <span class="text-bold">{{$ml.get('student_exam')}}</span>-->
+                <span v-if="dataModel.exam"
+                      class="text-bold">{{dataModel.exam.name}} / {{dataModel.exam.teacher.name}}</span>
               </vs-alert>
             </div>
             <div class="vx-col md:w-1/4 mb-base ">
@@ -249,7 +251,9 @@
           window.helper.showMessage('error', vm);
           clearInterval(interval)
           vm.$router.push({name: 'all_student_exam'})
-          location.reload()
+          setTimeout(() => {
+            location.reload()
+          }, 1000)
         }
       }, 1000)
     },
@@ -320,8 +324,8 @@
         // if (!current_question.question.has_answered) {
         //   window.helper.showMessage('danger', vm, vm.$ml.get('should_ans'));
         // } else {
-          let question_length = vm.dataModel.questions.length - 1;
-          if (question_length > vm.current_question_index) vm.current_question_index++;
+        let question_length = vm.dataModel.questions.length - 1;
+        if (question_length > vm.current_question_index) vm.current_question_index++;
         // }
         vm.closeLoadingContained("#button-with-loading2 > .con-vs-loading")
       },
@@ -356,11 +360,11 @@
         // vm.openLoadingContained("#button-with-loading3")
         let request_data = vm.dataModel;
         let data_to_send = vm.prepareData(request_data);
-        console.log(vm.dataModel.questions.length , data_to_send.questions.length)
+        console.log(vm.dataModel.questions.length, data_to_send.questions.length)
         if (vm.dataModel.questions.length != data_to_send.questions.length) {
           window.helper.showMessage('danger', vm, 'عليك الاجابة على السؤال اولا');
         }
-        return;
+        // return;
         $('.span-text-validation').text('');
         try {
           window.serviceAPI.API().post(window.serviceAPI.UPDATE_STUDENT_EXAM, data_to_send)

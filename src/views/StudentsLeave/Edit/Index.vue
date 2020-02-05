@@ -9,7 +9,7 @@
           </vs-alert>
           <div class="vx-row">
             <div class="vx-col md:w-1/3 mb-base">
-              <label class="vs-input--label">{{$ml.get('students')}}</label>
+              <label class="vs-input--label">{{$ml.get('students')}} <span class="star">*</span></label>
               <multiselect v-model="selectedStudent" :options="students" :multiple="false" :close-on-select="true" open-direction="bottom"
                            :clear-on-select="true" :preserve-search="true" :placeholder="$ml.get('search')"
                            :custom-label="customLabel"
@@ -28,7 +28,7 @@
             </div>
             <div class="vx-col md:w-1/5 mb-base">
 
-              <label class="vs-input--label">{{$ml.get('type')}}</label>
+              <label class="vs-input--label">{{$ml.get('type')}} <span class="star">*</span></label>
               <vs-select  class="w-full"  v-model="dataModel.type">
                 <vs-select-item value="leave" :text="$ml.get('leave')"></vs-select-item>
                 <vs-select-item value="vacation" :text="$ml.get('vacation')"></vs-select-item>
@@ -38,7 +38,7 @@
           </div>
           <div class="vx-row">
             <div class="vx-col md:w-1/4 mb-base">
-              <label class="vs-input--label">{{$ml.get('date')}}</label>
+              <label class="vs-input--label">{{$ml.get('date')}} <span class="star">*</span></label>
               <flat-pickr class="w-full" :config="timeConfig" :label="$ml.get('date')"
                           v-model="dataModel.date"></flat-pickr>
               <span class="span-text-validation text-danger text-bold" id="date_error"></span>

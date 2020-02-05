@@ -19,23 +19,37 @@
           </vs-alert>
           <div class="vx-row">
             <div class="vx-col md:w-1/3 mb-base">
-              <vs-input class="w-full" :label="$ml.get('name')" v-model="dataModel.name"/>
+              <label class="vs-input--label">{{$ml.get('name')}}
+                <span class="star">*</span>
+              </label>
+              <vs-input class="w-full" v-model="dataModel.name"/>
               <span class="span-text-validation text-danger text-bold" id="name_error"></span>
             </div>
             <div class="vx-col md:w-1/6 mb-base">
-              <vs-input class="w-full" :label="$ml.get('age')" v-model="dataModel.age"/>
+              <label class="vs-input--label">{{$ml.get('age')}}
+                <span class="star">*</span>
+              </label>
+              <vs-input class="w-full" v-model="dataModel.age"/>
               <span class="span-text-validation text-danger text-bold" id="age_error"></span>
             </div>
             <div class="vx-col md:w-1/4 mb-base">
-              <vs-input class="w-full" :label="$ml.get('username')" v-model="dataModel.username"/>
+              <label class="vs-input--label">{{$ml.get('username')}}
+                <span class="star">*</span>
+              </label>
+              <vs-input class="w-full" v-model="dataModel.username"/>
               <span class="span-text-validation text-danger text-bold" id="username_error"></span>
             </div>
             <div class="vx-col md:w-1/4 mb-base">
-              <vs-input class="w-full" :label="$ml.get('password')" type="password" v-model="dataModel.password"/>
+              <label class="vs-input--label">{{$ml.get('password')}}
+                <span class="star">*</span>
+              </label>
+              <vs-input class="w-full" type="password" v-model="dataModel.password"/>
               <span class="span-text-validation text-danger text-bold" id="password_error"></span>
             </div>
             <div class="vx-col md:w-1/6 mb-base">
-              <label class="vs-input--label">{{$ml.get('gender')}}</label>
+              <label class="vs-input--label">{{$ml.get('gender')}}
+                <span class="star">*</span>
+              </label>
               <vs-select class="w-full" v-model="dataModel.gender">
                 <vs-select-item value="male" :text="$ml.get('male')"></vs-select-item>
                 <vs-select-item value="female" :text="$ml.get('female')"></vs-select-item>
@@ -58,7 +72,9 @@
 
           <div class="vx-row">
             <div class="vx-col md:w-1/3 mb-base">
-              <label class="vs-input--label">{{$ml.get('parents')}}</label>
+              <label class="vs-input--label">{{$ml.get('parents')}}
+                <span class="star">*</span>
+              </label>
               <multiselect v-model="selectedParent" :options="parents" :multiple="false" :close-on-select="true"
                            :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')"
                            :custom-label="customParentLabel"
@@ -67,7 +83,9 @@
               <span class="span-text-validation text-danger text-bold" id="parent_id_error"></span>
             </div>
             <div class="vx-col md:w-1/3 mb-base">
-              <label class="vs-input--label">{{$ml.get('stages')}}</label>
+              <label class="vs-input--label">{{$ml.get('stages')}}
+                <span class="star">*</span>
+              </label>
               <multiselect v-model="selectedStage" :options="stages" :multiple="false" :close-on-select="true"
                            :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')"
                            :custom-label="customStageLabel"
@@ -76,7 +94,9 @@
               <span class="span-text-validation text-danger text-bold" id="stage_id_error"></span>
             </div>
             <div class="vx-col md:w-1/3 mb-base">
-              <label class="vs-input--label">{{$ml.get('status')}}</label>
+              <label class="vs-input--label">{{$ml.get('status')}}
+                <span class="star">*</span>
+              </label>
               <multiselect v-model="selectedStatus" :options="status" :multiple="false" :close-on-select="true"
                            :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')"
                            :custom-label="customStageLabel"
@@ -206,7 +226,7 @@
         let vm = this;
         vm.$root.$children[0].$refs.loader.show_loader = true;
         try {
-          window.serviceAPI.API().get(window.serviceAPI.ALL_STATUS +`?types[]=student`)
+          window.serviceAPI.API().get(window.serviceAPI.ALL_STATUS + `?types[]=student`)
             .then((response) => {
               vm.$root.$children[0].$refs.loader.show_loader = false;
               response = response.data;

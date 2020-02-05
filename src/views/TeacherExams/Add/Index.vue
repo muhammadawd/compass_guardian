@@ -9,7 +9,9 @@
           </vs-alert>
           <div class="vx-row">
             <div class="vx-col md:w-1/3 mb-base">
-              <label class="vs-input--label">{{$ml.get('subjects')}}</label>
+               <label class="vs-input--label">{{$ml.get('subjects')}}
+                <span class="star">*</span>
+              </label>
               <multiselect v-model="selectedSubjects" :options="subjects" :multiple="false" :close-on-select="true"
                            :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')"
                            :custom-label="customLabel"
@@ -18,7 +20,9 @@
               <span class="span-text-validation text-danger text-bold" id="subject_id_error"></span>
             </div>
             <div class="vx-col md:w-1/3 mb-base">
-              <label class="vs-input--label">{{$ml.get('stages')}}</label>
+              <label class="vs-input--label">{{$ml.get('stages')}}
+                <span class="star">*</span>
+              </label>
               <multiselect v-model="selectedStage" :options="stages" :multiple="false" :close-on-select="true"
                            open-direction="bottom" @select="getQuestions()"
                            :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')"
@@ -28,7 +32,9 @@
               <span class="span-text-validation text-danger text-bold" id="stage_id_error"></span>
             </div>
             <div class="vx-col md:w-1/3 mb-base">
-              <label class="vs-input--label">{{$ml.get('class_room')}}</label>
+              <label class="vs-input--label">{{$ml.get('class_room')}}
+                <span class="star">*</span>
+              </label>
               <multiselect v-model="selectedClassRooms" :options="classRooms" :multiple="true"
                            open-direction="bottom"
                            :close-on-select="true"
@@ -36,25 +42,33 @@
                            :custom-label="customStageLabel"
                            track-by="id" :preselect-first="true">
               </multiselect>
-              <span class="span-text-validation text-danger text-bold" id="class_room_id_error"></span>
-              <span class="span-text-validation text-danger text-bold" id="class_room_ids_error"></span>
+              <span class="span-text-validation text-danger text-bold" id="classroom_id_error"></span>
+              <span class="span-text-validation text-danger text-bold" id="classroom_ids_error"></span>
             </div>
             <div class="vx-col md:w-1/6 mb-base">
-              <vs-input class="w-full" :label="$ml.get('name')" v-model="dataModel.name"/>
+              <label class="vs-input--label">{{$ml.get('name')}}
+                <span class="star">*</span>
+              </label>
+              <vs-input class="w-full" v-model="dataModel.name"/>
               <span class="span-text-validation text-danger text-bold" id="name_error"></span>
             </div>
             <div class="vx-col md:w-1/6 mb-base">
-              <vs-input class="w-full" :label="$ml.get('exam_period')" v-model="dataModel.duration"/>
+              <label class="vs-input--label">{{$ml.get('exam_period')}}
+                <span class="star">*</span>
+              </label>
+              <vs-input class="w-full"   v-model="dataModel.duration"/>
               <span class="span-text-validation text-danger text-bold" id="duration_error"></span>
             </div>
             <div class="vx-col md:w-1/6 mb-base">
-              <label class="vs-input--label">{{$ml.get('date')}}</label>
+              <label class="vs-input--label">{{$ml.get('date')}} <span class="star">*</span></label>
               <flat-pickr class="w-full" :config="timeConfig" :label="$ml.get('date')"
                           v-model="dataModel.date"></flat-pickr>
               <span class="span-text-validation text-danger text-bold" id="date_error"></span>
             </div>
             <div class="vx-col md:w-1/6 mb-base">
-              <label class="vs-input--label">{{$ml.get('status')}}</label>
+              <label class="vs-input--label">{{$ml.get('status')}}
+                <span class="star">*</span>
+              </label>
               <vs-select class="w-full" v-model="dataModel.status_id">
                 <vs-select-item v-for="(state,key) in status" :value="state.id" :key="key"
                                 :text="state.translated.title"></vs-select-item>
@@ -66,7 +80,10 @@
               <span class="span-text-validation text-danger text-bold" id="question_number_error"></span>
             </div>
             <div class="vx-col md:w-1/6 mb-base">
-              <vs-input class="w-full" :label="$ml.get('degree')" v-model="dataModel.degree"/>
+              <label class="vs-input--label">{{$ml.get('degree')}}
+                <span class="star">*</span>
+              </label>
+              <vs-input class="w-full" v-model="dataModel.degree"/>
               <span class="span-text-validation text-danger text-bold" id="degree_error"></span>
             </div>
             <div class="vx-col w-full mb-base">

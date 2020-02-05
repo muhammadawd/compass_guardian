@@ -60,7 +60,7 @@
               </div>
             </div>
             <div class="vx-col md:w-3/4  mb-base">
-              <label class="vs-input--label">{{$ml.get('notes')}}</label>
+              <label class="vs-input--label">{{$ml.get('notes')}} <span class="star">*</span></label>
               <vs-textarea v-model="dataModel.notes" rows="7"></vs-textarea>
               <span class="span-text-validation text-danger text-bold" id="notes_error"></span>
             </div>

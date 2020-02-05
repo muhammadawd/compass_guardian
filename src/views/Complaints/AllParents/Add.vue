@@ -21,7 +21,9 @@
           <div class="vx-row">
             <div class="vx-col md:w-1/6 mb-base">
 
-              <label class="vs-input--label">{{$ml.get('type')}}</label>
+              <label class="vs-input--label">{{$ml.get('type')}}
+                <span class="star">*</span>
+              </label>
               <vs-select class="w-full" v-model="dataModel.type">
                 <vs-select-item value="complaint" :text="$ml.get('complaint')"></vs-select-item>
                 <vs-select-item value="proposal" :text="$ml.get('proposal')"></vs-select-item>
@@ -39,7 +41,9 @@
               <span class="span-text-validation text-danger text-bold" id="teacher_id_error"></span>
             </div>
             <div class="vx-col md:w-1/4 mb-base">
-              <label class="vs-input--label">{{$ml.get('parents')}}</label>
+              <label class="vs-input--label">{{$ml.get('parents')}}
+                <span class="star">*</span>
+              </label>
               <multiselect v-model="selectedParent" :options="parents" :multiple="false" :close-on-select="true" open-direction="bottom"
                            :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')"
                            :custom-label="customParentLabel"
@@ -56,7 +60,9 @@
           </div>
           <div class="vx-row">
             <div class="vx-col w-full  mb-base">
-              <label class="vs-input--label">{{$ml.get('text')}}</label>
+              <label class="vs-input--label">{{$ml.get('text')}}
+                <span class="star">*</span>
+              </label>
               <vs-textarea v-model="dataModel.text" rows="4"></vs-textarea>
               <span class="span-text-validation text-danger text-bold" id="text_error"></span>
             </div>

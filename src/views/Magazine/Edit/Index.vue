@@ -9,7 +9,10 @@
           </vs-alert>
           <div class="vx-row">
             <div class="vx-col md:w-1/3 mb-base">
-              <vs-input class="w-full" :label="$ml.get('title_ar')" v-model="dataModel.title_ar"/>
+              <label class="vs-input--label">{{$ml.get('title_ar')}}
+                <span class="star">*</span>
+              </label>
+              <vs-input class="w-full"  v-model="dataModel.title_ar"/>
               <span class="span-text-validation text-danger text-bold" id="title_ar_error"></span>
             </div>
             <div class="vx-col md:w-1/3 mb-base">
@@ -39,7 +42,7 @@
 
           <div class="vx-row">
             <div class="vx-col md:w-1/2 mb-base">
-              <label class="vs-input--label">{{$ml.get('description_ar')}}</label>
+              <label class="vs-input--label">{{$ml.get('description_ar')}} <span class="star">*</span></label>
               <vs-textarea class="w-full" v-model="dataModel.description_ar" rows="6"></vs-textarea>
               <span class="span-text-validation text-danger text-bold" id="description_ar_error"></span>
             </div>

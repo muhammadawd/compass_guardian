@@ -5,7 +5,23 @@
     <div class="vx-row">
       <div class="vx-col w-full">
         <vx-card class="text-center cursor-pointer">
-
+          <div class="vs-row">
+            <div class="vx-col md:w-1/4 text-right mb-base">
+              <label class="vs-input--label">{{$ml.get('subjects')}}
+                <span class="star">*</span>
+              </label>
+              <multiselect v-model="selectedSubjects" :options="subjects" :multiple="false" :close-on-select="true"
+                           :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')"
+                           :custom-label="customLabel"
+                           track-by="id" :preselect-first="true">
+              </multiselect>
+              <span class="span-text-validation text-danger text-bold" id="subject_id_error"></span>
+            </div>
+            <div class="vx-col w-full text-right mb-base">
+              <vs-button color="primary" type="border" icon="search" @click="getAllQuestions()"></vs-button>
+              <br>
+            </div>
+          </div>
           <vs-table ref="table" multiple v-model="selected" pagination :max-items="itemsPerPage" search
                     :data="questions">
 
@@ -48,9 +64,10 @@
 
             <template slot="thead">
               <vs-th>{{$ml.get('name')}}</vs-th>
+              <vs-th>{{$ml.get('subjects')}}</vs-th>
+              <vs-th>{{$ml.get('stages')}}</vs-th>
               <vs-th>{{$ml.get('question_degree')}}</vs-th>
               <vs-th>{{$ml.get('question_type')}}</vs-th>
-              <vs-th>{{$ml.get('phone')}}</vs-th>
               <vs-th></vs-th>
             </template>
 
@@ -58,6 +75,16 @@
               <vs-tr :data="tr" :key="indextr" v-for="(tr, indextr) in data">
                 <vs-td class="text-right">
                   {{tr.name}}
+                </vs-td>
+                <vs-td class="text-right">
+                  <slot v-if="tr.subject">
+                    {{tr.subject.translated.title}}
+                  </slot>
+                </vs-td>
+                <vs-td class="text-right">
+                  <slot v-if="tr.stage">
+                    {{tr.stage.translated.title}}
+                  </slot>
                 </vs-td>
                 <vs-td class="text-right">
                   {{tr.degree}}
@@ -90,12 +117,20 @@
 </template>
 
 <script>
+  import Multiselect from 'vue-multiselect'
+  import 'vue-multiselect/dist/vue-multiselect.min.css'
+
 
   export default {
+    components: {
+      Multiselect
+    },
     data() {
       return {
         questions: [],
         selected: [],
+        subjects: [],
+        selectedSubjects: null,
         itemsPerPage: 5,
         isMounted: false,
       }
@@ -103,6 +138,7 @@
     mounted() {
       this.isMounted = true;
       this.getAllQuestions()
+      this.findTeacher()
     },
     computed: {
       currentPage() {
@@ -113,11 +149,42 @@
       },
     },
     methods: {
+      customLabel({translated}) {
+        return `${translated.title}`
+      },
+      findTeacher() {
+
+        let vm = this;
+        let auth_data = JSON.parse(window.ls.getFromStorage('auth_data'));
+        let findId = auth_data.user.id;
+        vm.$root.$children[0].$refs.loader.show_loader = true;
+        try {
+          window.serviceAPI.API().get(window.serviceAPI.FIND_TEACHERS + `/${findId}`)
+            .then((response) => {
+              vm.$root.$children[0].$refs.loader.show_loader = false;
+              response = response.data;
+              if (response.status) {
+                vm.subjects = response.data.teacher.subjects
+                return
+              }
+            }).catch((error) => {
+            vm.$root.$children[0].$refs.loader.show_loader = false;
+            window.helper.handleError(error, vm);
+          });
+        } catch (e) {
+          console.log(e)
+        }
+      },
       getAllQuestions() {
         let vm = this;
         vm.$root.$children[0].$refs.loader.show_loader = true;
+        let subject_id = vm.selectedSubjects ? vm.selectedSubjects.id : '';
         try {
-          window.serviceAPI.API().get(window.serviceAPI.ALL_QUESTION)
+          window.serviceAPI.API().get(window.serviceAPI.ALL_QUESTION, {
+            params:{
+              subject_id: subject_id
+            },
+          })
             .then((response) => {
               vm.$root.$children[0].$refs.loader.show_loader = false;
               response = response.data;

@@ -9,8 +9,9 @@
           </vs-alert>
           <div class="vx-row">
             <div class="vx-col md:w-1/3 mb-base">
-              <label class="vs-input--label">{{$ml.get('teachers')}}</label>
-              <multiselect v-model="selectedTeacher" :options="teachers" :multiple="false" :close-on-select="true" open-direction="bottom"
+              <label class="vs-input--label">{{$ml.get('teachers')}} <span class="star">*</span></label>
+              <multiselect v-model="selectedTeacher" :options="teachers" :multiple="false" :close-on-select="true"
+                           open-direction="bottom"
                            :clear-on-select="true" :preserve-search="true" :placeholder="$ml.get('search')"
                            :custom-label="customLabel"
                            track-by="id" :preselect-first="true">
@@ -18,7 +19,7 @@
               <span class="span-text-validation text-danger text-bold" id="teacher_id_error"></span>
             </div>
             <div class="vx-col md:w-1/6 mb-base">
-              <label class="vs-input--label">{{$ml.get('type')}}</label>
+              <label class="vs-input--label">{{$ml.get('type')}} <span class="star">*</span></label>
               <vs-select class="w-full" v-model="dataModel.type">
                 <vs-select-item value="leave" :text="$ml.get('leave')"></vs-select-item>
                 <vs-select-item value="vacancy" :text="$ml.get('vacancy')"></vs-select-item>
@@ -26,7 +27,7 @@
               <span class="span-text-validation text-danger text-bold" id="type_error"></span>
             </div>
             <div class="vx-col md:w-1/6 mb-base">
-              <label class="vs-input--label">{{$ml.get('status')}}</label>
+              <label class="vs-input--label">{{$ml.get('status')}} <span class="star">*</span></label>
               <vs-select class="w-full" v-model="dataModel.status_id">
                 <vs-select-item v-for="(state,key) in status" :value="state.id" :key="key"
                                 :text="state.translated.title"></vs-select-item>
@@ -36,13 +37,13 @@
           </div>
           <div class="vx-row">
             <div class="vx-col md:w-1/4 mb-base">
-              <label class="vs-input--label">{{$ml.get('start_date')}}</label>
+              <label class="vs-input--label">{{$ml.get('start_date')}} <span class="star">*</span></label>
               <flat-pickr class="w-full" :config="timeConfig" :label="$ml.get('start_date')"
                           v-model="dataModel.start_date"></flat-pickr>
               <span class="span-text-validation text-danger text-bold" id="start_date_error"></span>
             </div>
             <div class="vx-col md:w-1/4 mb-base">
-              <label class="vs-input--label">{{$ml.get('end_date')}}</label>
+              <label class="vs-input--label">{{$ml.get('end_date')}} <span class="star">*</span></label>
               <flat-pickr class="w-full" :config="timeConfig" :label="$ml.get('end_date')"
                           v-model="dataModel.end_date"></flat-pickr>
               <span class="span-text-validation text-danger text-bold" id="end_date_error"></span>

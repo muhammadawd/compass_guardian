@@ -20,7 +20,10 @@
 
           <div class="vx-row">
             <div class="vx-col md:w-1/4 mb-base">
-              <vs-input class="w-full" :label="$ml.get('title_ar')" v-model="dataModel.title_ar"/>
+              <label class="vs-input--label">{{$ml.get('title_ar')}}
+                <span class="star">*</span>
+              </label>
+              <vs-input class="w-full" v-model="dataModel.title_ar"/>
               <span class="span-text-validation text-danger text-bold" id="title_ar_error"></span>
             </div>
             <div class="vx-col md:w-1/4 mb-base">
@@ -28,12 +31,12 @@
               <span class="span-text-validation text-danger text-bold" id="title_en_error"></span>
             </div>
             <div class="vx-col md:w-1/4 mb-base">
-              <label class="vs-input--label">{{$ml.get('start_date')}}</label>
+              <label class="vs-input--label">{{$ml.get('start_date')}} <span class="star">*</span></label>
               <flat-pickr class="w-full" :label="$ml.get('start_date')" v-model="dataModel.start_date"></flat-pickr>
               <span class="span-text-validation text-danger text-bold" id="start_date_error"></span>
             </div>
             <div class="vx-col md:w-1/4 mb-base">
-              <label class="vs-input--label">{{$ml.get('end_date')}}</label>
+              <label class="vs-input--label">{{$ml.get('end_date')}} <span class="star">*</span></label>
               <flat-pickr class="w-full" :label="$ml.get('end_date')" v-model="dataModel.end_date"></flat-pickr>
               <span class="span-text-validation text-danger text-bold" id="end_date_error"></span>
             </div>
@@ -62,11 +65,11 @@
 
   export default {
     components: {
-      Multiselect,flatPickr
+      Multiselect, flatPickr
     },
     data() {
       return {
-        dataModel: { },
+        dataModel: {},
         subjects: [],
         selectedSubjects: [],
         findId: null,
@@ -88,7 +91,7 @@
         let id = vm.findId;
         vm.$root.$children[0].$refs.loader.show_loader = true;
         try {
-          window.serviceAPI.API().get(window.serviceAPI.FIND_TERMS+ `/${id}`)
+          window.serviceAPI.API().get(window.serviceAPI.FIND_TERMS + `/${id}`)
             .then((response) => {
               vm.$root.$children[0].$refs.loader.show_loader = false;
               response = response.data;

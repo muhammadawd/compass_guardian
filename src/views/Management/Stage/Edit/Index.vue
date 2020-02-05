@@ -20,7 +20,9 @@
 
           <div class="vx-row">
             <div class="vx-col md:w-1/2 mb-base">
-              <label class="vs-input--label">{{$ml.get('subjects')}}</label>
+              <label class="vs-input--label">{{$ml.get('subjects')}}
+                <span class="star">*</span>
+              </label>
               <multiselect v-model="selectedSubjects" :options="subjects" :multiple="true" :close-on-select="false"
                            :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')"
                            :custom-label="customLabel"
@@ -31,7 +33,10 @@
           </div>
           <div class="vx-row">
             <div class="vx-col md:w-1/4 mb-base">
-              <vs-input class="w-full" :label="$ml.get('title_ar')" v-model="dataModel.title_ar"/>
+              <label class="vs-input--label">{{$ml.get('title_ar')}}
+                <span class="star">*</span>
+              </label>
+              <vs-input class="w-full" v-model="dataModel.title_ar"/>
               <span class="span-text-validation text-danger text-bold" id="title_ar_error"></span>
             </div>
             <div class="vx-col md:w-1/4 mb-base">
@@ -51,9 +56,13 @@
 
                 <template slot="thead">
                   <vs-th></vs-th>
-                  <vs-th>{{$ml.get('title_ar')}}</vs-th>
+                  <vs-th>{{$ml.get('title_ar')}}
+                    <span class="star">*</span>
+                  </vs-th>
                   <vs-th>{{$ml.get('title_en')}}</vs-th>
-                  <vs-th>{{$ml.get('size')}}</vs-th>
+                  <vs-th>{{$ml.get('size')}}
+                    <span class="star">*</span>
+                  </vs-th>
                 </template>
 
                 <template slot-scope="{data}">
@@ -135,7 +144,7 @@
         let id = vm.findId;
         vm.$root.$children[0].$refs.loader.show_loader = true;
         try {
-          window.serviceAPI.API().get(window.serviceAPI.FIND_STAGES+ `/${id}`)
+          window.serviceAPI.API().get(window.serviceAPI.FIND_STAGES + `/${id}`)
             .then((response) => {
               vm.$root.$children[0].$refs.loader.show_loader = false;
               response = response.data;

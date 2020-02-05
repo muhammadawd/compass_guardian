@@ -21,7 +21,9 @@
           <div class="vx-row">
             <div class="vx-col md:w-1/6 mb-base">
 
-              <label class="vs-input--label">{{$ml.get('type')}}</label>
+              <label class="vs-input--label">{{$ml.get('type')}}
+                <span class="star">*</span>
+              </label>
               <vs-select  class="w-full"  v-model="dataModel.type">
                 <vs-select-item value="complaint" :text="$ml.get('complaint')"></vs-select-item>
                 <vs-select-item value="proposal" :text="$ml.get('proposal')"></vs-select-item>

@@ -14,10 +14,10 @@
               <div class="flex flex-wrap-reverse items-center">
 
                 <!-- ADD NEW -->
-                <vs-button color="primary" class="text-bold" type="filled" icon-pack="feather" icon="icon-plus"
-                           @click="$router.push({name: 'add_teacher_exams'})">
-                  {{$ml.get('add_new')}}
-                </vs-button>
+<!--                <vs-button color="primary" class="text-bold" type="filled" icon-pack="feather" icon="icon-plus"-->
+<!--                           @click="$router.push({name: 'add_teacher_exams'})">-->
+<!--                  {{$ml.get('add_new')}}-->
+<!--                </vs-button>-->
               </div>
 
               <!-- ITEMS PER PAGE -->

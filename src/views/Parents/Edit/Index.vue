@@ -19,7 +19,10 @@
           </vs-alert>
           <div class="vx-row">
             <div class="vx-col md:w-1/4 mb-base">
-              <vs-input class="w-full" :label="$ml.get('username')" v-model="dataModel.username"/>
+              <label class="vs-input--label">{{$ml.get('username')}}
+                <span class="star">*</span>
+              </label>
+              <vs-input class="w-full" v-model="dataModel.username"/>
               <span class="span-text-validation text-danger text-bold" id="username_error"></span>
             </div>
             <div class="vx-col md:w-1/4 mb-base">
@@ -27,21 +30,33 @@
               <span class="span-text-validation text-danger text-bold" id="email_error"></span>
             </div>
             <div class="vx-col md:w-1/4 mb-base">
-              <vs-input class="w-full" :label="$ml.get('address')" v-model="dataModel.address"/>
+              <label class="vs-input--label">{{$ml.get('address')}}
+                <span class="star">*</span>
+              </label>
+              <vs-input class="w-full" v-model="dataModel.address"/>
               <span class="span-text-validation text-danger text-bold" id="address_error"></span>
             </div>
             <div class="vx-col md:w-1/4 mb-base">
-              <vs-input class="w-full" :label="$ml.get('password')" type="password" v-model="dataModel.password"/>
+              <label class="vs-input--label">{{$ml.get('password')}}
+                <span class="star">*</span>
+              </label>
+              <vs-input class="w-full" type="password" v-model="dataModel.password"/>
               <span class="span-text-validation text-danger text-bold" id="password_error"></span>
             </div>
           </div>
           <div class="vx-row">
             <div class="vx-col md:w-1/4 mb-base">
-              <vs-input class="w-full" :label="$ml.get('father_name')" v-model="dataModel.father_name"/>
+              <label class="vs-input--label">{{$ml.get('father_name')}}
+                <span class="star">*</span>
+              </label>
+              <vs-input class="w-full" v-model="dataModel.father_name"/>
               <span class="span-text-validation text-danger text-bold" id="father_name_error"></span>
             </div>
             <div class="vx-col md:w-1/4 mb-base">
-              <vs-input class="w-full" :label="$ml.get('father_phone')" v-model="dataModel.father_phone"/>
+              <label class="vs-input--label">{{$ml.get('father_phone')}}
+                <span class="star">*</span>
+              </label>
+              <vs-input class="w-full" v-model="dataModel.father_phone"/>
               <span class="span-text-validation text-danger text-bold" id="father_phone_error"></span>
             </div>
             <div class="vx-col md:w-1/4 mb-base">
@@ -51,11 +66,17 @@
           </div>
           <div class="vx-row">
             <div class="vx-col md:w-1/4 mb-base">
-              <vs-input class="w-full" :label="$ml.get('mother_name')" v-model="dataModel.mother_name"/>
+              <label class="vs-input--label">{{$ml.get('mother_name')}}
+                <span class="star">*</span>
+              </label>
+              <vs-input class="w-full" v-model="dataModel.mother_name"/>
               <span class="span-text-validation text-danger text-bold" id="mother_name_error"></span>
             </div>
             <div class="vx-col md:w-1/4 mb-base">
-              <vs-input class="w-full" :label="$ml.get('mother_phone')" v-model="dataModel.mother_phone"/>
+              <label class="vs-input--label">{{$ml.get('mother_phone')}}
+                <span class="star">*</span>
+              </label>
+              <vs-input class="w-full" v-model="dataModel.mother_phone"/>
               <span class="span-text-validation text-danger text-bold" id="mother_phone_error"></span>
             </div>
             <div class="vx-col md:w-1/4 mb-base">
@@ -122,7 +143,7 @@
         dataModel: {
           title_ar: '',
           title_en: '',
-          lat:0,
+          lat: 0,
           lng: 0,
           class_rooms: []
         },
@@ -142,8 +163,8 @@
         return `${translated.title}`
       },
       placeMarker(location) {
-        let lat  = location.latLng.lat()
-        let lng  = location.latLng.lng()
+        let lat = location.latLng.lat()
+        let lng = location.latLng.lng()
         let vm = this;
         vm.dataModel.lat = lat;
         vm.dataModel.lng = lng;

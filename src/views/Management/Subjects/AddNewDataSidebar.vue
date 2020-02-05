@@ -24,7 +24,10 @@
 
         <div class="vx-row">
           <div class="vx-col w-full mb-base">
-            <vs-input class="w-full" :label="$ml.get('title_ar')" v-model="dataModel.title_ar"/>
+            <label class="vs-input--label">{{$ml.get('title_ar')}}
+              <span class="star">*</span>
+            </label>
+            <vs-input class="w-full" v-model="dataModel.title_ar"/>
             <span class="span-text-validation text-danger text-bold" id="title_ar_error"></span>
           </div>
           <div class="vx-col w-full mb-base">
@@ -67,7 +70,7 @@
         },
       }
     },
-    mounted(){
+    mounted() {
       // setTimeout(()=>{
       //   this.updateUnits([])
       // },2000)

@@ -9,20 +9,9 @@
           </vs-alert>
           <div class="vx-row">
             <div class="vx-col md:w-1/4 mb-base">
-              <vs-input class="w-full" :label="$ml.get('question_degree')" v-model="dataModel.degree"/>
-              <span class="span-text-validation text-danger text-bold" id="degree_error"></span>
-            </div>
-            <div class="vx-col md:w-1/4 mb-base">
-              <vs-select class="w-full" :label="$ml.get('question_type')" v-model="dataModel.type"
-                         @change="changeQuestionType()">
-                <vs-select-item value="mcq" :text="$ml.get('mcq')"></vs-select-item>
-                <vs-select-item value="true_false" :text="$ml.get('true_false')"></vs-select-item>
-                <vs-select-item value="text" :text="$ml.get('_text')"></vs-select-item>
-              </vs-select>
-              <span class="span-text-validation text-danger text-bold" id="type_error"></span>
-            </div>
-            <div class="vx-col md:w-1/4 mb-base">
-              <label class="vs-input--label">{{$ml.get('subjects')}}</label>
+              <label class="vs-input--label">{{$ml.get('subjects')}}
+                <span class="star">*</span>
+              </label>
               <multiselect v-model="selectedSubjects" :options="subjects" :multiple="false" :close-on-select="true"
                            :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')"
                            :custom-label="customLabel"
@@ -31,7 +20,9 @@
               <span class="span-text-validation text-danger text-bold" id="subject_id_error"></span>
             </div>
             <div class="vx-col md:w-1/4 mb-base">
-              <label class="vs-input--label">{{$ml.get('stages')}}</label>
+              <label class="vs-input--label">{{$ml.get('stages')}}
+                <span class="star">*</span>
+              </label>
               <multiselect v-model="selectedStage" :options="stages" :multiple="false" :close-on-select="true"
                            open-direction="bottom"
                            :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')"
@@ -40,8 +31,30 @@
               </multiselect>
               <span class="span-text-validation text-danger text-bold" id="stage_id_error"></span>
             </div>
+            <div class="vx-col md:w-1/4 mb-base">
+              <label class="vs-input--label">{{$ml.get('question_type')}}
+                <span class="star">*</span>
+              </label>
+              <vs-select class="w-full" v-model="dataModel.type"
+                         @change="changeQuestionType()">
+                <vs-select-item value="mcq" :text="$ml.get('mcq')"></vs-select-item>
+                <vs-select-item value="true_false" :text="$ml.get('true_false')"></vs-select-item>
+                <vs-select-item value="text" :text="$ml.get('_text')"></vs-select-item>
+              </vs-select>
+              <span class="span-text-validation text-danger text-bold" id="type_error"></span>
+            </div>
+            <div class="vx-col md:w-1/4 mb-base">
+              <label class="vs-input--label">{{$ml.get('question_degree')}}
+                <span class="star">*</span>
+              </label>
+              <vs-input class="w-full" v-model="dataModel.degree"/>
+              <span class="span-text-validation text-danger text-bold" id="degree_error"></span>
+            </div>
             <div class="vx-col w-full mb-base">
-              <vs-textarea v-model="dataModel.name" :label="$ml.get('question')"
+              <label class="vs-input--label">{{$ml.get('question')}}
+                <span class="star">*</span>
+              </label>
+              <vs-textarea v-model="dataModel.name"
                            rows="5"></vs-textarea>
               <span class="span-text-validation text-danger text-bold" id="name_error"></span>
             </div>
@@ -53,17 +66,23 @@
               <div class="vx-col w-full mb-base">
                 <vs-button color="primary" class="text-bold" type="filled" icon-pack="feather" icon="icon-plus"
                            @click="dataModel.answers.push({value: '',is_correct:0})">
+                  {{$ml.get('add_answers')}}
                 </vs-button>
+                <br>
               </div>
               <div class="vx-col w-full mb-base">
                 <div class="vx-row">
-                  <div class="vx-col md:w-1/4 mb-base" v-for="(answer,key) in dataModel.answers"
+                  <div class="vx-col md:w-1/4 mb-base" style="position:relative;"
+                       v-for="(answer,key) in dataModel.answers"
                        :key="key">
                     <label class="vs-input--label">
                       <input type="checkbox" value="1" v-model="dataModel.answers[key].is_correct">
-                      {{$ml.get('answer')}}
+                      {{$ml.get('answer')}} <span class="star">*</span>
                     </label>
                     <vs-input class="w-full" v-model="dataModel.answers[key].value"></vs-input>
+                    <vs-button color="danger" type="filled" icon="delete" @click="deleteRow(key)"
+                               style="position: absolute;left: 0;top:22px;"></vs-button>
+                    <span class="span-text-validation text-danger text-bold" :id="`answers.${key}.value_error`"></span>
                   </div>
                 </div>
               </div>
@@ -135,6 +154,10 @@
       // this.getAllSubjects()
     },
     methods: {
+      deleteRow(key) {
+        let vm = this;
+        vm.dataModel.answers.splice(key, 1)
+      },
       customLabel({translated}) {
         return `${translated.title}`
       },

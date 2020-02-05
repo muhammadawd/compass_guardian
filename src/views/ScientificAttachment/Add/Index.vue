@@ -10,7 +10,9 @@
           <div class="vx-row">
 
             <div class="vx-col md:w-1/4 mb-base">
-              <label class="vs-input--label">{{$ml.get('subjects')}}</label>
+              <label class="vs-input--label">{{$ml.get('subjects')}}
+                <span class="star">*</span>
+              </label>
               <multiselect v-model="selectedSubjects" :options="subjects" :multiple="false" :close-on-select="true"
                            :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')"
                            :custom-label="customLabel"
@@ -20,7 +22,9 @@
             </div>
 
             <div class="vx-col md:w-1/4 mb-base">
-              <label class="vs-input--label">{{$ml.get('stages')}}</label>
+              <label class="vs-input--label">{{$ml.get('stages')}}
+                <span class="star">*</span>
+              </label>
               <multiselect v-model="selectedStage" :options="stages" :multiple="false" :close-on-select="true"
                            open-direction="bottom"
                            :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')"
@@ -29,21 +33,24 @@
               </multiselect>
               <span class="span-text-validation text-danger text-bold" id="stage_id_error"></span>
             </div>
-            <div class="vx-col md:w-1/4 mb-base">
-              <label class="vs-input--label">{{$ml.get('class_room')}}</label>
-              <multiselect v-model="selectedClassRooms" :options="classRooms" :multiple="false" open-direction="bottom"
-                           :close-on-select="true"
-                           :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')"
-                           :custom-label="customStageLabel"
-                           track-by="id" :preselect-first="true">
-              </multiselect>
-              <span class="span-text-validation text-danger text-bold" id="class_room_id_error"></span>
-              <span class="span-text-validation text-danger text-bold" id="class_room_ids_error"></span>
-            </div>
+<!--            <div class="vx-col md:w-1/4 mb-base">-->
+<!--              <label class="vs-input&#45;&#45;label">{{$ml.get('class_room')}}</label>-->
+<!--              <multiselect v-model="selectedClassRooms" :options="classRooms" :multiple="false" open-direction="bottom"-->
+<!--                           :close-on-select="true"-->
+<!--                           :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')"-->
+<!--                           :custom-label="customStageLabel"-->
+<!--                           track-by="id" :preselect-first="true">-->
+<!--              </multiselect>-->
+<!--              <span class="span-text-validation text-danger text-bold" id="class_room_id_error"></span>-->
+<!--              <span class="span-text-validation text-danger text-bold" id="class_room_ids_error"></span>-->
+<!--            </div>-->
           </div>
           <div class="vx-row">
             <div class="vx-col md:w-1/3 mb-base">
-              <vs-input class="w-full" :label="$ml.get('title_ar')" v-model="dataModel.title_ar"/>
+              <label class="vs-input--label">{{$ml.get('title_ar')}}
+                <span class="star">*</span>
+              </label>
+              <vs-input class="w-full"  v-model="dataModel.title_ar"/>
               <span class="span-text-validation text-danger text-bold" id="title_ar_error"></span>
             </div>
             <div class="vx-col md:w-1/3 mb-base">

@@ -179,8 +179,8 @@
         <!-- USER META -->
         <div class="the-navbar__user-meta flex items-center">
           <div class="text-right leading-tight hidden sm:block">
-            <p class="font-semibold">{{ user_displayName }}</p>
-            <small>{{role}}</small>
+            <p class="font-semibold p-1 capitalize"> {{ user_displayName }}</p>
+            <small class="capitalize"> {{role}}</small>
           </div>
           <vs-dropdown vs-custom-content vs-trigger-click class="cursor-pointer">
             <div class="con-img ml-3">
@@ -334,12 +334,14 @@
 
       // PROFILE
       user_displayName() {
-        return this.$store.state.AppActiveUser.name;
+        return ' ' +JSON.parse(localStorage.getItem('auth_data')).user.username
+        // return this.$store.state.AppActiveUser.name = 'test';
         // return "Admin"
         // return JSON.parse(localStorage.getItem('userInfo')).displayName
       },
       role() {
-        return this.$store.state.AppActiveUser.role;
+        return ' ' +JSON.parse(localStorage.getItem('auth_data')).type
+        // return this.$store.state.AppActiveUser.role;
       },
       activeUserImg() {
         try {

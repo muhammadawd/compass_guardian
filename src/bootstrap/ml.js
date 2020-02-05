@@ -173,8 +173,8 @@ export default new MLCreate({
       add_role: 'اضافة الصلاحية',
       edit_role: 'تعديل الصلاحية',
       term: 'الفصول الدراسية',
-      add_term: 'اضافة تيرم',
-      edit_term: 'تعديل تيرم',
+      add_term: 'اضافة فصل دراسي',
+      edit_term: 'تعديل فصل دراسي',
       roles: 'الصلاحيات',
       status: 'الحالة',
       start_date: 'تاريخ البداية',
@@ -186,6 +186,7 @@ export default new MLCreate({
       magazine: 'مجلة الروضة',
       add_magazine: 'اضافة الى المجلة',
       edit_magazine: 'تعديل فى المجلة',
+      delete: 'الغاء',
       text: 'النص',
       schedule: 'الجدول',
       add_schedule: 'اضافة الجدول',
@@ -280,7 +281,8 @@ export default new MLCreate({
       stage: 'المرحلة الدراسية  ',
       attach_students: 'ربط الطلاب',
       all_student_exam_result: 'نتائج الامتحانات',
-      should_ans: 'عليك الاجابة على السؤال اولا'
+      should_ans: 'عليك الاجابة على السؤال اولا',
+      add_answers: 'اضف اجابات'
     })
   ]
 })
