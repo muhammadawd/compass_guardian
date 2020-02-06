@@ -38,14 +38,20 @@
 
         <vx-card class="text-right mt-3 mb-4" v-if="dataModel.questions" style="background: #efefef">
           <div class="vx-row">
-            <div class="vx-col w-full mb-base" v-for="(que , current_question_index) in dataModel.questions" :key="current_question_index">
-              <h1 class="text-bold mb-3">{{dataModel.questions[current_question_index].question.name}}</h1>
+            <div class="vx-col w-full mb-base" v-for="(que , current_question_index) in dataModel.questions"
+                 :key="current_question_index">
+              <h1 class="text-bold mb-3">{{dataModel.questions[current_question_index].question.name}}
+                ({{dataModel.questions[current_question_index].question.degree}} /
+                {{dataModel.questions[current_question_index].exam_question ?
+                dataModel.questions[current_question_index].exam_question.degree : '0'}})</h1>
               <div class="vx-row" v-if="dataModel.questions[current_question_index].question.type == 'mcq'">
                 <div class="vx-col w-full mb-base">
                   <div class="vx-row">
                     <div class="vx-col md:w-1/4 mb-base"
                          v-for="(answer,key) in dataModel.questions[current_question_index].question.answers"
                          :key="key">
+                      <i v-if="asnwerTag(answer,dataModel.questions[current_question_index].answers) == 'true'"
+                         class="fa fa-bell text-primary"></i>
                       <label class="vs-input--label" :for="`check-${answer.id}${key}`" style="cursor: pointer">
                         <input type="checkbox" :id="`check-${answer.id}${key}`"
                                @change="updateStorageModel(dataModel.questions[current_question_index].question,dataModel.questions[current_question_index].question.answers[key])"
@@ -77,6 +83,8 @@
                 <div class="vx-col md:w-1/2 text-center mb-base"
                      v-for="(answer,key) in dataModel.questions[current_question_index].question.answers"
                      :key="key">
+                  <i v-if="asnwerTag(answer,dataModel.questions[current_question_index].answers) == 'true'" style="position: absolute;z-index: 9;"
+                     class="fa fa-bell text-primary"></i>
                   <input type="radio" :id="`radio-${key}`" name="radio"
                          @change="updateStorageModel(dataModel.questions[current_question_index].question,dataModel.questions[current_question_index].question.answers[key])"
                          v-model="dataModel.questions[current_question_index].question.answers[key].is_correct"
@@ -147,12 +155,22 @@
       this.findStudentExams();
     },
     methods: {
+      asnwerTag(answer, answers) {
+        let _answers = _.map(answers, (ans) => {
+          return parseInt(ans.answer);
+        });
+        if (_answers.includes(answer.id)) {
+
+          return 'true';
+        }
+        return 'false';
+      },
       findStudentExams() {
         let vm = this;
         let id = vm.$route.params.id;
         vm.$root.$children[0].$refs.loader.show_loader = true;
         try {
-          window.serviceAPI.API().get(window.serviceAPI.FIND_STUDENT_EXAM_ID + `/${id}`)
+          window.serviceAPI.API().get(window.serviceAPI.FIND_STUDENT_EXAM_WITH_ANSWER_ID + `/${id}`)
             .then((response) => {
               vm.$root.$children[0].$refs.loader.show_loader = false;
               response = response.data;

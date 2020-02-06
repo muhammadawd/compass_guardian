@@ -3,81 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="55110bd7-8ede-484f-93cc-6f3454507933" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/app.c47c98fa.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/app.c47c98fa.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-18e7bfe8.b1f57427.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-18e7bfe8.b1f57427.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0a3758.d2ee4faa.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0a3758.d2ee4faa.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0aab67.d5045adc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0aab67.d5045adc.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0d7808.189067f6.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0d7808.189067f6.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0e9766.2e9f8f2a.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d0e9766.2e9f8f2a.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d216bd7.5edc8cd7.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d216bd7.5edc8cd7.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d21a92a.59a9b865.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2d21a92a.59a9b865.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-3aac6103.bbc477d3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-3aac6103.bbc477d3.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-8269fad0.55ab6b38.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-8269fad0.55ab6b38.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-ac183f08.5187424e.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-ac183f08.5187424e.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-fe57b3a4.b574ef07.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-fe57b3a4.b574ef07.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/updatev2.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/0f0d9fd3f8cf04d1bb15b8f14bab2774.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/0f0d9fd3f8cf04d1bb15b8f14bab2774.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/108097d933eaba4b0ee3c13b31d5ac0b.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/108097d933eaba4b0ee3c13b31d5ac0b.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/2b8d6122a2f93b995e6ff91089ca0885.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/2b8d6122a2f93b995e6ff91089ca0885.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/3734d4f4fab5bec8e4a071b9c17342de.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/3734d4f4fab5bec8e4a071b9c17342de.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/37bb4379661689bd94697ed24d90cefd.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/37bb4379661689bd94697ed24d90cefd.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/399f579bc1d06db63998f61704fee011.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/399f579bc1d06db63998f61704fee011.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/3b4a79d35b74c6432a6fa29bf92df85a.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/3b4a79d35b74c6432a6fa29bf92df85a.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/4c2fdc8fafb471ea45b44741bfe90e98.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/4c2fdc8fafb471ea45b44741bfe90e98.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/55e0a5dbe989efdeeb4bafc18bfa3ed2.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/55e0a5dbe989efdeeb4bafc18bfa3ed2.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/68d77d06bf6c313d56295893986cc10a.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/68d77d06bf6c313d56295893986cc10a.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/b8be4b82b4bd424d9db8e9a304af6f9f.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/b8be4b82b4bd424d9db8e9a304af6f9f.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/ba3c509754a4556ae0d80e742243cb36.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/ba3c509754a4556ae0d80e742243cb36.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/babel-loader/cb7a21c8ec5f7d2c14b3ba8ded9b35af.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/cb7a21c8ec5f7d2c14b3ba8ded9b35af.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/0671694e3847bffd9cdf8c195819ef16.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/0671694e3847bffd9cdf8c195819ef16.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/0a2130899eca5c15317515b06b10c67d.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/0a2130899eca5c15317515b06b10c67d.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/0e9a317fcbe32a373e316ea6a9eee980.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/0e9a317fcbe32a373e316ea6a9eee980.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/151013c95e041e7f8744610ad50d0af0.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/151013c95e041e7f8744610ad50d0af0.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/1f7084aaa03664cfc1115b93287064a5.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/1f7084aaa03664cfc1115b93287064a5.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/210c4ad64e779ee5a3ec2e8e87b35ca4.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/210c4ad64e779ee5a3ec2e8e87b35ca4.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/27e6f807b1732848f40f5f59996ef2b8.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/27e6f807b1732848f40f5f59996ef2b8.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/31dfebec0c67d4bb5d7ddac55cd18238.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/31dfebec0c67d4bb5d7ddac55cd18238.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/83c45acea753b9f31d20cc1843c50424.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/83c45acea753b9f31d20cc1843c50424.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/8f17613d68d425e9c0f2005a28b8c87e.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/8f17613d68d425e9c0f2005a28b8c87e.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/98b1feca350a5ca4b3ba4de9adafa834.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/98b1feca350a5ca4b3ba4de9adafa834.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/995eac09f9a59cc6cd33a6467d37685b.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/995eac09f9a59cc6cd33a6467d37685b.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/a7f9572d53987c0a5b3a522fb3423261.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/a7f9572d53987c0a5b3a522fb3423261.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/abf5f1dfb0e748e042ee2b4db691d203.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/abf5f1dfb0e748e042ee2b4db691d203.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/acab508f3c053419a47dd4f757d387b3.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/acab508f3c053419a47dd4f757d387b3.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/be27f06242afc9ae7a3d677ae0068fb9.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/be27f06242afc9ae7a3d677ae0068fb9.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/be7a659f4ebdabf9171e232b0865ac86.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/be7a659f4ebdabf9171e232b0865ac86.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/d75d25b22c99f3dd6c839a09b1433ccf.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/d75d25b22c99f3dd6c839a09b1433ccf.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/d86d66536499c584b42280825d136dcb.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/d86d66536499c584b42280825d136dcb.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/dc39a847c6f5edfcf7b0f02e93e24591.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/dc39a847c6f5edfcf7b0f02e93e24591.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/dce3076cd731c8d7d3daaebec099c39d.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/dce3076cd731c8d7d3daaebec099c39d.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/e1235f05683f572575f51051c2d68653.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/e1235f05683f572575f51051c2d68653.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/e319b44291a2529d78109c5708852c26.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/e319b44291a2529d78109c5708852c26.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/e6fbaac150c88e4b54d2c0463d1a7d13.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/e6fbaac150c88e4b54d2c0463d1a7d13.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/f3b28a8bc9d9c0cf1831c7ab3968d756.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/f3b28a8bc9d9c0cf1831c7ab3968d756.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/vue-loader/fe3c101876a6b7c68fcf495cf439916c.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/vue-loader/fe3c101876a6b7c68fcf495cf439916c.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bootstrap/ml.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/bootstrap/ml.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bootstrap/serviceAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/bootstrap/serviceAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/statistics-cards/StatisticsCardLine.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/statistics-cards/StatisticsCardLine.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/HomeStudent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/HomeStudent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/QuestionsBank/Add/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/QuestionsBank/Add/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/QuestionsBank/Edit/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/QuestionsBank/Edit/Index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/Students/AllExamsNatega/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Students/AllExamsNatega/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Students/Exam/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Students/Exam/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Students/showExam/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Students/showExam/Index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/Students/showExamResult/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Students/showExamResult/Index.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -127,36 +54,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/bootstrap/serviceAPI.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/Students/Exam/Index.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="512">
-              <caret line="101" column="20" selection-start-line="101" selection-start-column="20" selection-end-line="101" selection-end-column="109" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#vs-alert#0;n#div#0;n#div#0;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#vx-card#0;n#div#1;n#div#1;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#vx-card#0;n#div#1;n#div#1;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#vx-card#1;n#div#1;n#div#1;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#div#0;n#div#0;n#div#0;n#vx-card#1;n#div#1;n#div#1;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-                <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#vx-card#1;n#div#1;n#div#1;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#label#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#vx-card#1;n#div#1;n#div#1;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#div#0;n#label#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#vx-card#1;n#div#1;n#div#1;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#label#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#vx-card#1;n#div#1;n#div#1;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#div#1;n#label#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#vx-card#1;n#div#1;n#div#1;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#div#1;n#div#0;n#div#0;n#vx-card#1;n#div#1;n#div#1;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-                <element signature="n#div#2;n#div#0;n#div#0;n#vx-card#1;n#div#1;n#div#1;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-                <element signature="n#style#0;n#vs-textarea#0;n#div#0;n#div#2;n#div#0;n#div#0;n#vx-card#1;n#div#1;n#div#1;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="427">
+              <caret line="23" column="54" selection-start-line="23" selection-start-column="54" selection-end-line="23" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -164,8 +63,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/views/Students/showExamResult/Index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="41" column="108" selection-start-line="41" selection-start-column="108" selection-end-line="41" selection-end-column="108" />
+            <state relative-caret-position="356">
+              <caret line="86" column="51" selection-start-line="86" selection-start-column="44" selection-end-line="86" selection-end-column="51" />
               <folding>
                 <element signature="n#div#0;n#div#0;n#div#0;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
                 <element signature="n#style#0;n#span#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -176,7 +75,7 @@
                 <element signature="n#style#0;n#p#0;n#div#0;n#label#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#vx-card#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#label#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#vx-card#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#div#1;n#label#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#vx-card#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#div#1;n#div#0;n#div#0;n#vx-card#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+                <element signature="n#style#0;n#i#0;n#div#0;n#div#1;n#div#0;n#div#0;n#vx-card#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#div#2;n#div#0;n#div#0;n#vx-card#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
                 <element signature="n#style#0;n#vs-textarea#0;n#div#0;n#div#2;n#div#0;n#div#0;n#vx-card#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
               </folding>
@@ -188,8 +87,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>super</find>
-      <find>sup</find>
       <find>.vs-avatar--text</find>
       <find>.scroll-area--main-sidebar</find>
       <find>scroll-area--main-sidebar</find>
@@ -216,8 +113,10 @@
       <find>eye</find>
       <find>exam</find>
       <find>divider</find>
-      <find>your_result</find>
       <find>len</find>
+      <find>your_result</find>
+      <find>FIND_STUDENT_EXAM_</find>
+      <find>student-exam</find>
     </findStrings>
     <replaceStrings>
       <replace>class_rooms</replace>
@@ -297,11 +196,11 @@
         <option value="$PROJECT_DIR$/src/views/QuestionsBank/Add/Index.vue" />
         <option value="$PROJECT_DIR$/src/views/QuestionsBank/Edit/Index.vue" />
         <option value="$PROJECT_DIR$/src/views/Students/Exam/Index.vue" />
-        <option value="$PROJECT_DIR$/src/bootstrap/serviceAPI.js" />
         <option value="$PROJECT_DIR$/src/views/Students/showExam/Index.vue" />
         <option value="$PROJECT_DIR$/src/views/Students/AllExams/Index.vue" />
-        <option value="$PROJECT_DIR$/src/views/Students/AllExamsNatega/Index.vue" />
         <option value="$PROJECT_DIR$/src/bootstrap/ml.js" />
+        <option value="$PROJECT_DIR$/src/views/Students/AllExamsNatega/Index.vue" />
+        <option value="$PROJECT_DIR$/src/bootstrap/serviceAPI.js" />
         <option value="$PROJECT_DIR$/src/views/Students/showExamResult/Index.vue" />
       </list>
     </option>
@@ -506,12 +405,12 @@
       <workItem from="1580796151171" duration="23525000" />
       <workItem from="1580883209315" duration="18741000" />
       <workItem from="1580912246418" duration="1177000" />
-      <workItem from="1580969823273" duration="19013000" />
+      <workItem from="1580969823273" duration="22036000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="285443000" />
+    <option name="totallyTimeSpent" value="288466000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1057" extended-state="6" />
@@ -925,20 +824,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/Students/AllExamsNatega/Index.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="27" column="71" selection-start-line="27" selection-start-column="71" selection-end-line="27" selection-end-column="71" />
+        <state relative-caret-position="273">
+          <caret line="108" column="24" selection-start-line="108" selection-start-column="24" selection-end-line="108" selection-end-column="24" />
           <folding>
             <element signature="n#style#0;n#vs-alert#0;n#div#0;n#div#0;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#vx-card#0;n#div#1;n#div#0;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bootstrap/serviceAPI.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
         </state>
       </provider>
     </entry>
@@ -968,10 +860,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/bootstrap/serviceAPI.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="427">
+          <caret line="23" column="54" selection-start-line="23" selection-start-column="54" selection-end-line="23" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/Students/showExamResult/Index.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="41" column="108" selection-start-line="41" selection-start-column="108" selection-end-line="41" selection-end-column="108" />
+        <state relative-caret-position="356">
+          <caret line="86" column="51" selection-start-line="86" selection-start-column="44" selection-end-line="86" selection-end-column="51" />
           <folding>
             <element signature="n#div#0;n#div#0;n#div#0;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
             <element signature="n#style#0;n#span#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#vx-card#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -982,7 +881,7 @@
             <element signature="n#style#0;n#p#0;n#div#0;n#label#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#vx-card#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#label#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#vx-card#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#div#1;n#label#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#vx-card#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#vx-card#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#style#0;n#i#0;n#div#0;n#div#1;n#div#0;n#div#0;n#vx-card#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#div#2;n#div#0;n#div#0;n#vx-card#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
             <element signature="n#style#0;n#vs-textarea#0;n#div#0;n#div#2;n#div#0;n#div#0;n#vx-card#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>

@@ -12,24 +12,24 @@
               </vs-alert>
             </div>
             <div class="vx-row">
-              <vx-card class="vx-col md:w-1/4 mb-base" v-for="(exam , key) in exams" :key="key"
-                       style="background: #eee">
+              <div class="vx-col md:w-1/5 mb-base" v-for="(exam , key) in exams" :key="key"
+                       style="background: #fff;">
                 <h2 class="text-bold">
                   <span class="text-info" style="font-size: 18px">{{exam.exam.name}}</span>
                 </h2>
-                <div class="vx-card bg-primary-gradient p-0 m-0 text-center" style="width: 100%"><!---->
+                <div class="vx-card   p-0 m-0 text-center" style="width: 100%;border-radius: 90px 0 90px;background: #cfcfcf"><!---->
                   <div class="vx-card__collapsible-content vs-con-loading__container">
                     <div class="vx-card__body m-0">
                       <h4 class="text-bold">
                         {{$ml.get('your_result')}}
                         {{exam.exam.subject.translated.title}}
                       </h4>
-                      <div class="vx-row text-center " style="background: #fff">
+                      <div class="vx-row text-center ">
                         <div class="vx-col w-full text-center" dir="rtl">
                           <h1 class="text-bold mt-3">{{parseFloat(exam.exam.degree).toFixed(2)}} /
                             {{parseFloat(exam ? exam.degree : 0
                             ).toFixed(2)}}</h1>
-                          <vs-button type="gradient" color="primary" label="remove_red_eye" class="mb-2"
+                          <vs-button :color="colorx" :gradient-color-secondary="colorx2" type="gradient" label="remove_red_eye" class="mb-2"
                                      @click="$router.push({name:'student_exam_result',params:{'id':exam.id}})">
                             {{$ml.get('show')}}
                           </vs-button>
@@ -38,7 +38,7 @@
                     </div>
                   </div>
                 </div>
-              </vx-card>
+              </div>
               <div class="vx-col w-full">
                 <vs-divider/>
               </div>
@@ -105,6 +105,8 @@
         selected: [],
         itemsPerPage: 5,
         isMounted: false,
+        colorx:'#009FFF',
+        colorx2:'#0e4e81'
       }
     },
     mounted() {

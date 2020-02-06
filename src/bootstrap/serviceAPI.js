@@ -21,6 +21,7 @@ export default {
   CREATE_STUDENT_EXAM: 'student-exam/create',
   UPDATE_STUDENT_EXAM: 'student-exam/update',
   FIND_STUDENT_EXAM_ID: 'student-exam/find',
+  FIND_STUDENT_EXAM_WITH_ANSWER_ID: 'student-exam/find-answer',
 
   ALL_EXAM: 'exam',
   ADD_EXAM: 'exam/create',
