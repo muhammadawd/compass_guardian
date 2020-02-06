@@ -100,6 +100,16 @@
                   <div class="vx-col w-full text-white">
                     <h1 class="text-bold mb-3 text-white">{{$ml.get('question') + ` ${current_question_index+1}`}}</h1>
                     <h2 class="text-white">{{dataModel.questions[current_question_index].question.name}}</h2>
+                    <div class="vs-row">
+
+                      <div class="vx-col md:w-5/5 w-full mb-base p-0">
+                        <img v-if="dataModel.questions[current_question_index].question.file_path"
+                             style="margin: auto"
+                             width="50%"
+                             :src="dataModel.questions[current_question_index].question.file_path.path"/>
+                      </div>
+                    </div>
+
                   </div>
                 </div>
               </vx-card>
@@ -116,15 +126,30 @@
                           <div class="vx-col md:w-1/4 mb-base"
                                v-for="(answer,key) in dataModel.questions[current_question_index].question.answers"
                                :key="key">
-                            <label class="vs-input--label">
-                              <input type="checkbox"
+                            <label class="vs-input--label" :for="`check-${answer.id}${key}`" style="cursor: pointer">
+                              <input type="checkbox" :id="`check-${answer.id}${key}`"
                                      @change="updateStorageModel(dataModel.questions[current_question_index].question,dataModel.questions[current_question_index].question.answers[key])"
                                      v-model="dataModel.questions[current_question_index].question.answers[key].is_correct"
                                      value="1">
-                              {{$ml.get('answer')}}
+                              <!--                              {{$ml.get('answer')}}-->
+                              <!--                            <vs-input class="w-full" :disabled="true"-->
+                              <!--                                      v-model="dataModel.questions[current_question_index].question.answers[key].answer_value"></vs-input>-->
+                              <div class="text-center mt-2"
+                                   v-if="dataModel.questions[current_question_index].question.answers[key].file_path"
+                                   style="box-shadow: 1px 2px 12px #aaa;border-radius: 90px 0 90px;width:100%;height: 350px;overflow: hidden;display: inline-block;background: #fff">
+                                <p class="text-center text-bold mt-2 text-primary" style="font-size: 15px">
+                                  {{dataModel.questions[current_question_index].question.answers[key].answer_value}}</p>
+                                <img
+                                  :src="dataModel.questions[current_question_index].question.answers[key].file_path.path"
+                                  style="margin: 20px auto;vertical-align: middle;width:60%;max-height: 400px" alt="">
+                              </div>
+                              <div class="text-center mt-2 p-3"
+                                   v-if="!dataModel.questions[current_question_index].question.answers[key].file_path"
+                                   style="box-shadow: 1px 2px 12px #aaa;border-radius: 10px;width:100%;background: #fff">
+                                <p class="text-center text-bold mt-2 text-info" style="font-size: 18px">
+                                  {{dataModel.questions[current_question_index].question.answers[key].answer_value}}</p>
+                              </div>
                             </label>
-                            <vs-input class="w-full" :disabled="true"
-                                      v-model="dataModel.questions[current_question_index].question.answers[key].answer_value"></vs-input>
                           </div>
                         </div>
                       </div>
@@ -373,7 +398,12 @@
               if (response.status) {
                 window.helper.showMessage('success', vm);
                 window.ls.clearAllStorage('current_exam');
-                vm.$router.push({name: 'student_exam_result', params: {id: request_data.id}});
+                vm.$router.push({name: 'student_exam_result', params: {id: request_data.id}}).then(() => {
+
+                  setTimeout(() => {
+                    location.reload()
+                  }, 1000)
+                });
                 return null;
               }
               location.reload()
@@ -462,5 +492,28 @@
     cursor: text;
     filter: grayscale(0);
   }
+
+  [id^=check-] {
+    display: none;
+  }
+
+  [id^=check-] ~ div {
+    filter: grayscale(100%);
+  }
+
+  [id^=check-]:checked ~ div {
+    filter: grayscale(0);
+    border: 2px dashed #1f89e0;
+  }
+
+  /*[id^=check-] + label {*/
+  /*  display: inline-block;*/
+  /*  vertical-align: middle;*/
+  /*  font-size: 50px;*/
+  /*  color: #555;*/
+  /*  cursor: pointer;*/
+  /*  filter: grayscale(100%);*/
+  /*}*/
+
 
 </style>

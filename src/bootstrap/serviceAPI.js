@@ -9,6 +9,9 @@ export default {
   AUTH_LOGIN_TEACHER: 'teacher/login',
   AUTH_LOGIN_STUDENT: 'student/login',
 
+  GET_STUDENT_HOME_DATA: 'student/get-home-data',
+  GET_STUDENT_EXAM_HOME_DATA: 'student-exam/get-statistics-exams',
+
   ALL_STATUS: 'common/status',
   ALL_DAYS: 'common/days',
 

@@ -57,6 +57,13 @@
               <vs-textarea v-model="dataModel.name"
                            rows="5"></vs-textarea>
               <span class="span-text-validation text-danger text-bold" id="name_error"></span>
+              <div class="vx-row">
+                <div class="vx-col md:w-1/4 mb-base">
+                  <label class="vs-input--label">{{$ml.get('image')}}</label>
+                  <input type="file" :ref="`file`" class="vs-inputx vs-input--input normal"
+                         v-on:change="handleFileQuestionUpload()">
+                </div>
+              </div>
             </div>
           </div>
 
@@ -65,7 +72,7 @@
             <div class="vx-col w-full mb-base">
               <div class="vx-col w-full mb-base">
                 <vs-button color="primary" class="text-bold" type="filled" icon-pack="feather" icon="icon-plus"
-                           @click="dataModel.answers.push({value: '',is_correct:0})">
+                           @click="dataModel.answers.push({value: '',is_correct:0,'file':''})">
                   {{$ml.get('add_answers')}}
                 </vs-button>
                 <br>
@@ -80,9 +87,14 @@
                       {{$ml.get('answer')}} <span class="star">*</span>
                     </label>
                     <vs-input class="w-full" v-model="dataModel.answers[key].value"></vs-input>
+                    <input type="file" :ref="`image`+key" class="vs-inputx vs-input--input normal"
+                           v-on:change="handleFileUpload(key)">
                     <vs-button color="danger" type="filled" icon="delete" @click="deleteRow(key)"
                                style="position: absolute;left: 0;top:22px;"></vs-button>
                     <span class="span-text-validation text-danger text-bold" :id="`answers.${key}.value_error`"></span>
+                    <span class="span-text-validation text-danger text-bold"
+                          :id="`answers.${key}.is_correct_error`"></span>
+                    <span class="span-text-validation text-danger text-bold" :id="`answers.${key}.file_error`"></span>
                   </div>
                 </div>
               </div>
@@ -263,16 +275,41 @@
           console.log(e)
         }
       },
+      handleFileUpload(key) {
+        let vm = this;
+        vm.dataModel.answers[key].file = vm.$refs[`image${key}`][0].files[0];
+      },
+      handleFileQuestionUpload() {
+        let vm = this;
+        vm.dataModel.file = vm.$refs.file.files[0];
+      },
       addQuestion() {
         const vm = this;
-        vm.openLoadingContained();
+        // vm.openLoadingContained();
         let request_data = vm.dataModel;
         request_data.stage_id = vm.selectedStage ? vm.selectedStage.id : '';
         request_data.subject_id = vm.selectedSubjects ? vm.selectedSubjects.id : '';
+        let form_data = new FormData();
+        // let answers = request_data.answers;
+        // delete request_data.answers;
+        $.each(request_data, (key, value) => {
+          form_data.append(key, value ? value : '')
+        })
 
+        $.each(request_data.answers, (i, answer) => {
+          form_data.append(`answers[${i}][file]`, answer.file ? answer.file : '');
+          form_data.append(`answers[${i}][value]`, answer.value ? answer.value : '');
+          form_data.append(`answers[${i}][is_correct]`, answer.is_correct ? 1 : 0);
+        })
+
+        // return
         $('.span-text-validation').text('');
         try {
-          window.serviceAPI.API().post(window.serviceAPI.ADD_QUESTION, request_data)
+          window.serviceAPI.API().post(window.serviceAPI.ADD_QUESTION, form_data, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+          })
             .then((response) => {
               response = response.data;
               if (response.status) {

@@ -56,6 +56,17 @@
               </label>
               <vs-textarea v-model="dataModel.name" rows="5"></vs-textarea>
               <span class="span-text-validation text-danger text-bold" id="name_error"></span>
+              <div class="vx-row">
+                <div class="vx-col md:w-1/4">
+                  <label class="vs-input--label">{{$ml.get('image')}}</label>
+                  <input type="file" :ref="`file`" class="vs-inputx vs-input--input normal"
+                         v-on:change="handleFileQuestionUpload()">
+                </div>
+                <div class="vx-col w-full mb-base">
+                  <a v-if="dataModel.file_path" class="text-bold" :href="dataModel.file_path.path" target="_blank">
+                    {{$ml.get('show_image')}}</a>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -79,9 +90,19 @@
                       {{$ml.get('answer')}}<span class="star">*</span>
                     </label>
                     <vs-input class="w-full" v-model="dataModel.answers[key].value"></vs-input>
+                    <input type="file" :ref="`image`+key" class="vs-inputx vs-input--input normal"
+                           v-on:change="handleFileUpload(key)">
                     <vs-button color="danger" type="filled" icon="delete" @click="deleteRow(key)"
                                style="position: absolute;left: 0;top:22px;"></vs-button>
+                    <div class="text-center mt-2" v-if="dataModel.answers[key].file_path"
+                         style="box-shadow: 1px 2px 12px #aaa;border-radius: 90px 0 90px;height: 350px;overflow: hidden;display: inline-block;background: ">
+                      <img :src="dataModel.answers[key].file_path.path"
+                           style="margin: 40px auto;vertical-align: middle;width:60%;max-height: 400px" alt="">
+                    </div>
                     <span class="span-text-validation text-danger text-bold" :id="`answers.${key}.value_error`"></span>
+                    <span class="span-text-validation text-danger text-bold"
+                          :id="`answers.${key}.is_correct_error`"></span>
+                    <span class="span-text-validation text-danger text-bold" :id="`answers.${key}.file_error`"></span>
                   </div>
                 </div>
               </div>
@@ -157,6 +178,14 @@
       this.findQuestionBank()
     },
     methods: {
+      handleFileQuestionUpload() {
+        let vm = this;
+        vm.dataModel.file = vm.$refs.file.files[0];
+      },
+      handleFileUpload(key) {
+        let vm = this;
+        vm.dataModel.answers[key].file = vm.$refs[`image${key}`][0].files[0];
+      },
       deleteRow(key) {
         let vm = this;
         vm.dataModel.answers.splice(key, 1)
@@ -307,19 +336,34 @@
         let request_data = vm.dataModel;
         request_data.stage_id = vm.selectedStage ? vm.selectedStage.id : '';
         request_data.subject_id = vm.selectedSubjects ? vm.selectedSubjects.id : '';
+        let form_data = new FormData();
+        // let answers = request_data.answers;
+        // delete request_data.answers;
+        $.each(request_data, (key, value) => {
+          form_data.append(key, value ? value : '')
+        })
+
+        $.each(request_data.answers, (i, answer) => {
+          form_data.append(`answers[${i}][file]`, answer.file ? answer.file : '');
+          form_data.append(`answers[${i}][value]`, answer.value ? answer.value : '');
+          form_data.append(`answers[${i}][is_correct]`, answer.is_correct ? 1 : 0);
+        })
 
         $('.span-text-validation').text('');
         try {
-          window.serviceAPI.API().post(window.serviceAPI.EDIT_QUESTION, request_data)
-            .then((response) => {
-              response = response.data;
-              if (response.status) {
-                window.helper.showMessage('success', vm);
-                vm.$router.push({name: 'questions_bank'});
-                return null;
-              }
-              vm.closeLoadingContained()
-            }).catch((error) => {
+          window.serviceAPI.API().post(window.serviceAPI.EDIT_QUESTION, form_data, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+          }).then((response) => {
+            response = response.data;
+            if (response.status) {
+              window.helper.showMessage('success', vm);
+              vm.$router.push({name: 'questions_bank'});
+              return null;
+            }
+            vm.closeLoadingContained()
+          }).catch((error) => {
             vm.closeLoadingContained()
             window.helper.handleError(error, vm);
           });

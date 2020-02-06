@@ -273,8 +273,8 @@ export default new MLCreate({
       minutes: 'دقائق',
       seconds: 'ثواني',
       result_soon: 'النتيجة ستظهر قريبا بعد تصحيح بعض الاسئلة النصية',
-      your_result: 'نتيجتك',
-      your_result_p: 'لقد تم رصد نتيجتك فى اختبار',
+      your_result: 'نتيجة مادة',
+      your_result_p: 'لقد تم رصد نتيجتك فى الاختبار',
       relation: 'صلة القرابة',
       teacher_all_exams: 'تصحيح الامتحانات',
       correct: 'تصحيح  ',
@@ -282,7 +282,15 @@ export default new MLCreate({
       attach_students: 'ربط الطلاب',
       all_student_exam_result: 'نتائج الامتحانات',
       should_ans: 'عليك الاجابة على السؤال اولا',
-      add_answers: 'اضف اجابات'
+      add_answers: 'اضف اجابات',
+      leaveNumber: 'عدد مرات الاستأذان',
+      examNumber: 'عدد مرات الامتحانات',
+      vacationNumber: 'عدد مرات الاجازات',
+      rep_absence: 'احصائية الحضور والغياب',
+      rep_exams: 'احصائية امتحانات المواد',
+      absence: 'غياب',
+      present: 'حضور',
+      late: 'تأخير',
     })
   ]
 })

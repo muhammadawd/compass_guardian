@@ -4,66 +4,91 @@
     <!-- KNOWLEDGE BASE CARDS  -->
     <div class="vx-row">
       <div class="vx-col w-full">
-        <vx-card class="text-center cursor-pointer">
-
-          <vs-table ref="table" multiple v-model="selected" pagination :max-items="itemsPerPage" search
-                    :data="exams">
-
-            <div slot="header" class="flex flex-wrap-reverse items-center flex-grow justify-between">
-
-
-              <!-- ITEMS PER PAGE -->
-              <vs-dropdown vs-trigger-click class="cursor-pointer mb-4 ml-4">
-                <div dir="ltr"
-                     class="p-4 border border-solid d-theme-border-grey-light rounded-full d-theme-dark-bg cursor-pointer flex items-center justify-between font-medium">
-                  <span class="mr-2">{{ currentPage * itemsPerPage - (itemsPerPage - 1) }} - {{ exams.length - currentPage * itemsPerPage > 0 ? currentPage * itemsPerPage : exams.length }} of {{ exams.length }}</span>
-                  <feather-icon icon="ChevronDownIcon" svgClasses="h-4 w-4"/>
-                </div>
-                <!-- <vs-button class="btn-drop" type="line" color="primary" icon-pack="feather" icon="icon-chevron-down"></vs-button> -->
-                <vs-dropdown-menu>
-
-                  <vs-dropdown-item @click="itemsPerPage=5">
-                    <span>5</span>
-                  </vs-dropdown-item>
-                  <vs-dropdown-item @click="itemsPerPage=10">
-                    <span>10</span>
-                  </vs-dropdown-item>
-                  <vs-dropdown-item @click="itemsPerPage=15">
-                    <span>15</span>
-                  </vs-dropdown-item>
-                  <vs-dropdown-item @click="itemsPerPage=20">
-                    <span>20</span>
-                  </vs-dropdown-item>
-                </vs-dropdown-menu>
-              </vs-dropdown>
+        <vx-card class="text-right mb-base" v-for="(exams , key) in monthlyGrouped" :key="key">
+          <div class="text-right">
+            <div class="vx-row">
+              <vs-alert class="mb-4" color="danger" style="background: rgb(244, 244, 244);">
+                <h3 class="text-bold text-uppercase">{{mL[key-1]}}</h3>
+              </vs-alert>
             </div>
-
-            <template slot="thead">
-              <vs-th>{{$ml.get('name')}}</vs-th>
-              <vs-th>{{$ml.get('date')}}</vs-th>
-              <vs-th width="100px"></vs-th>
-            </template>
-
-            <template slot-scope="{data}">
-              <vs-tr :data="tr" :key="indextr" v-for="(tr, indextr) in data">
-                <vs-td class="text-right">
-                  {{tr.exam.name}}
-                </vs-td>
-                <vs-td class="text-right">
-                  {{tr.exam.date}}
-                </vs-td>
-                <vs-td class="text-right">
-                  <div class="btn-group" dir="ltr">
-                    <vs-button @click="$router.push({name:'student_exam_result',params:{id:tr.id}})"
-                               type="line"
-                               color="primary">
-                      <i class="fa fa-eye"></i>
-                    </vs-button>
+            <div class="vx-row">
+              <vx-card class="vx-col md:w-1/4 mb-base" v-for="(exam , key) in exams" :key="key"
+                       style="background: #eee">
+                <h2 class="text-bold">
+                  <span class="text-info" style="font-size: 18px">{{exam.exam.name}}</span>
+                </h2>
+                <div class="vx-card bg-primary-gradient p-0 m-0 text-center" style="width: 100%"><!---->
+                  <div class="vx-card__collapsible-content vs-con-loading__container">
+                    <div class="vx-card__body m-0">
+                      <h4 class="text-bold">
+                        {{$ml.get('your_result')}}
+                        {{exam.exam.subject.translated.title}}
+                      </h4>
+                      <div class="vx-row text-center " style="background: #fff">
+                        <div class="vx-col w-full text-center" dir="rtl">
+                          <h1 class="text-bold mt-3">{{parseFloat(exam.exam.degree).toFixed(2)}} /
+                            {{parseFloat(exam ? exam.degree : 0
+                            ).toFixed(2)}}</h1>
+                          <vs-button type="gradient" color="primary" label="remove_red_eye" class="mb-2"
+                                     @click="$router.push({name:'student_exam_result',params:{'id':exam.id}})">
+                            {{$ml.get('show')}}
+                          </vs-button>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </vs-td>
-              </vs-tr>
-            </template>
-          </vs-table>
+                </div>
+              </vx-card>
+              <div class="vx-col w-full">
+                <vs-divider/>
+              </div>
+            </div>
+          </div>
+          <!--          <div class="vx-row">-->
+          <!--            <div class="vx-col w-full mb-base" v-if="dataModel.textQuestions.length  > 0">-->
+          <!--              <vs-row vs-justify="center" class="w-full">-->
+          <!--                <vs-col type="flex" vs-justify="centesr" vs-align="center">-->
+          <!--                  <vs-card>-->
+          <!--                    <div slot="header">-->
+          <!--                      <vs-alert active="true" color="danger">-->
+          <!--                        <h3 class="text-bold pb-4">-->
+          <!--                          <span class="text-info" style="font-size: 18px">{{dataModel.exam.name}}</span> <br>-->
+          <!--                          <hr class="mb-4">-->
+          <!--                          {{$ml.get('result_soon')}}-->
+          <!--                        </h3>-->
+          <!--                      </vs-alert>-->
+          <!--                    </div>-->
+          <!--                  </vs-card>-->
+          <!--                </vs-col>-->
+          <!--              </vs-row>-->
+          <!--            </div>-->
+          <!--          </div>-->
+          <!--                    <div class="vx-row" v-if="dataModel">-->
+          <!--                      <div class="vx-col w-full mb-base" v-if="dataModel.textQuestions.length  == 0">-->
+          <!--                        <h2 class="text-bold">-->
+          <!--                          {{$ml.get('your_result_p')}} <br>-->
+          <!--                          <span class="text-info" style="font-size: 18px">{{dataModel.exam.name}}</span>-->
+          <!--                        </h2>-->
+          <!--                        <div class="vx-card bg-primary-gradient p-0 m-0 text-center" style="width: 250px">&lt;!&ndash;&ndash;&gt;-->
+          <!--                          <div class="vx-card__collapsible-content vs-con-loading__container">-->
+          <!--                            <div class="vx-card__body m-0">-->
+          <!--                              <h3 class="text-bold">-->
+          <!--                                {{$ml.get('your_result')}}-->
+          <!--                              </h3>-->
+          <!--                              <div class="vx-row text-center " style="background: #fff">-->
+          <!--                                <div class="vx-col w-full text-center" dir="ltr">-->
+          <!--                                  <h1 class="text-bold mt-3">{{parseFloat(dataModel.degree).toFixed(2)}} /-->
+          <!--                                    {{parseFloat(dataModel.exam ? dataModel.exam.degree : 0-->
+          <!--                                    ).toFixed(2)}}</h1>-->
+          <!--                                </div>-->
+          <!--                              </div>-->
+          <!--                            </div>-->
+          <!--                          </div>-->
+          <!--                        </div>-->
+          <!--                      </div>-->
+          <!--                    </div>-->
+
+
         </vx-card>
       </div>
     </div>
@@ -75,7 +100,8 @@
   export default {
     data() {
       return {
-        exams: [],
+        mL: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+        monthlyGrouped: [],
         selected: [],
         itemsPerPage: 5,
         isMounted: false,
@@ -99,9 +125,9 @@
         // let auth_data = JSON.parse(window.ls.getFromStorage('auth_data'));
         vm.$root.$children[0].$refs.loader.show_loader = true;
         try {
-          window.serviceAPI.API().get(window.serviceAPI.ALL_STUDENT_EXAM_NATEGA, {
+          window.serviceAPI.API().get(window.serviceAPI.GET_STUDENT_EXAM_HOME_DATA, {
             params: {
-              is_corrected: 1
+              is_corrected: 'true'
               // teacher_id: auth_data.user.id
             }
           })
@@ -110,19 +136,48 @@
               response = response.data;
               console.log(response)
               if (response.status) {
-                vm.exams = response.data.studentExams.data;
+                vm.monthlyGrouped = response.data.monthlyGrouped;
                 return
               }
-              vm.exams = [];
+              vm.monthlyGrouped = [];
             }).catch((error) => {
             vm.$root.$children[0].$refs.loader.show_loader = false;
             window.helper.handleError(error, vm);
-            vm.exams = [];
+            vm.monthlyGrouped = [];
           });
         } catch (e) {
           console.log(e)
         }
       },
+      // getAllExams() {
+      //   let vm = this;
+      //   // let auth_data = JSON.parse(window.ls.getFromStorage('auth_data'));
+      //   vm.$root.$children[0].$refs.loader.show_loader = true;
+      //   try {
+      //     window.serviceAPI.API().get(window.serviceAPI.ALL_STUDENT_EXAM_NATEGA, {
+      //       params: {
+      //         is_corrected: 'true'
+      //         // teacher_id: auth_data.user.id
+      //       }
+      //     })
+      //       .then((response) => {
+      //         vm.$root.$children[0].$refs.loader.show_loader = false;
+      //         response = response.data;
+      //         console.log(response)
+      //         if (response.status) {
+      //           vm.exams = response.data.studentExams.data;
+      //           return
+      //         }
+      //         vm.exams = [];
+      //       }).catch((error) => {
+      //       vm.$root.$children[0].$refs.loader.show_loader = false;
+      //       window.helper.handleError(error, vm);
+      //       vm.exams = [];
+      //     });
+      //   } catch (e) {
+      //     console.log(e)
+      //   }
+      // },
       deleteSelected() {
         this.$vs.dialog({
           type: 'confirm',

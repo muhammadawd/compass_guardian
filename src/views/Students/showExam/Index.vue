@@ -52,8 +52,6 @@
               </vs-row>
             </div>
           </div>
-
-
         </vx-card>
       </div>
     </div>
