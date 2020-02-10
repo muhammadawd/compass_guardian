@@ -195,6 +195,63 @@ const router = new Router({
           component: () => import('./views/Home.vue')
         },
         // =============================================================================
+        // Reports Routes
+        // =============================================================================
+        {
+          path: '/reports/homework_report',
+          name: 'homework_report',
+          meta: {
+            requiresAuth: true,
+            actorType: 'admin'
+          },
+          component: () => import('./views/Reports/StudentClassHomeworkReport.vue')
+        },
+        {
+          path: '/reports/student_class_report',
+          name: 'student_class_report',
+          meta: {
+            requiresAuth: true,
+            actorType: 'admin'
+          },
+          component: () => import('./views/Reports/StudentClassReport.vue')
+        },
+        {
+          path: '/reports/student_exam_report',
+          name: 'student_exam_report',
+          meta: {
+            requiresAuth: true,
+            actorType: 'admin'
+          },
+          component: () => import('./views/Reports/StudentExamReport.vue')
+        },
+        {
+          path: '/reports/teacher_complaints_report',
+          name: 'teacher_complaints_report',
+          meta: {
+            requiresAuth: true,
+            actorType: 'admin'
+          },
+          component: () => import('./views/Reports/TeacherComplaintsReport.vue')
+        },
+        {
+          path: '/reports/teacher_leaves_report',
+          name: 'teacher_leaves_report',
+          meta: {
+            requiresAuth: true,
+            actorType: 'admin'
+          },
+          component: () => import('./views/Reports/TeacherLeavesReport.vue')
+        },
+        {
+          path: '/reports/student_leaves_report',
+          name: 'student_leaves_report',
+          meta: {
+            requiresAuth: true,
+            actorType: 'admin'
+          },
+          component: () => import('./views/Reports/StudentLeavesReport.vue')
+        },
+        // =============================================================================
         // Management Subject Routes
         // =============================================================================
         {
@@ -630,6 +687,15 @@ const router = new Router({
           component: () => import('./views/Attendance/Student/AttendanceReport.vue')
         },
         {
+          path: '/students_update_stage',
+          name: 'students_update_stage',
+          meta: {
+            requiresAuth: true,
+            actorType: 'admin'
+          },
+          component: () => import('./views/Students/StudentUpdateStage/Index.vue')
+        },
+        {
           path: '/students',
           name: 'students',
           meta: {
@@ -793,7 +859,23 @@ router.afterEach(() => {
   if (appLoading) {
     appLoading.style.display = "none";
   }
-})
+});
+
+function getAuth() {
+  window.serviceAPI.API().get(window.serviceAPI.AUTH_ADMIN)
+    .then((response) => {
+      response = response.data
+      if (response.status) {
+        let permissions = _.map(response.data.admin.role.permissions, 'name');
+        let auth_data = JSON.parse(window.ls.getFromStorage('auth_data'));
+        auth_data.permissions = permissions;
+        window.ls.saveToStorage('auth_data', auth_data)
+      }
+    })
+    .catch((errors) => {
+      console.log(errors)
+    })
+}
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
@@ -801,20 +883,21 @@ router.beforeEach((to, from, next) => {
     // this route requires auth, check if logged in
     if (auth_data) {
       if (to.meta.actorType == auth_data.type) {
-        next()
+        next();
+        if (auth_data.type == 'admin') getAuth();
       } else {
         next({
           name: 'pageError403'
         })
       }
-      next()
+      next();
     } else {
       next({
         name: 'login', // query: {redirect: to.fullPath}
       })
     }
   } else {
-    next() // make sure to always call next()!
+    next(); // make sure to always call next()!
   }
 });
 

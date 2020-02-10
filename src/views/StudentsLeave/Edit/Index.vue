@@ -10,7 +10,8 @@
           <div class="vx-row">
             <div class="vx-col md:w-1/3 mb-base">
               <label class="vs-input--label">{{$ml.get('students')}} <span class="star">*</span></label>
-              <multiselect v-model="selectedStudent" :options="students" :multiple="false" :close-on-select="true" open-direction="bottom"
+              <multiselect v-model="selectedStudent" :options="students" :multiple="false" :close-on-select="true"
+                           open-direction="bottom"
                            :clear-on-select="true" :preserve-search="true" :placeholder="$ml.get('search')"
                            :custom-label="customLabel"
                            track-by="id" :preselect-first="true">
@@ -19,7 +20,8 @@
             </div>
             <div class="vx-col md:w-1/3 mb-base">
               <label class="vs-input--label">{{$ml.get('teachers')}}</label>
-              <multiselect v-model="selectedTeacher" :options="teachers" :multiple="false" :close-on-select="true" open-direction="bottom"
+              <multiselect v-model="selectedTeacher" :options="teachers" :multiple="false" :close-on-select="true"
+                           open-direction="bottom"
                            :clear-on-select="true" :preserve-search="true" :placeholder="$ml.get('search')"
                            :custom-label="customLabel"
                            track-by="id" :preselect-first="true">
@@ -29,7 +31,7 @@
             <div class="vx-col md:w-1/5 mb-base">
 
               <label class="vs-input--label">{{$ml.get('type')}} <span class="star">*</span></label>
-              <vs-select  class="w-full"  v-model="dataModel.type">
+              <vs-select class="w-full" v-model="dataModel.type">
                 <vs-select-item value="leave" :text="$ml.get('leave')"></vs-select-item>
                 <vs-select-item value="vacation" :text="$ml.get('vacation')"></vs-select-item>
               </vs-select>
@@ -47,12 +49,12 @@
               <vs-input class="w-full" :label="$ml.get('relation')" v-model="dataModel.relation"/>
               <span class="span-text-validation text-danger text-bold" id="relation_error"></span>
             </div>
-<!--            <div class="vx-col md:w-1/3 mb-base">-->
-<!--              <label class="vs-input&#45;&#45;label">{{$ml.get('end_date')}}</label>-->
-<!--              <flat-pickr class="w-full" :config="timeConfig" :label="$ml.get('end_date')"-->
-<!--                          v-model="dataModel.end_date"></flat-pickr>-->
-<!--              <span class="span-text-validation text-danger text-bold" id="end_date_error"></span>-->
-<!--            </div>-->
+            <!--            <div class="vx-col md:w-1/3 mb-base">-->
+            <!--              <label class="vs-input&#45;&#45;label">{{$ml.get('end_date')}}</label>-->
+            <!--              <flat-pickr class="w-full" :config="timeConfig" :label="$ml.get('end_date')"-->
+            <!--                          v-model="dataModel.end_date"></flat-pickr>-->
+            <!--              <span class="span-text-validation text-danger text-bold" id="end_date_error"></span>-->
+            <!--            </div>-->
             <div class="vx-col md:w-1/2 mb-base">
               <vs-textarea class="w-full" :label="$ml.get('notes')"
                            v-model="dataModel.notes"/>
@@ -64,6 +66,7 @@
             <div class="vx-col w-full text-center mb-base">
               <vs-button ref="loadableButton" id="button-with-loading" :disabled="loading"
                          class="vs-con-loading__container vs-button-dark text-bold"
+                         v-if="hasAccessPermission('update-student-leave')"
                          @click="editLeave" type="filled" vslor="primary">
                 {{$ml.get('edit')}}
               </vs-button>
@@ -110,6 +113,9 @@
       this.findStudentLeave();
     },
     methods: {
+      hasAccessPermission(permission) {
+        return window.helper.hasAccessPermission(permission);
+      },
       findStudentLeave() {
 
         let vm = this;

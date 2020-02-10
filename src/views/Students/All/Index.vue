@@ -15,6 +15,7 @@
 
                 <!-- ADD NEW -->
                 <vs-button color="primary" class="text-bold" type="filled" icon-pack="feather" icon="icon-plus"
+                           v-if="hasAccessPermission('create-student')"
                            @click="$router.push({name: 'students_add'})">
                   {{$ml.get('add_new')}}
                 </vs-button>
@@ -47,6 +48,7 @@
             </div>
 
             <template slot="thead">
+              <vs-th>{{$ml.get('code')}}</vs-th>
               <vs-th>{{$ml.get('name')}}</vs-th>
               <vs-th>{{$ml.get('age')}}</vs-th>
               <vs-th>{{$ml.get('father_name')}}</vs-th>
@@ -56,6 +58,9 @@
 
             <template slot-scope="{data}">
               <vs-tr :data="tr" :key="indextr" v-for="(tr, indextr) in data">
+                <vs-td class="text-right">
+                  {{tr.code}}
+                </vs-td>
                 <vs-td class="text-right">
                   {{tr.name}}
                 </vs-td>
@@ -74,11 +79,12 @@
                 </vs-td>
                 <vs-td class="text-right">
                   <div class="btn-group" dir="ltr">
-                    <vs-button @click="deleteSingle(tr.id)" type="line"
+                    <vs-button @click="deleteSingle(tr.id)" type="line" v-if="hasAccessPermission('delete-student')"
                                color="danger">
                       <i class="fa fa-times"></i>
                     </vs-button>
                     <vs-button @click="$router.push({name:'students_edit',params:{id:tr.id}})" type="line"
+                               v-if="hasAccessPermission('show-student')"
                                color="primary">
                       <i class="fa fa-edit"></i>
                     </vs-button>
@@ -88,7 +94,8 @@
             </template>
           </vs-table>
         </vx-card>
-        <vs-button @click="deleteSelected()" class="mt-4" :disabled="selected.length == 0">
+        <vs-button @click="deleteSelected()" class="mt-4" :disabled="selected.length == 0"
+                   v-if="hasAccessPermission('delete-student')">
           {{$ml.get('delete_selected')}}
         </vs-button>
       </div>
@@ -120,6 +127,9 @@
       },
     },
     methods: {
+      hasAccessPermission(permission) {
+        return window.helper.hasAccessPermission(permission);
+      },
       getAllStudents() {
         let vm = this;
         vm.$root.$children[0].$refs.loader.show_loader = true;

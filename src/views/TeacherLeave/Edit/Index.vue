@@ -58,7 +58,7 @@
 
           <div class="vx-row">
             <div class="vx-col w-full text-center mb-base">
-              <vs-button ref="loadableButton" id="button-with-loading" :disabled="loading"
+              <vs-button ref="loadableButton" id="button-with-loading" :disabled="loading" v-if="hasAccessPermission('update-teacher-leave')"
                          class="vs-con-loading__container vs-button-dark text-bold"
                          @click="editLeave" type="filled" vslor="primary">
                 {{$ml.get('edit')}}
@@ -106,6 +106,9 @@
       this.findTeacherLeave();
     },
     methods: {
+      hasAccessPermission(permission) {
+        return window.helper.hasAccessPermission(permission);
+      },
       findTeacherLeave() {
         let vm = this;
         let id = vm.findId;

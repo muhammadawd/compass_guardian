@@ -22,6 +22,7 @@
           <!-- ADD NEW -->
 
           <vs-button color="primary" class="text-bold" type="filled" icon-pack="feather" icon="icon-plus"
+                     v-if="hasAccessPermission('create-subject')"
                      @click="addNewDataSidebar = true">
             {{$ml.get('add_new')}}
           </vs-button>
@@ -81,10 +82,12 @@
           <vs-td>
             <div class="btn-group">
               <vs-button @click="$router.push({name:'management_subjects_edit',params:{id:tr.id}})" type="line"
+                         v-if="hasAccessPermission('show-subject')"
                          color="primary">
                 <i class="fa fa-edit"></i>
               </vs-button>
               <vs-button @click="deleteSingle(tr.id)" type="line"
+                         v-if="hasAccessPermission('delete-subject')"
                          color="danger">
                 <i class="fa fa-times"></i>
               </vs-button>
@@ -95,7 +98,7 @@
         </tbody>
       </template>
     </vs-table>
-    <vs-button @click="deleteSelected()" :disabled="selected.length == 0">
+    <vs-button @click="deleteSelected()" v-if="hasAccessPermission('delete-subject')" :disabled="selected.length == 0">
       {{$ml.get('delete_selected')}}
     </vs-button>
   </div>
@@ -127,6 +130,9 @@
       },
     },
     methods: {
+      hasAccessPermission(permission) {
+        return window.helper.hasAccessPermission(permission);
+      },
       getAllSubjects() {
         let vm = this;
         vm.$root.$children[0].$refs.loader.show_loader = true;
@@ -225,7 +231,6 @@
     created() {
       const vm = this;
       vm.getAllSubjects()
-      console.log(this.$vs.dialog)
     },
     mounted() {
       this.isMounted = true;

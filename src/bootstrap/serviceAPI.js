@@ -6,6 +6,7 @@ export default {
   BASE_URL: 'http://approc.com/~approctest/school/school/api/',
 
   AUTH_LOGIN: 'admin/login',
+  AUTH_ADMIN: 'admin/auth',
   AUTH_LOGIN_TEACHER: 'teacher/login',
   AUTH_LOGIN_STUDENT: 'student/login',
 
@@ -14,6 +15,10 @@ export default {
 
   ALL_STATUS: 'common/status',
   ALL_DAYS: 'common/days',
+
+  ALL_HOMEWORK_REPORT: 'reports/allHomeWorks',
+  ALL_EXAM_REPORT: 'reports/allExamsReport',
+  ALL_TEACHERS_COMPLAINTS_REPORT: 'reports/allExamsReport',
 
   ALL_STUDENT_EXAM: 'student-exam/get-available-exams',
   ALL_STUDENT_EXAM_NATEGA: 'student-exam',
@@ -107,6 +112,7 @@ export default {
   FIND_STUDENTS: 'student/find',
   EDIT_STUDENTS: 'student/update',
   DELETE_STUDENTS: 'student/delete',
+  UPDATE_STAGE_STUDENTS: 'student/update-stage',
 
   ALL_STUDENT_LEAVES: 'student-leave',
   CREATE_STUDENT_LEAVES: 'student-leave/create',
@@ -119,6 +125,7 @@ export default {
   FIND_ROLES: 'admin/role',
   EDIT_ROLES: 'admin/role/create-update',
   DELETE_ROLES: 'admin/role/delete',
+  ALL_PERMISSIONS: 'admin/role/permissions',
 
   ALL_ADMIN: 'admin',
   ADD_ADMIN: 'admin/create',

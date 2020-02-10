@@ -13,8 +13,41 @@
 
               <div class="flex flex-wrap-reverse items-center">
 
+                <div class="vx-row">
+                  <div class="vx-col w-full text-right">
+                    <label class="text-bold">{{$ml.get('age')}}</label>
+                    <vs-slider step="1" color="danger" :max="max" ticks @change="getAllStudents()"
+                               v-model="slider_value"/>
+                  </div>
+                </div>
               </div>
+
+              <!-- ITEMS PER PAGE -->
+              <vs-dropdown vs-trigger-click class="cursor-pointer mb-4 ml-4">
+                <div dir="ltr"
+                     class="p-4 border border-solid d-theme-border-grey-light rounded-full d-theme-dark-bg cursor-pointer flex items-center justify-between font-medium">
+                  <span class="mr-2">{{ currentPage * itemsPerPage - (itemsPerPage - 1) }} - {{ students.length - currentPage * itemsPerPage > 0 ? currentPage * itemsPerPage : students.length }} of {{ students.length }}</span>
+                  <feather-icon icon="ChevronDownIcon" svgClasses="h-4 w-4"/>
+                </div>
+                <!-- <vs-button class="btn-drop" type="line" color="primary" icon-pack="feather" icon="icon-chevron-down"></vs-button> -->
+                <vs-dropdown-menu>
+
+                  <vs-dropdown-item @click="itemsPerPage=5">
+                    <span>5</span>
+                  </vs-dropdown-item>
+                  <vs-dropdown-item @click="itemsPerPage=10">
+                    <span>10</span>
+                  </vs-dropdown-item>
+                  <vs-dropdown-item @click="itemsPerPage=15">
+                    <span>15</span>
+                  </vs-dropdown-item>
+                  <vs-dropdown-item @click="itemsPerPage=20">
+                    <span>20</span>
+                  </vs-dropdown-item>
+                </vs-dropdown-menu>
+              </vs-dropdown>
             </div>
+
 
             <template slot="thead">
               <vs-th>{{$ml.get('name')}}</vs-th>
@@ -22,6 +55,7 @@
               <vs-th>{{$ml.get('stage')}}</vs-th>
               <vs-th>{{$ml.get('father_name')}}</vs-th>
               <vs-th>{{$ml.get('father_phone')}}</vs-th>
+              <vs-th>{{$ml.get('address')}}</vs-th>
             </template>
 
             <template slot-scope="{data}">
@@ -47,6 +81,11 @@
                     {{tr.parent.father_phone}}
                   </slot>
                 </vs-td>
+                <vs-td class="text-right">
+                  <slot v-if="tr.parent">
+                    {{tr.parent.address}}
+                  </slot>
+                </vs-td>
               </vs-tr>
             </template>
           </vs-table>
@@ -67,6 +106,8 @@
         students: [],
         selected: [],
         itemsPerPage: 5,
+        max: 20,
+        slider_value: [2, 20],
         isMounted: false,
       }
     },
@@ -87,13 +128,19 @@
         let vm = this;
         vm.$root.$children[0].$refs.loader.show_loader = true;
         try {
-          window.serviceAPI.API().get(window.serviceAPI.ALL_STUDENTS)
+          window.serviceAPI.API().get(window.serviceAPI.ALL_STUDENTS, {
+            params: {
+              age_from: vm.slider_value[0],
+              age_to: vm.slider_value[1]
+            }
+          })
             .then((response) => {
               vm.$root.$children[0].$refs.loader.show_loader = false;
               response = response.data;
-              console.log(response)
               if (response.status) {
                 vm.students = response.data.students.data;
+                // vm.slider_value = [parseInt(response.data.minAge), parseInt(response.data.maxAge)];
+                // vm.max = parseInt(response.data.maxAge);
                 return
               }
               vm.students = [];

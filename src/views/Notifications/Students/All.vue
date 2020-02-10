@@ -15,6 +15,7 @@
 
                 <!-- ADD NEW -->
                 <vs-button color="primary" class="text-bold" type="filled" icon-pack="feather" icon="icon-plus"
+                           v-if="hasAccessPermission('create-student-alert')"
                            @click="$router.push({name: 'students_notifications_add'})">
                   {{$ml.get('add_new')}}
                 </vs-button>
@@ -64,6 +65,7 @@
                 <vs-td class="text-right">
                   <div class="btn-group" dir="ltr">
                     <vs-button @click="deleteSingle(tr.id)" type="line"
+                               v-if="hasAccessPermission('delete-student-alert')"
                                color="danger">
                       <i class="fa fa-times"></i>
                     </vs-button>
@@ -77,7 +79,8 @@
             </template>
           </vs-table>
         </vx-card>
-        <vs-button @click="deleteSelected()" class="mt-4" :disabled="selected.length == 0">
+        <vs-button @click="deleteSelected()" v-if="hasAccessPermission('delete-student-alert')" class="mt-4"
+                   :disabled="selected.length == 0">
           {{$ml.get('delete_selected')}}
         </vs-button>
       </div>
@@ -109,6 +112,9 @@
       },
     },
     methods: {
+      hasAccessPermission(permission) {
+        return window.helper.hasAccessPermission(permission);
+      },
       getStudents(students) {
         if (students.length) return _.map(students, 'student.name');
         return '-'

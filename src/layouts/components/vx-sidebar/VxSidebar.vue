@@ -27,16 +27,17 @@
 
         <VuePerfectScrollbar ref="mainSidebarPs" class="scroll-area--main-sidebar  pt-2" :settings="settings"
                              @ps-scroll-y="psSectionScroll">
-          <template v-for="(sidebarItem, index) in sidebarItems">
+          <template v-for="(sidebarItem, index) in sidebarItems" v-if="hasAccessPermission(sidebarItem.permission)">
 
             <!-- GROUP ITEM HEADER -->
             <span :key="`header-${index}`" v-if="sidebarItem.header && !sidebarItemsMin"
                   class="navigation-header truncate">{{ $ml.get(sidebarItem.header) }}</span>
             <template v-else-if="!sidebarItem.header">
-
               <!-- IF IT'S SINGLE ITEM -->
+              <!--                                {{sidebarItem.permission}}-->
               <vx-sidebar-item ref="sidebarLink" :key="`sidebarItem-${index}`" v-if="!sidebarItem.submenu"
                                :index="index" :to="sidebarItem.slug != 'external' ? sidebarItem.url : ''"
+                               :permission="sidebarItem.permission"
                                :href="sidebarItem.slug == 'external' ? sidebarItem.url : ''" :icon="sidebarItem.icon"
                                :target="sidebarItem.target" :isDisabled="sidebarItem.isDisabled">
                 <span v-show="!sidebarItemsMin" class="truncate">{{ $ml.get(sidebarItem.name) }}</span>
@@ -48,7 +49,7 @@
               <!-- IF HAVE SUBMENU / DROPDOWN -->
               <template v-else>
                 <vx-sidebar-group ref="sidebarGrp" :key="`group-${index}`" :openHover="openGroupHover"
-                                  :group="sidebarItem" :groupIndex="index"
+                                  :group="sidebarItem" :groupIndex="index" :permission="sidebarItem.permission"
                                   :open="isGroupActive(sidebarItem)"></vx-sidebar-group>
               </template>
             </template>
@@ -168,6 +169,9 @@
       },
     },
     methods: {
+      hasAccessPermission(permission) {
+        return window.helper.hasAccessPermission(permission);
+      },
       sidebarMouseEntered() {
         if (this.reduce) this.$store.commit('UPDATE_SIDEBAR_ITEMS_MIN', false)
         this.isMouseEnter = true;

@@ -84,11 +84,11 @@
                     phone: response.data.admin.phone,
                     username: response.data.admin.username,
                   },
-                  permissions: [],
+                  permissions: _.map(response.data.admin.role.permissions, 'name'),
                   token: response.data.token,
                   type: 'admin'
                 };
-                window.ls.saveToStorage('auth_data',auth_data)
+                window.ls.saveToStorage('auth_data', auth_data)
                 vm.$router.push({name: 'home'});
                 return null;
               }

@@ -8541,7 +8541,8 @@ th.td-check .con-vs-checkbox {
 }
 
 .con-vs-tabs .con-ul-tabs, .vs-tabs--ul {
-  position: relative
+  position: relative;
+  overflow-x: scroll;
 }
 
 .vs-tabs--ul {

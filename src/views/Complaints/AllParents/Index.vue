@@ -14,6 +14,7 @@
               <div class="flex flex-wrap-reverse items-center">
                 <!-- ADD NEW -->
                 <vs-button color="primary" class="text-bold" type="filled" icon-pack="feather" icon="icon-plus"
+                           v-if="hasAccessPermission('create-parent-complaint')"
                            @click="$router.push({name: 'parents_complaints_add'})">
                   {{$ml.get('add_new')}}
                 </vs-button>
@@ -62,7 +63,8 @@
                   </slot>
                 </vs-td>
                 <vs-td class="text-right">
-                  <div class="con-vs-chip ml-auto  con-color" :class="tr.type == 'complaint' ? 'vs-chip-danger':'vs-chip-primary'"
+                  <div class="con-vs-chip ml-auto  con-color"
+                       :class="tr.type == 'complaint' ? 'vs-chip-danger':'vs-chip-primary'"
                        style="color: rgba(255, 255, 255, 0.9);">
                     <span class="text-chip vs-chip--text">{{$ml.get(tr.type)}}</span>
                   </div>
@@ -81,10 +83,12 @@
                 <vs-td>
                   <div class="btn-group">
                     <vs-button @click="$router.push({name:'edit_parent_complaint',params:{id:tr.id}})" type="line"
+                               v-if="hasAccessPermission('show-parent-complaint')"
                                color="primary">
                       <i class="fa fa-edit"></i>
                     </vs-button>
                     <vs-button @click="deleteSingle(tr.id)" type="line"
+                               v-if="hasAccessPermission('delete-parent-complaint')"
                                color="danger">
                       <i class="fa fa-times"></i>
                     </vs-button>
@@ -94,6 +98,10 @@
             </template>
           </vs-table>
         </vx-card>
+        <vs-button @click="deleteSelected()" class="mt-4" v-if="hasAccessPermission('delete-parent-complaint')"
+                   :disabled="selected.length == 0">
+          {{$ml.get('delete_selected')}}
+        </vs-button>
       </div>
     </div>
   </div>
@@ -123,6 +131,9 @@
       },
     },
     methods: {
+      hasAccessPermission(permission) {
+        return window.helper.hasAccessPermission(permission);
+      },
       getAllParentsComplaints() {
         let vm = this;
         vm.$root.$children[0].$refs.loader.show_loader = true;
@@ -163,6 +174,31 @@
           cancelText: this.$ml.get('no'),
           accept: this.acceptAlert
         })
+      },
+      acceptAlert() {
+        let vm = this;
+        let ids = vm.selected;
+        vm.$root.$children[0].$refs.loader.show_loader = true;
+        ids = _.map(ids, 'id');
+        console.log(ids)
+        try {
+          window.serviceAPI.API().post(window.serviceAPI.DELETE_PARENTS_COMPLAINTS, {
+            ids: ids
+          })
+            .then((response) => {
+              vm.$root.$children[0].$refs.loader.show_loader = false;
+              response = response.data;
+              if (response.status) {
+                vm.complaints = window.helper.deleteMulti([ids], vm.complaints)
+                location.reload()
+              }
+            }).catch((error) => {
+            vm.$root.$children[0].$refs.loader.show_loader = false;
+            window.helper.handleError(error, vm);
+          });
+        } catch (e) {
+          console.log(e)
+        }
       },
       deleteSingle(id) {
         let vm = this;

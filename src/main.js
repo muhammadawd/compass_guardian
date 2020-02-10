@@ -73,7 +73,8 @@ import './filters/filters'
 
 
 // Vuejs - Vue wrapper for hammerjs
-import { VueHammer } from 'vue2-hammer'
+import {VueHammer} from 'vue2-hammer'
+
 Vue.use(VueHammer)
 
 
@@ -85,11 +86,12 @@ import 'prismjs/themes/prism-tomorrow.css'
 // Feather font icon
 require('./assets/css/iconfont.css')
 
-
 Vue.config.productionTip = false
 
+
+
 new Vue({
-    router,
-    store,
-    render: h => h(App)
+  router,
+  store,
+  render: h => h(App)
 }).$mount('#app')

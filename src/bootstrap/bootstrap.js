@@ -15,7 +15,9 @@ try {
 } catch (e) {
   console.error('jquery not found')
 }
-
+export default {
+  helper: helper
+}
 // try {
 //   window.axios = require('axios');
 //   window.axios.defaults.headers.common['Content-Type'] = 'application/json';

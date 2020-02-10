@@ -23,7 +23,7 @@
               <label class="vs-input--label">{{$ml.get('title_ar')}}
                 <span class="star">*</span>
               </label>
-              <vs-input class="w-full"  v-model="dataModel.title_ar"/>
+              <vs-input class="w-full" v-model="dataModel.title_ar"/>
               <span class="span-text-validation text-danger text-bold" id="title_ar_error"></span>
             </div>
             <div class="vx-col md:w-1/4 mb-base">
@@ -34,6 +34,7 @@
           <div class="vx-row">
             <div class="vx-col w-full text-center mb-base">
               <vs-button ref="loadableButton" id="button-with-loading" :disabled="loading" @click="editSubject()"
+                         v-if="hasAccessPermission('update-subject')"
                          class="vs-con-loading__container vs-button-dark text-bold" type="filled" vslor="primary">
                 {{$ml.get('edit')}}
               </vs-button>
@@ -61,13 +62,16 @@
       this.findSubject();
     },
     methods: {
+      hasAccessPermission(permission) {
+        return window.helper.hasAccessPermission(permission);
+      },
       findSubject() {
 
         let vm = this;
         let id = vm.findId;
         vm.$root.$children[0].$refs.loader.show_loader = true;
         try {
-          window.serviceAPI.API().get(window.serviceAPI.FIND_SUBJECTS+ `/${id}`)
+          window.serviceAPI.API().get(window.serviceAPI.FIND_SUBJECTS + `/${id}`)
             .then((response) => {
               vm.$root.$children[0].$refs.loader.show_loader = false;
               response = response.data;

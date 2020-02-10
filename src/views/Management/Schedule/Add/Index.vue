@@ -26,7 +26,7 @@
             <div class="vx-col md:w-1/3 mb-base">
               <label class="vs-input--label">{{$ml.get('stages')}}</label>
               <multiselect v-model="selectedStage" :options="stages" :multiple="false" :close-on-select="true" open-direction="bottom"
-                           :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')"
+                           :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')" :maxHeight="80"
                            :custom-label="customStageLabel"
                            track-by="id" :preselect-first="true">
               </multiselect>
@@ -35,7 +35,7 @@
             <div class="vx-col md:w-1/3 mb-base">
               <label class="vs-input--label">{{$ml.get('class_room')}}</label>
               <multiselect v-model="selectedClassRooms" :options="classRooms" :multiple="false" open-direction="bottom"
-                           :close-on-select="true"
+                           :close-on-select="true" :maxHeight="80"
                            :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')"
                            :custom-label="customStageLabel"
                            track-by="id" :preselect-first="true">
@@ -53,7 +53,7 @@
                 </vs-button>
               </div>
               <span class="span-text-validation text-danger text-bold" id="details_error"></span>
-              <vs-table :data="dataModel.details">
+              <vs-table :data="dataModel.details" :stripe="true">
 
                 <template slot="thead">
                   <vs-th></vs-th>

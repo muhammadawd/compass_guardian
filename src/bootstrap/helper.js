@@ -1,15 +1,19 @@
 export const helper = {
   prepareObjectToSend: (request_data) => {
-    // return JSON.stringify(request_data).replace(/\\n/g, "\\n")
-    //   .replace(/\\'/g, "\\'")
-    //   .replace(/\\"/g, '\\"')
-    //   .replace(/\\&/g, "\\&")
-    //   .replace(/\\r/g, "\\r")
-    //   .replace(/\\t/g, "\\t")
-    //   .replace(/\\b/g, "\\b")
-    //   .replace(/\\f/g, "\\f");
-    // return this.JSON_to_URLEncoded(request_data)
     return request_data;
+  },
+  hasAccessPermission: (permission) => {
+    let user = JSON.parse(localStorage.getItem('auth_data'));
+    if (permission == 'ALLOW_ALL') {
+      return true
+    } else if (user.permissions.includes(permission)) {
+
+      return true;
+    } else {
+
+      return false;
+    }
+    // if (user.permissions.includes(permission)) return true;
   },
   deleteMulti(ids, collection) {
     return _.dropWhile(collection, function (n) {
@@ -89,6 +93,12 @@ export const helper = {
       }
       if (error.response.status == 401) {
         vm.$router.push({name: 'login'})
+        return;
+      }
+
+      if (error.response.status == 403) {
+        vm.$router.push({name: 'pageError403'})
+        return;
       }
 
       vm.$vs.notify({
@@ -124,4 +134,4 @@ export const helper = {
       // console.log('Error', error.message);
     }
   }
-}
+};

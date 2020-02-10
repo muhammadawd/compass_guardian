@@ -19,6 +19,24 @@
             </div>
           </div>
           <div class="vx-row">
+            <div class="vx-col w-full text-center mb-base" v-if="permissions.length != 0">
+              <!--              <vs-tabs alignment="right" position="right">-->
+              <vs-tabs>
+                <vs-tab v-for="(_permissions,key) in permissions" :key="key" :label="key">
+                  <div class="con-tab-ejemplo mt-3 p-3 w-full" style="border: 1px dashed #47a7f5">
+                    <div class="vx-row">
+                      <div class="vx-col md:w-1/4 mb-base" v-for="(permission,key) in _permissions" :key="key">
+                        <vs-checkbox v-model="selectedPermission" :vs-value="permission.id">
+                          {{permission.translated.title}}
+                        </vs-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </vs-tab>
+              </vs-tabs>
+            </div>
+          </div>
+          <div class="vx-row">
             <div class="vx-col w-full text-center mb-base">
               <vs-button ref="loadableButton" id="button-with-loading"
                          class="vs-con-loading__container vs-button-dark text-bold" :disabled="loading"
@@ -40,36 +58,38 @@
       return {
         loading: false,
         dataModel: {},
-        roles: []
+        roles: [],
+        permissions: [],
+        selectedPermission: []
       }
     },
     computed: {},
     mounted() {
-      this.getAllRoles();
+      this.getAllPermissions();
     },
     methods: {
       handleFileUpload() {
         let vm = this;
         vm.dataModel.image = vm.$refs.image.files[0];
       },
-      getAllRoles() {
+      getAllPermissions() {
         let vm = this;
         vm.$root.$children[0].$refs.loader.show_loader = true;
         try {
-          window.serviceAPI.API().get(window.serviceAPI.ALL_ROLES)
+          window.serviceAPI.API().get(window.serviceAPI.ALL_PERMISSIONS)
             .then((response) => {
               vm.$root.$children[0].$refs.loader.show_loader = false;
               response = response.data;
               console.log(response)
               if (response.status) {
-                vm.roles = response.data.roles.data;
+                vm.permissions = response.data.permissions;
                 return
               }
-              vm.roles = [];
+              vm.permissions = [];
             }).catch((error) => {
             vm.$root.$children[0].$refs.loader.show_loader = false;
             window.helper.handleError(error, vm);
-            vm.roles = [];
+            vm.permissions = [];
           });
         } catch (e) {
           console.log(e)
@@ -79,6 +99,7 @@
         let vm = this;
         vm.openLoadingContained();
         let request_data = vm.dataModel;
+        request_data.permission_ids = vm.selectedPermission;
         $('.span-text-validation').text('');
         try {
           window.serviceAPI.API().post(window.serviceAPI.ADD_ROLES, request_data)

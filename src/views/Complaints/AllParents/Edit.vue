@@ -54,12 +54,12 @@
           <div class="vx-row">
             <div class="vx-col   mb-base">
               <label class="vs-input--label">{{$ml.get('text')}}</label>
-              <h3>{{dataModel.text}}</h3>
+              <p class="text-bold">{{dataModel.text}}</p>
             </div>
           </div>
           <div class="vx-row">
             <div class="vx-col w-full text-center mb-base">
-              <vs-button ref="loadableButton" id="button-with-loading" :disabled="loading" @click="editComplaint()"
+              <vs-button ref="loadableButton" id="button-with-loading" :disabled="loading" @click="editComplaint()" v-if="hasAccessPermission('update-parent-complaint')"
                          class="vs-con-loading__container vs-button-dark text-bold" type="filled" vslor="primary">
                 {{$ml.get('edit')}}
               </vs-button>
@@ -96,6 +96,9 @@
       this.getAllTeachers();
     },
     methods: {
+      hasAccessPermission(permission) {
+        return window.helper.hasAccessPermission(permission);
+      },
       customLabel({name}) {
         return `${name}`
       },

@@ -26,11 +26,11 @@
               <span class="span-text-validation text-danger text-bold" id="name_error"></span>
             </div>
             <div class="vx-col md:w-1/6 mb-base">
-              <label class="vs-input--label">{{$ml.get('age')}}
+              <label class="vs-input--label">{{$ml.get('code')}}
                 <span class="star">*</span>
               </label>
-              <vs-input class="w-full" v-model="dataModel.age"/>
-              <span class="span-text-validation text-danger text-bold" id="age_error"></span>
+              <vs-input class="w-full" v-model="dataModel.code"/>
+              <span class="span-text-validation text-danger text-bold" id="code_error"></span>
             </div>
             <div class="vx-col md:w-1/4 mb-base">
               <label class="vs-input--label">{{$ml.get('username')}}
@@ -45,6 +45,13 @@
               </label>
               <vs-input class="w-full" type="password" v-model="dataModel.password"/>
               <span class="span-text-validation text-danger text-bold" id="password_error"></span>
+            </div>
+            <div class="vx-col md:w-1/6 mb-base">
+              <label class="vs-input--label">{{$ml.get('age')}}
+                <span class="star">*</span>
+              </label>
+              <vs-input class="w-full" v-model="dataModel.age"/>
+              <span class="span-text-validation text-danger text-bold" id="age_error"></span>
             </div>
             <div class="vx-col md:w-1/6 mb-base">
               <label class="vs-input--label">{{$ml.get('gender')}} <span class="star">*</span></label>

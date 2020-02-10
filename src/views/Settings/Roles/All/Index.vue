@@ -14,6 +14,7 @@
 
                 <!-- ADD NEW -->
                 <vs-button color="primary" class="text-bold" type="filled" icon-pack="feather" icon="icon-plus"
+                           v-if="hasAccessPermission('create-role')"
                            @click="$router.push({name: 'settings_roles_add'})">
                   {{$ml.get('add_new')}}
                 </vs-button>
@@ -47,12 +48,12 @@
 
             <template slot="thead">
               <vs-th>{{$ml.get('title_ar')}}</vs-th>
-              <vs-th >{{$ml.get('title_en')}}</vs-th>
+              <vs-th>{{$ml.get('title_en')}}</vs-th>
               <vs-th width="15%"></vs-th>
             </template>
 
             <template slot-scope="{data}">
-              <vs-tr  :data="tr"  :key="indextr" v-for="(tr, indextr) in data">
+              <vs-tr :data="tr" :key="indextr" v-for="(tr, indextr) in data">
                 <vs-td class="text-right">
                   {{tr.title_ar}}
                 </vs-td>
@@ -61,11 +62,12 @@
                 </vs-td>
                 <vs-td class="text-right">
                   <div class="btn-group" dir="ltr">
-                    <vs-button @click="deleteSingle(tr.id)" type="line"
+                    <vs-button @click="deleteSingle(tr.id)" type="line" v-if="hasAccessPermission('delete-role')"
                                color="danger">
                       <i class="fa fa-times"></i>
                     </vs-button>
                     <vs-button @click="$router.push({name:'settings_roles_edit',params:{id:tr.id}})" type="line"
+                               v-if="hasAccessPermission('show-role')"
                                color="primary">
                       <i class="fa fa-edit"></i>
                     </vs-button>
@@ -75,7 +77,8 @@
             </template>
           </vs-table>
         </vx-card>
-        <vs-button @click="deleteSelected()" class="mt-4" :disabled="selected.length == 0">
+        <vs-button @click="deleteSelected()" class="mt-4" :disabled="selected.length == 0"
+                   v-if="hasAccessPermission('delete-role')">
           {{$ml.get('delete_selected')}}
         </vs-button>
       </div>
@@ -107,6 +110,9 @@
       },
     },
     methods: {
+      hasAccessPermission(permission) {
+        return window.helper.hasAccessPermission(permission);
+      },
       getAllRoles() {
         let vm = this;
         vm.$root.$children[0].$refs.loader.show_loader = true;
@@ -118,6 +124,7 @@
               console.log(response)
               if (response.status) {
                 vm.roles = response.data.roles.data
+                console.log(vm.roles)
                 return
               }
               vm.roles = [];
@@ -176,26 +183,26 @@
           acceptText: this.$ml.get('yes'),
           cancelText: this.$ml.get('no'),
           accept: () => {
-        vm.$root.$children[0].$refs.loader.show_loader = true;
-        try {
-          window.serviceAPI.API().post(window.serviceAPI.DELETE_ROLES, {
-            ids: [id]
-          })
-            .then((response) => {
-              vm.$root.$children[0].$refs.loader.show_loader = false;
-              response = response.data;
-              if (response.status) {
-                vm.roles = window.helper.deleteMulti([id], vm.roles)
-                location.reload()
-              }
-            }).catch((error) => {
-            vm.$root.$children[0].$refs.loader.show_loader = false;
-            window.helper.handleError(error, vm);
-          });
-        } catch (e) {
-          console.log(e)
-        }
-        }
+            vm.$root.$children[0].$refs.loader.show_loader = true;
+            try {
+              window.serviceAPI.API().post(window.serviceAPI.DELETE_ROLES, {
+                ids: [id]
+              })
+                .then((response) => {
+                  vm.$root.$children[0].$refs.loader.show_loader = false;
+                  response = response.data;
+                  if (response.status) {
+                    vm.roles = window.helper.deleteMulti([id], vm.roles)
+                    location.reload()
+                  }
+                }).catch((error) => {
+                vm.$root.$children[0].$refs.loader.show_loader = false;
+                window.helper.handleError(error, vm);
+              });
+            } catch (e) {
+              console.log(e)
+            }
+          }
         })
       },
     },

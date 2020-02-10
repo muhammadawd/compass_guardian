@@ -25,8 +25,10 @@
             </div>
             <div class="vx-col md:w-1/3 mb-base">
               <label class="vs-input--label">{{$ml.get('stages')}}</label>
-              <multiselect v-model="selectedStage" :options="stages" :multiple="false" :close-on-select="true" open-direction="bottom"
+              <multiselect v-model="selectedStage" :options="stages" :multiple="false" :close-on-select="true"
+                           open-direction="bottom"
                            :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')"
+                           :maxHeight="80"
                            :custom-label="customStageLabel"
                            track-by="id" :preselect-first="true">
               </multiselect>
@@ -35,7 +37,7 @@
             <div class="vx-col md:w-1/3 mb-base">
               <label class="vs-input--label">{{$ml.get('class_room')}}</label>
               <multiselect v-model="selectedClassRooms" :options="classRooms" :multiple="false" open-direction="bottom"
-                           :close-on-select="true"
+                           :close-on-select="true" :maxHeight="80"
                            :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')"
                            :custom-label="customStageLabel"
                            track-by="id" :preselect-first="true">
@@ -91,7 +93,8 @@
                     </vs-td>
                     <vs-td class="text-right">
 
-                      <multiselect v-model="dataModel.details[indextr].subject" :options="teachers" :multiple="false" open-direction="bottom"
+                      <multiselect v-model="dataModel.details[indextr].subject" :options="teachers" :multiple="false"
+                                   open-direction="bottom"
                                    group-values="subjects"
                                    :disabled="dataModel.details[indextr].is_break == 0 ? false : true"
                                    group-label="name" :group-select="false" :placeholder="$ml.get('search')"
@@ -125,6 +128,7 @@
           <div class="vx-row">
             <div class="vx-col w-full text-center mb-base">
               <vs-button ref="loadableButton" id="button-with-loading" :disabled="loading"
+                         v-if="hasAccessPermission('update-schedule')"
                          class="vs-con-loading__container vs-button-dark text-bold"
                          @click="addSchedule" type="filled" vslor="primary">
                 {{$ml.get('edit')}}
@@ -176,7 +180,6 @@
     watch: {
       selectedStage: function (newStage, oldStage) {
         if (oldStage != null) {
-
           this.selectedClassRooms = null;
           this.classRooms = newStage.class_rooms;
         }
@@ -192,6 +195,9 @@
       this.getAllDays()
     },
     methods: {
+      hasAccessPermission(permission) {
+        return window.helper.hasAccessPermission(permission);
+      },
       changeBreak(currentState) {
         if (currentState.is_break == 1) {
           currentState.subject_id = null;
@@ -220,6 +226,7 @@
               if (response.status) {
                 vm.dataModel = response.data.schedule
                 vm.selectedStage = response.data.schedule.class_room.stage
+                vm.classRooms = response.data.schedule.class_room.stage.class_rooms ? response.data.schedule.class_room.stage.class_rooms : [];
                 vm.selectedClassRooms = response.data.schedule.class_room
                 return
               }
@@ -239,7 +246,7 @@
         });
         vm.dataModel.details = data;
       },
-      getAllStages() {
+        getAllStages() {
         let vm = this;
         vm.$root.$children[0].$refs.loader.show_loader = true;
         try {

@@ -12,7 +12,7 @@
               <label class="vs-input--label">{{$ml.get('title_ar')}}
                 <span class="star">*</span>
               </label>
-              <vs-input class="w-full"  v-model="dataModel.title_ar"/>
+              <vs-input class="w-full" v-model="dataModel.title_ar"/>
               <span class="span-text-validation text-danger text-bold" id="title_ar_error"></span>
             </div>
             <div class="vx-col md:w-1/3 mb-base">
@@ -71,6 +71,7 @@
           <div class="vx-row">
             <div class="vx-col w-full text-center mb-base">
               <vs-button ref="loadableButton" id="button-with-loading" :disabled="loading"
+                         v-if="hasAccessPermission('update-magazine')"
                          class="vs-con-loading__container vs-button-dark text-bold"
                          @click="editMagazine" type="filled" vslor="primary">
                 {{$ml.get('edit')}}
@@ -105,6 +106,9 @@
       this.findMagazine();
     },
     methods: {
+      hasAccessPermission(permission) {
+        return window.helper.hasAccessPermission(permission);
+      },
       handleFileUpload() {
         let vm = this;
         vm.images = vm.$refs.image.files;

@@ -6,12 +6,14 @@ export default [
   {
     url: null,
     name: "control_panel",
+    permission:'ALLOW_ALL',
     icon: "HomeIcon",
     i18n: "",
     submenu: [
       {
         url: '/home_student',
         name: "home",
+        permission:'ALLOW_ALL',
         slug: "",
         i18n: "",
       },
@@ -20,16 +22,14 @@ export default [
   {
     url: '/all_student_exam',
     name: "all_student_exam",
-    // tag: "2",
-    // tagColor: "primary",
+    permission:'ALLOW_ALL',
     icon: "BookIcon",
     i18n: "",
   },
   {
     url: '/all_student_exam_result',
     name: "all_student_exam_result",
-    // tag: "2",
-    // tagColor: "primary",
+    permission:'ALLOW_ALL',
     icon: "BookIcon",
     i18n: "",
   },

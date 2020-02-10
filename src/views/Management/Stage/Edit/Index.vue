@@ -95,7 +95,7 @@
           <div class="vx-row">
             <div class="vx-col w-full text-center mb-base">
               <vs-button ref="loadableButton" id="button-with-loading" :disabled="loading"
-                         class="vs-con-loading__container vs-button-dark text-bold"
+                         class="vs-con-loading__container vs-button-dark text-bold" v-if="hasAccessPermission('update-stage')"
                          @click="editStageValues" type="filled" vslor="primary">
                 {{$ml.get('edit')}}
               </vs-button>
@@ -135,6 +135,9 @@
       this.findStage()
     },
     methods: {
+      hasAccessPermission(permission) {
+        return window.helper.hasAccessPermission(permission);
+      },
       customLabel({translated}) {
         return `${translated.title}`
       },

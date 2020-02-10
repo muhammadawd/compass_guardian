@@ -94,7 +94,7 @@
 
           <div class="vx-row">
             <div class="vx-col w-full text-center mb-base">
-              <vs-button ref="loadableButton" id="button-with-loading" :disabled="loading"
+              <vs-button ref="loadableButton" id="button-with-loading" :disabled="loading" v-if="hasAccessPermission('update-teacher')"
                          class="vs-con-loading__container vs-button-dark text-bold"
                          @click="editTeacher" type="filled" vslor="primary">
                 {{$ml.get('edit')}}
@@ -135,6 +135,9 @@
       this.findTeacher()
     },
     methods: {
+      hasAccessPermission(permission) {
+        return window.helper.hasAccessPermission(permission);
+      },
       customLabel({translated}) {
         return `${translated.title}`
       },

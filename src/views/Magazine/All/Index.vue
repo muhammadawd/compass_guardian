@@ -1,3 +1,4 @@
+0
 <template>
   <div id="data-list-thumb-view" class="data-list-container">
 
@@ -15,6 +16,7 @@
 
                 <!-- ADD NEW -->
                 <vs-button color="primary" class="text-bold" type="filled" icon-pack="feather" icon="icon-plus"
+                           v-if="hasAccessPermission('create-magazine')"
                            @click="$router.push({name: 'magazine_add'})">
                   {{$ml.get('add_new')}}
                 </vs-button>
@@ -62,11 +64,12 @@
                 </vs-td>
                 <vs-td class="text-right">
                   <div class="btn-group" dir="ltr">
-                    <vs-button @click="deleteSingle(tr.id)" type="line"
+                    <vs-button @click="deleteSingle(tr.id)" type="line" v-if="hasAccessPermission('delete-magazine')"
                                color="danger">
                       <i class="fa fa-times"></i>
                     </vs-button>
                     <vs-button @click="$router.push({name:'magazine_edit',params:{id:tr.id}})" type="line"
+                               v-if="hasAccessPermission('show-magazine')"
                                color="primary">
                       <i class="fa fa-edit"></i>
                     </vs-button>
@@ -76,7 +79,8 @@
             </template>
           </vs-table>
         </vx-card>
-        <vs-button @click="deleteSelected()" class="mt-4" :disabled="selected.length == 0">
+        <vs-button @click="deleteSelected()" class="mt-4" :disabled="selected.length == 0"
+                   v-if="hasAccessPermission('delete-magazine')">
           {{$ml.get('delete_selected')}}
         </vs-button>
       </div>
@@ -108,6 +112,9 @@
       },
     },
     methods: {
+      hasAccessPermission(permission) {
+        return window.helper.hasAccessPermission(permission);
+      },
       getAllMagazine() {
         let vm = this;
         vm.$root.$children[0].$refs.loader.show_loader = true;

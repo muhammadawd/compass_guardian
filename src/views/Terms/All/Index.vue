@@ -14,6 +14,7 @@
 
                 <!-- ADD NEW -->
                 <vs-button color="primary" class="text-bold" type="filled" icon-pack="feather" icon="icon-plus"
+                           v-if="hasAccessPermission('create-term')"
                            @click="$router.push({name: 'terms_add'})">
                   {{$ml.get('add_new')}}
                 </vs-button>
@@ -69,11 +70,12 @@
                 </vs-td>
                 <vs-td class="text-right">
                   <div class="btn-group" dir="ltr">
-                    <vs-button @click="deleteSingle(tr.id)" type="line"
+                    <vs-button @click="deleteSingle(tr.id)" type="line" v-if="hasAccessPermission('delete-term')"
                                color="danger">
                       <i class="fa fa-times"></i>
                     </vs-button>
                     <vs-button @click="$router.push({name:'terms_edit',params:{id:tr.id}})" type="line"
+                               v-if="hasAccessPermission('show-term')"
                                color="primary">
                       <i class="fa fa-edit"></i>
                     </vs-button>
@@ -83,7 +85,8 @@
             </template>
           </vs-table>
         </vx-card>
-        <vs-button @click="deleteSelected()" class="mt-4" :disabled="selected.length == 0">
+        <vs-button @click="deleteSelected()" class="mt-4" v-if="hasAccessPermission('delete-term')"
+                   :disabled="selected.length == 0">
           {{$ml.get('delete_selected')}}
         </vs-button>
       </div>
@@ -115,6 +118,9 @@
       },
     },
     methods: {
+      hasAccessPermission(permission) {
+        return window.helper.hasAccessPermission(permission);
+      },
       getAllTerms() {
         let vm = this;
         vm.$root.$children[0].$refs.loader.show_loader = true;

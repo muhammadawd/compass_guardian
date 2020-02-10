@@ -19,7 +19,8 @@
 
         <div class="vx-row">
           <div class="vx-col md:w-1/2 mb-base">
-            <vs-button class="d-print-none" @click="$router.push({name:'attendance_teacher_add'})">
+            <vs-button class="d-print-none" @click="$router.push({name:'attendance_teacher_add'})"
+                       v-if="hasAccessPermission('create-teacher-absence')">
               <i class="fas fa-plus"></i>
             </vs-button>
             &nbsp;

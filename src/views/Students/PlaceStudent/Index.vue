@@ -36,11 +36,11 @@
                   </div>
                   <div class="vx-col md:w-1/1 mb-base">
                     <!-- ADD NEW -->
-                    <vs-button color="primary" class="text-bold m-4" :disabled="selected.length != 0"
+                    <vs-button color="primary" class="text-bold m-4"  v-if="hasAccessPermission('create-student-term')" :disabled="selected.length != 0"
                                @click="addStudentClass()">
                       {{$ml.get('place_auto_student')}}
                     </vs-button>
-                    <vs-button @click="addStudentClass()" class="text-bold m-4" :disabled="selected.length == 0">
+                    <vs-button @click="addStudentClass()" class="text-bold m-4"  v-if="hasAccessPermission('create-student-term')" :disabled="selected.length == 0">
                       {{$ml.get('place_selected_student')}}
                     </vs-button>
                   </div>
@@ -171,6 +171,9 @@
       }
     },
     methods: {
+      hasAccessPermission(permission) {
+        return window.helper.hasAccessPermission(permission);
+      },
       customStageLabel({translated}) {
         return `${translated.title}`
       },

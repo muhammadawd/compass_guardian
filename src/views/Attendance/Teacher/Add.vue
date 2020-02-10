@@ -12,7 +12,8 @@
             <div class="vx-col md:w-1/4 mb-base">
               <label class="vs-input--label">{{$ml.get('teachers')}}</label>
               <vs-select class="w-full" v-model="dataModel.teacher_id">
-                <vs-select-item v-for="(item , key) in teachers" :key="key" :value="item.id" :text="item.name"></vs-select-item>
+                <vs-select-item v-for="(item , key) in teachers" :key="key" :value="item.id"
+                                :text="item.name"></vs-select-item>
               </vs-select>
               <span class="span-text-validation text-danger text-bold" id="teacher_id_error"></span>
             </div>
@@ -26,6 +27,7 @@
           <div class="vx-row">
             <div class="vx-col w-full text-center mb-base">
               <vs-button ref="loadableButton" id="button-with-loading"
+                         v-if="hasAccessPermission('create-teacher-absence')"
                          class="vs-con-loading__container vs-button-dark text-bold" :disabled="loading"
                          @click="addAttendance" type="filled" vslor="primary">
                 {{$ml.get('add')}}
@@ -42,6 +44,7 @@
 
   import flatPickr from 'vue-flatpickr-component';
   import 'flatpickr/dist/flatpickr.css';
+
   export default {
     data() {
       return {
@@ -61,6 +64,9 @@
       this.getAllTeachers();
     },
     methods: {
+      hasAccessPermission(permission) {
+        return window.helper.hasAccessPermission(permission);
+      },
       getAllTeachers() {
         let vm = this;
         vm.$root.$children[0].$refs.loader.show_loader = true;
