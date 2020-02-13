@@ -9,17 +9,6 @@
           </vs-alert>
           <div class="vx-row">
 
-            <div class="vx-col md:w-1/4 mb-base">
-              <label class="vs-input--label">{{$ml.get('subjects')}}
-                <span class="star">*</span>
-              </label>
-              <multiselect v-model="selectedSubjects" :options="subjects" :multiple="false" :close-on-select="true"
-                           :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')"
-                           :custom-label="customLabel"
-                           track-by="id" :preselect-first="true">
-              </multiselect>
-              <span class="span-text-validation text-danger text-bold" id="subject_id_error"></span>
-            </div>
 
             <div class="vx-col md:w-1/4 mb-base">
               <label class="vs-input--label">{{$ml.get('stages')}}
@@ -32,6 +21,22 @@
                            track-by="id" :preselect-first="true">
               </multiselect>
               <span class="span-text-validation text-danger text-bold" id="stage_id_error"></span>
+            </div>
+
+            <div class="vx-col md:w-1/4 mb-base">
+              <label class="vs-input--label">{{$ml.get('subjects')}}
+                <span class="star">*</span>
+              </label>
+              <multiselect v-model="selectedSubjects" :options="subjects" :multiple="false" :close-on-select="true"
+                           :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')"
+                           :custom-label="customLabel"
+                           track-by="id" :preselect-first="true">
+              </multiselect>
+              <span class="span-text-validation text-danger text-bold" id="subject_id_error"></span>
+            </div>
+            <div class="vx-col md:w-1/6 mb-base" v-if="dataModel.teacher">
+              <label class="vs-input--label">{{$ml.get('teachers')}}</label>
+              <h3 class="text-bold">{{dataModel.teacher.name}}</h3>
             </div>
             <!--            <div class="vx-col md:w-1/4 mb-base">-->
             <!--              <label class="vs-input&#45;&#45;label">{{$ml.get('class_room')}}</label>-->
@@ -67,6 +72,7 @@
                   <span class="span-text-validation text-danger text-bold" id="files_error"></span>
                 </div>
               </div>
+              <a v-for="(file,k) in dataModel.file_paths" target="_blank" class="text-bold" :key="k" :href="file.path"> | {{$ml.get('show')}}   </a>
             </div>
           </div>
 
@@ -84,8 +90,9 @@
           </div>
           <div class="vx-row">
             <div class="vx-col w-full mb-base">
-              <vs-button color="primary" class="text-bold" type="filled" icon-pack="feather" icon="icon-plus"
+              <vs-button color="primary" class="text-bold" type="filled" icon-pack="feather"
                          @click="dataModel.videos.push({url: ''})">
+                {{$ml.get('add_url')}}
               </vs-button>
             </div>
           </div>
@@ -99,7 +106,8 @@
 
           <div class="vx-row">
             <div class="vx-col w-full text-center mb-base">
-              <vs-button ref="loadableButton" id="button-with-loading" :disabled="loading" v-if="hasAccessPermission('update-attachment')"
+              <vs-button ref="loadableButton" id="button-with-loading" :disabled="loading"
+                         v-if="hasAccessPermission('update-attachment')"
                          class="vs-con-loading__container vs-button-dark text-bold"
                          @click="addMagazine" type="filled" vslor="primary">
                 {{$ml.get('edit')}}
@@ -139,17 +147,19 @@
     computed: {},
     watch: {
       selectedStage: function (newStage, oldStage) {
-        if (oldStage != null) {
-          this.selectedClassRooms = [];
-          this.classRooms = newStage.class_rooms;
-        }
+        // if (oldStage != null) {
+        //   this.selectedClassRooms = [];
+        console.log(newStage)
+        this.subjects = newStage.subjects;
+        //   this.classRooms = newStage.class_rooms;
+        // }
       }
     },
     mounted() {
       this.findId = this.$route.params.id;
       this.findScientific()
       this.getAllStages()
-      this.getAllSubjects()
+      // this.getAllSubjects()
     },
     methods: {
       hasAccessPermission(permission) {

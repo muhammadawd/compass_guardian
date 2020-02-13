@@ -61,7 +61,8 @@
                   <vs-th></vs-th>
                   <vs-th width="15%">{{$ml.get('day')}}</vs-th>
                   <vs-th width="10%">{{$ml.get('is_break')}}</vs-th>
-                  <vs-th width="30%">{{$ml.get('subject_teacher')}}</vs-th>
+                  <vs-th width="20%">{{$ml.get('teachers')}}</vs-th>
+                  <vs-th width="20%">{{$ml.get('subjects')}}</vs-th>
                   <vs-th>{{$ml.get('start_time')}}</vs-th>
                   <vs-th>{{$ml.get('end_time')}}</vs-th>
                 </template>
@@ -93,16 +94,26 @@
                     </vs-td>
                     <vs-td class="text-right">
 
-                      <multiselect v-model="dataModel.details[indextr].subject" :options="teachers" :multiple="false"
+                      <multiselect v-model="dataModel.details[indextr].teacher" :options="teachers" :multiple="false"
                                    open-direction="bottom"
-                                   group-values="subjects"
                                    :disabled="dataModel.details[indextr].is_break == 0 ? false : true"
-                                   group-label="name" :group-select="false" :placeholder="$ml.get('search')"
-                                   track-by="id" label="title_ar"><span slot="noResult">Oops! No elements found. Consider changing the search query.</span>
+                                   :placeholder="$ml.get('search')"
+                                   track-by="id" label="name"><span slot="noResult">Oops! No elements found. Consider changing the search query.</span>
                       </multiselect>
 
                       <span class="span-text-validation text-danger text-bold"
                             :id="'details.'+indextr+'.teacher_id_error'"></span>
+                    </vs-td>
+                    <vs-td class="text-right">
+
+                      <multiselect v-model="dataModel.details[indextr].subject" :options="subjects" :multiple="false"
+                                   open-direction="bottom"
+                                   :disabled="dataModel.details[indextr].is_break == 0 ? false : true"
+                                   :placeholder="$ml.get('search')"
+                                   track-by="id"
+                                   :custom-label="customLabel"><span slot="noResult">Oops! No elements found. Consider changing the search query.</span>
+                      </multiselect>
+
                       <span class="span-text-validation text-danger text-bold"
                             :id="'details.'+indextr+'.subject_id_error'"></span>
                     </vs-td>
@@ -167,6 +178,7 @@
         selectedClassRooms: null,
 
         teachers: [],
+        subjects: [],
         loading: false,
         findId: null,
         timeConfig: {
@@ -193,6 +205,7 @@
       this.getAllStages()
       this.getAllTeachers()
       this.getAllDays()
+      this.getAllSubjects()
     },
     methods: {
       hasAccessPermission(permission) {
@@ -213,6 +226,29 @@
       customLabel({translated}) {
         return `${translated.title}`
       },
+      getAllSubjects() {
+        let vm = this;
+        vm.$root.$children[0].$refs.loader.show_loader = true;
+        try {
+          window.serviceAPI.API().get(window.serviceAPI.ALL_SUBJECTS)
+            .then((response) => {
+              vm.$root.$children[0].$refs.loader.show_loader = false;
+              response = response.data;
+              console.log(response)
+              if (response.status) {
+                vm.subjects = response.data.subjects.data;
+                return
+              }
+              vm.subjects = [];
+            }).catch((error) => {
+            vm.$root.$children[0].$refs.loader.show_loader = false;
+            window.helper.handleError(error, vm);
+            vm.subjects = [];
+          });
+        } catch (e) {
+          console.log(e)
+        }
+      },
       findSchedule() {
 
         let vm = this;
@@ -226,7 +262,7 @@
               if (response.status) {
                 vm.dataModel = response.data.schedule
                 vm.selectedStage = response.data.schedule.class_room.stage
-                vm.classRooms = response.data.schedule.class_room.stage.class_rooms ? response.data.schedule.class_room.stage.class_rooms : [];
+                // vm.classRooms = response.data.schedule.class_room.stage.class_rooms ? response.data.schedule.class_room.stage.class_rooms : [];
                 vm.selectedClassRooms = response.data.schedule.class_room
                 return
               }
@@ -246,7 +282,7 @@
         });
         vm.dataModel.details = data;
       },
-        getAllStages() {
+      getAllStages() {
         let vm = this;
         vm.$root.$children[0].$refs.loader.show_loader = true;
         try {
@@ -301,7 +337,10 @@
         let request_data = vm.dataModel;
         let room_ids = vm.selectedClassRooms ? vm.selectedClassRooms.id : null;
         request_data.class_room_id = room_ids;
-
+        _.each(request_data.details,(item , l)=>{
+          if (item.teacher) item.teacher_id = item.teacher.id
+          if (item.subject) item.subject_id = item.subject.id
+        })
         vm.prepareRequestData(request_data)
 
         // let subject_ids = vm.selectedSubjects;

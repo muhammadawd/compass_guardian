@@ -10146,6 +10146,12 @@ body[dir=rtl] > div.con-vs-dropdown--menu.vs-dropdown-menu.vx-navbar-dropdown.lo
 }
 
 @media print {
+  .d-print-none{
+    display: none!important;;
+  }
+  .d-print-block{
+    display: block!important;
+  }
   .d-print-none, .vs-sidebar {
     display: none;
   }

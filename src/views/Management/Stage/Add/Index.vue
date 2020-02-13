@@ -26,6 +26,7 @@
               <multiselect v-model="selectedSubjects" :options="subjects" :multiple="true" :close-on-select="false"
                            :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')"
                            :custom-label="customLabel"
+                           :maxHeight="120"
                            track-by="id" :preselect-first="true">
               </multiselect>
               <span class="span-text-validation text-danger text-bold" id="subject_ids_error"></span>

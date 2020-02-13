@@ -4,6 +4,9 @@
     <!-- KNOWLEDGE BASE CARDS  -->
     <div class="vx-row">
       <div class="vx-col w-full">
+        <div class="vs-alert bg-danger text-white text-bold" v-if="displayError">
+          <div id="error_delete_error"></div>
+        </div>
         <vx-card class="text-center cursor-pointer">
 
           <vs-table ref="table" multiple v-model="selected" pagination :max-items="itemsPerPage" search :data="stages">
@@ -77,7 +80,8 @@
             </template>
           </vs-table>
         </vx-card>
-        <vs-button @click="deleteSelected()" v-if="hasAccessPermission('delete-stage')" class="mt-4" :disabled="selected.length == 0">
+        <vs-button @click="deleteSelected()" v-if="hasAccessPermission('delete-stage')" class="mt-4"
+                   :disabled="selected.length == 0">
           {{$ml.get('delete_selected')}}
         </vs-button>
       </div>
@@ -93,6 +97,7 @@
         stages: [],
         selected: [],
         itemsPerPage: 5,
+        displayError: false,
         isMounted: false,
       }
     },
@@ -149,6 +154,7 @@
       acceptAlert() {
         let vm = this;
         let ids = vm.selected;
+        vm.displayError = false
         vm.$root.$children[0].$refs.loader.show_loader = true;
         ids = _.map(ids, 'id');
         console.log(ids)
@@ -173,6 +179,7 @@
       },
       deleteSingle(id) {
         let vm = this;
+        vm.displayError = false
         this.$vs.dialog({
           type: 'confirm',
           color: 'danger',

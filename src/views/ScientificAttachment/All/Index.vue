@@ -3,7 +3,33 @@
 
     <!-- KNOWLEDGE BASE CARDS  -->
     <div class="vx-row">
-      <div class="vx-col w-full">
+      <div class="vx-col md:w-1/4 mb-base">
+        <vx-card class=" cursor-pointer">
+          <vs-select v-model="current_stage" :label="$ml.get('stage')" @change="getAllSubjects()">
+            <vs-select-item v-for="(item ,k) in stages" :value="item.id" :text="item.translated.title"
+                            :key="k"></vs-select-item>
+          </vs-select>
+          <vs-collapse type="margin">
+            <vs-collapse-item v-for="(item , key) in subjects" :key="key">
+              <div slot="header">
+                {{item.translated.title}}
+                <vs-button size="small" class="float-left" color="primary" @click="getAllScientificAttachment(item.id)"
+                           :disabled="item.scientific_attachments.length == 0">
+                  {{$ml.get('all')}}
+                </vs-button>
+              </div>
+              <vs-list v-if="item.scientific_attachments.length == 0">
+                <vs-list-item :title="$ml.get('no_data')"></vs-list-item>
+              </vs-list>
+              <vs-list v-for="(attachment,_key) in item.scientific_attachments" :key="_key">
+                <vs-list-item :title="attachment.translated.title"
+                              :subtitle="(attachment.teacher ? attachment.teacher.name : '') + ' - ' + (attachment.term ? attachment.term.translated.title : '')"></vs-list-item>
+              </vs-list>
+            </vs-collapse-item>
+          </vs-collapse>
+        </vx-card>
+      </div>
+      <div class="vx-col md:w-3/4 mb-base">
         <vx-card class="text-center cursor-pointer">
 
           <vs-table ref="table" multiple v-model="selected" pagination :max-items="itemsPerPage" search
@@ -50,6 +76,7 @@
             <template slot="thead">
               <vs-th>{{$ml.get('title_ar')}}</vs-th>
               <vs-th>{{$ml.get('title_en')}}</vs-th>
+              <vs-th>{{$ml.get('teachers')}}</vs-th>
               <vs-th width="15%"></vs-th>
             </template>
 
@@ -60,6 +87,11 @@
                 </vs-td>
                 <vs-td class="text-right">
                   {{tr.title_en}}
+                </vs-td>
+                <vs-td class="text-right">
+                  <slot v-if="tr.teacher">
+                    {{tr.teacher.name}}
+                  </slot>
                 </vs-td>
                 <vs-td class="text-right">
                   <div class="btn-group" dir="ltr">
@@ -94,13 +126,17 @@
       return {
         scientificAttachments: [],
         selected: [],
+        subjects: [],
+        stages: [],
         itemsPerPage: 5,
+        current_stage: '',
         isMounted: false,
       }
     },
     mounted() {
       this.isMounted = true;
-      this.getAllScientificAttachment()
+      this.getAllSubjects()
+      this.getAllStages()
     },
     computed: {
       currentPage() {
@@ -114,11 +150,68 @@
       hasAccessPermission(permission) {
         return window.helper.hasAccessPermission(permission);
       },
-      getAllScientificAttachment() {
+      getAllStages() {
         let vm = this;
         vm.$root.$children[0].$refs.loader.show_loader = true;
         try {
-          window.serviceAPI.API().get(window.serviceAPI.ALL_SCIENTIFIC_ATTACHMENT)
+          window.serviceAPI.API().get(window.serviceAPI.ALL_STAGES)
+            .then((response) => {
+              vm.$root.$children[0].$refs.loader.show_loader = false;
+              response = response.data;
+              console.log(response)
+              if (response.status) {
+                vm.stages = response.data.stages.data;
+                return
+              }
+              vm.stages = [];
+            }).catch((error) => {
+            vm.$root.$children[0].$refs.loader.show_loader = false;
+            window.helper.handleError(error, vm);
+            vm.stages = [];
+          });
+        } catch (e) {
+          console.log(e)
+        }
+      },
+      getAllSubjects() {
+        let vm = this;
+        vm.$root.$children[0].$refs.loader.show_loader = true;
+        let stage_id = vm.current_stage;
+        try {
+          window.serviceAPI.API().get(window.serviceAPI.ALL_SUBJECTS, {
+            params: {
+              stage_id: stage_id,
+              attachment: true
+            }
+          })
+            .then((response) => {
+              vm.$root.$children[0].$refs.loader.show_loader = false;
+              response = response.data;
+              if (response.status) {
+                vm.subjects = response.data.subjects.data;
+                return
+              }
+              vm.subjects = [];
+            }).catch((error) => {
+            vm.$root.$children[0].$refs.loader.show_loader = false;
+            window.helper.handleError(error, vm);
+            vm.subjects = [];
+          });
+        } catch (e) {
+          console.log(e)
+        }
+      },
+      getAllScientificAttachment(subject_id) {
+        let vm = this;
+        vm.$root.$children[0].$refs.loader.show_loader = true;
+        let stage_id = vm.current_stage;
+        try {
+          window.serviceAPI.API().get(window.serviceAPI.ALL_SCIENTIFIC_ATTACHMENT, {
+            params: {
+              subject_id: subject_id,
+              stage_id: stage_id,
+            }
+          })
             .then((response) => {
               vm.$root.$children[0].$refs.loader.show_loader = false;
               response = response.data;

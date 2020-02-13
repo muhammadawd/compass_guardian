@@ -75,6 +75,11 @@
 
               </div>
             </div>
+            <div class="vx-col md:w-1/6 mb-base" v-if="dataModel.student_term">
+              <label class="vs-input--label">{{$ml.get('class_room')}}</label>
+              <p class="text-bold">{{dataModel.student_term.class_room ?
+                dataModel.student_term.class_room.translated.title : ''}}</p>
+            </div>
           </div>
 
           <div class="vx-row">
@@ -115,7 +120,8 @@
 
           <div class="vx-row">
             <div class="vx-col w-full text-center mb-base">
-              <vs-button ref="loadableButton" id="button-with-loading" :disabled="loading" v-if="hasAccessPermission('update-student')"
+              <vs-button ref="loadableButton" id="button-with-loading" :disabled="loading"
+                         v-if="hasAccessPermission('update-student')"
                          class="vs-con-loading__container vs-button-dark text-bold"
                          @click="editParent" type="filled" vslor="primary">
                 {{$ml.get('edit')}}

@@ -10,18 +10,6 @@
           <div class="vx-row">
 
             <div class="vx-col md:w-1/4 mb-base">
-              <label class="vs-input--label">{{$ml.get('subjects')}}
-                <span class="star">*</span>
-              </label>
-              <multiselect v-model="selectedSubjects" :options="subjects" :multiple="false" :close-on-select="true"
-                           :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')"
-                           :custom-label="customLabel"
-                           track-by="id" :preselect-first="true">
-              </multiselect>
-              <span class="span-text-validation text-danger text-bold" id="subject_id_error"></span>
-            </div>
-
-            <div class="vx-col md:w-1/4 mb-base">
               <label class="vs-input--label">{{$ml.get('stages')}}
                 <span class="star">*</span>
               </label>
@@ -33,6 +21,19 @@
               </multiselect>
               <span class="span-text-validation text-danger text-bold" id="stage_id_error"></span>
             </div>
+
+            <div class="vx-col md:w-1/4 mb-base">
+              <label class="vs-input--label">{{$ml.get('subjects')}}
+                <span class="star">*</span>
+              </label>
+              <multiselect v-model="selectedSubjects" :options="subjects" :multiple="false" :close-on-select="true"
+                           :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')"
+                           :custom-label="customLabel"
+                           track-by="id" :preselect-first="true">
+              </multiselect>
+              <span class="span-text-validation text-danger text-bold" id="subject_id_error"></span>
+            </div>
+
 <!--            <div class="vx-col md:w-1/4 mb-base">-->
 <!--              <label class="vs-input&#45;&#45;label">{{$ml.get('class_room')}}</label>-->
 <!--              <multiselect v-model="selectedClassRooms" :options="classRooms" :multiple="false" open-direction="bottom"-->
@@ -84,8 +85,8 @@
           </div>
           <div class="vx-row">
             <div class="vx-col w-full mb-base">
-              <vs-button color="primary" class="text-bold" type="filled" icon-pack="feather" icon="icon-plus"
-                         @click="dataModel.videos.push({url: ''})">
+              <vs-button color="primary" class="text-bold" type="filled" icon-pack="feather"
+                         @click="dataModel.videos.push({url: ''})"> {{$ml.get('add_url')}}
               </vs-button>
             </div>
           </div>
@@ -139,15 +140,15 @@
     watch: {
       selectedStage: function (newStage, oldStage) {
         // if (oldStage != null) {
-        this.selectedClassRooms = null;
-        this.classRooms = newStage.class_rooms;
-        this.getAllStudents();
+        // this.selectedClassRooms = null;
+        this.subjects = newStage.subjects;
+        // this.getAllStudents();
         // }
       }
     },
     mounted() {
       this.getAllStages()
-      this.getAllSubjects()
+      // this.getAllSubjects()
     },
     methods: {
       customLabel({translated}) {

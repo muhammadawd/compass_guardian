@@ -6,17 +6,20 @@
         <div class="vx-row  text-right">
           <div class="vx-col md:w-1/4 mb-base">
             <label class="vs-input--label">{{$ml.get('stages')}}</label>
-            <multiselect v-model="selectedStage" :options="stages" :multiple="false" :close-on-select="true"
+            <multiselect class="d-print-none" v-model="selectedStage" :options="stages" :multiple="false"
+                         :close-on-select="true"
                          open-direction="bottom"
                          :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')"
                          :custom-label="customStageLabel"
                          track-by="id" :preselect-first="true">
             </multiselect>
             <span class="span-text-validation text-danger text-bold" id="stage_id_error"></span>
+            <h6 class="hidden d-print-block">{{selectedStage ? selectedStage.translated.title : ''}}</h6>
           </div>
           <div class="vx-col md:w-1/4 mb-base">
             <label class="vs-input--label">{{$ml.get('class_room')}}</label>
-            <multiselect v-model="selectedClassRooms" :options="classRooms" :multiple="isMulti" open-direction="bottom"
+            <multiselect class="d-print-none" v-model="selectedClassRooms" :options="classRooms" :multiple="isMulti"
+                         open-direction="bottom"
                          :close-on-select="true"
                          :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')"
                          :custom-label="customStageLabel"
@@ -24,10 +27,11 @@
             </multiselect>
             <span class="span-text-validation text-danger text-bold" id="class_room_id_error"></span>
             <span class="span-text-validation text-danger text-bold" id="class_room_ids_error"></span>
+            <h6 class="hidden d-print-block">{{selectedClassRooms ? selectedClassRooms.translated.title : ''}}</h6>
           </div>
           <div class="vx-col md:w-1/4 mb-base">
             <label class="vs-input--label">{{$ml.get('students')}}</label>
-            <multiselect v-model="selectedStudent" :options="students" open-direction="bottom"
+            <multiselect class="d-print-none" v-model="selectedStudent" :options="students" open-direction="bottom"
                          :close-on-select="true"
                          :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')"
                          :custom-label="customStudentLabel"
@@ -35,6 +39,8 @@
             </multiselect>
             <span class="span-text-validation text-danger text-bold" id="student_id_error"></span>
             <span class="span-text-validation text-danger text-bold" id="student_term_id_error"></span>
+            <h6 class="hidden d-print-block">{{selectedStudent ? selectedStudent.name : ''}}</h6>
+
           </div>
           <div class="vx-col w-full mb-base btn-group d-print-none" dir="ltr">
             <vs-button @click="getAllStudentHomework()">

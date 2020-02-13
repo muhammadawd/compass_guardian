@@ -40,6 +40,13 @@
               <flat-pickr class="w-full" :label="$ml.get('end_date')" v-model="dataModel.end_date"></flat-pickr>
               <span class="span-text-validation text-danger text-bold" id="end_date_error"></span>
             </div>
+            <div class="vx-col md:w-1/4 mb-base">
+              <label class="vs-input--label">{{$ml.get('is_current')}}</label>
+              <vs-checkbox v-model="dataModel.is_current" vs-value="1">
+                {{$ml.get('is_current')}}
+              </vs-checkbox>
+              <span class="span-text-validation text-danger text-bold" id="is_current_error"></span>
+            </div>
           </div>
 
           <div class="vx-row">

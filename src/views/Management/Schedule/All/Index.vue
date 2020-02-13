@@ -6,6 +6,12 @@
       <div class="vx-col w-full">
         <vx-card class="text-center cursor-pointer">
 
+          <div class="vx-col w-full text-right">
+            <vs-select v-model="current_term" :label="$ml.get('term')" @change="getAllSchedules()">
+              <vs-select-item v-for="(item ,k) in terms" :value="item.id" :text="item.translated.title"
+                              :key="k"></vs-select-item>
+            </vs-select>
+          </div>
           <vs-table ref="table" multiple v-model="selected" pagination :max-items="itemsPerPage" search
                     :data="schedules">
 
@@ -95,6 +101,8 @@
     data() {
       return {
         schedules: [],
+        terms: [],
+        current_term: '',
         selected: [],
         itemsPerPage: 5,
         isMounted: false,
@@ -103,6 +111,7 @@
     mounted() {
       this.isMounted = true;
       this.getAllSchedules()
+      this.getAllTerms()
     },
     computed: {
       currentPage() {
@@ -116,11 +125,39 @@
       hasAccessPermission(permission) {
         return window.helper.hasAccessPermission(permission);
       },
-      getAllSchedules() {
+      getAllTerms() {
         let vm = this;
         vm.$root.$children[0].$refs.loader.show_loader = true;
         try {
-          window.serviceAPI.API().get(window.serviceAPI.ALL_SCHEDULE)
+          window.serviceAPI.API().get(window.serviceAPI.ALL_TERMS)
+            .then((response) => {
+              vm.$root.$children[0].$refs.loader.show_loader = false;
+              response = response.data;
+              console.log(response)
+              if (response.status) {
+                vm.terms = response.data.terms.data;
+                return
+              }
+              vm.terms = [];
+            }).catch((error) => {
+            vm.$root.$children[0].$refs.loader.show_loader = false;
+            window.helper.handleError(error, vm);
+            vm.terms = [];
+          });
+        } catch (e) {
+          console.log(e)
+        }
+      },
+      getAllSchedules() {
+        let vm = this;
+        vm.$root.$children[0].$refs.loader.show_loader = true;
+        let term_id = vm.current_term;
+        try {
+          window.serviceAPI.API().get(window.serviceAPI.ALL_SCHEDULE, {
+            params: {
+              term_id: term_id
+            }
+          })
             .then((response) => {
               vm.$root.$children[0].$refs.loader.show_loader = false;
               response = response.data;

@@ -191,7 +191,7 @@
                 _.transform(response.data.studentLeaves.data, function (result, value, key) {
                   // console.log(result, value, key);
                   value.teacher_name = value.teacher ? value.teacher.name : '';
-                  value.student_name = value.student_term ? value.student_term.student.name : '';
+                  value.student_name = value.student_term ? value.student_term.student ? value.student_term.student.name : '' : '';
                   result[key] = value;
                 }, {});
                 return

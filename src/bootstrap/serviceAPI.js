@@ -1,9 +1,11 @@
 import axios from 'axios'
 
 let BASE_URL = `http://approc.com/~approctest/school/school/api/`;
+// let BASE_URL = `http://192.168.1.9/school/api`;
 
 export default {
   BASE_URL: 'http://approc.com/~approctest/school/school/api/',
+  // BASE_URL: 'http://192.168.1.9/school/api',
 
   AUTH_LOGIN: 'admin/login',
   AUTH_ADMIN: 'admin/auth',
@@ -11,6 +13,7 @@ export default {
   AUTH_LOGIN_STUDENT: 'student/login',
 
   GET_STUDENT_HOME_DATA: 'student/get-home-data',
+  GET_ADMIN_HOME_DATA: 'reports/get-statistics',
   GET_STUDENT_EXAM_HOME_DATA: 'student-exam/get-statistics-exams',
 
   ALL_STATUS: 'common/status',

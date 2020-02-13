@@ -49,7 +49,8 @@
             <template slot="thead">
               <vs-th>{{$ml.get('name')}}</vs-th>
               <vs-th>{{$ml.get('exam_period')}}</vs-th>
-              <vs-th>{{$ml.get('date')}}</vs-th>
+              <vs-th>{{$ml.get('start_date')}}</vs-th>
+              <vs-th>{{$ml.get('end_date')}}</vs-th>
               <vs-th>{{$ml.get('status')}}</vs-th>
               <vs-th></vs-th>
             </template>
@@ -63,7 +64,10 @@
                   {{tr.duration}}
                 </vs-td>
                 <vs-td class="text-right">
-                  {{tr.date}}
+                  {{tr.start_date}}
+                </vs-td>
+                <vs-td class="text-right">
+                  {{tr.end_date}}
                 </vs-td>
                 <vs-td class="text-right">
                   <slot v-if="tr.status">

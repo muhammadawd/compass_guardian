@@ -26,6 +26,7 @@
               <multiselect v-model="selectedSubjects" :options="subjects" :multiple="true" :close-on-select="false"
                            :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')"
                            :custom-label="customLabel"
+                           :maxHeight="120"
                            track-by="id" :preselect-first="true">
               </multiselect>
               <span class="span-text-validation text-danger text-bold" id="subject_ids_error"></span>
@@ -45,6 +46,11 @@
             </div>
           </div>
           <div class="vx-row">
+            <div class="vx-col w-full text-center mb-base">
+              <div class="vs-alert bg-danger text-white text-bold" v-if="displayError">
+                <div id="error_delete_error"></div>
+              </div>
+            </div>
             <div class="vx-col w-full text-center mb-base">
               <div class="text-right">
                 <vs-button type="border" color="primary" @click="addOption()">
@@ -95,7 +101,8 @@
           <div class="vx-row">
             <div class="vx-col w-full text-center mb-base">
               <vs-button ref="loadableButton" id="button-with-loading" :disabled="loading"
-                         class="vs-con-loading__container vs-button-dark text-bold" v-if="hasAccessPermission('update-stage')"
+                         class="vs-con-loading__container vs-button-dark text-bold"
+                         v-if="hasAccessPermission('update-stage')"
                          @click="editStageValues" type="filled" vslor="primary">
                 {{$ml.get('edit')}}
               </vs-button>
@@ -125,6 +132,7 @@
         subjects: [],
         selectedSubjects: [],
         findId: null,
+        displayError: false,
         loading: false
       }
     },
@@ -185,6 +193,7 @@
       editStageValues() {
         const vm = this;
         vm.openLoadingContained();
+        vm.displayError = false
         let request_data = vm.dataModel;
         let subject_ids = vm.selectedSubjects;
         let ids = _.map(subject_ids, 'id');

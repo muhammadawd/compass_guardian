@@ -68,8 +68,16 @@
               </vs-select>
               <span class="span-text-validation text-danger text-bold" id="gender_error"></span>
             </div>
-          </div>
-          <div class="vx-row">
+            <div class="vx-col md:w-1/4 mb-base">
+              <div class="vs-component vs-con-input-label vs-input w-full vs-input-primary">
+                <label class="vs-input--label">{{$ml.get('image')}}</label>
+                <div class="vs-con-input">
+                  <input type="file" accept="image/*" ref="image" class="vs-inputx vs-input--input normal"
+                         v-on:change="handleFileUpload()">
+                  <span class="span-text-validation text-danger text-bold" id="image_error"></span>
+                </div>
+              </div>
+            </div>
             <div class="vx-col md:w-1/4 mb-base">
               <label class="vs-input--label">{{$ml.get('qualification')}}
                 <span class="star">*</span>
@@ -81,6 +89,8 @@
               <vs-input class="w-full" :label="$ml.get('years_experience')" v-model="dataModel.years_experience"/>
               <span class="span-text-validation text-danger text-bold" id="years_experience_error"></span>
             </div>
+          </div>
+          <div class="vx-row">
             <div class="vx-col md:w-1/2 mb-base">
               <label class="vs-input--label">{{$ml.get('subjects')}} <span class="star">*</span> </label>
               <multiselect v-model="selectedSubjects" :options="subjects" :multiple="true" :close-on-select="false"
@@ -135,16 +145,32 @@
       customLabel({translated}) {
         return `${translated.title}`
       },
+      handleFileUpload() {
+        let vm = this;
+        vm.dataModel.image = vm.$refs.image.files[0];
+      },
       addTeacher() {
         const vm = this;
         vm.openLoadingContained();
         let request_data = vm.dataModel;
         let subject_ids = vm.selectedSubjects;
         let ids = _.map(subject_ids, 'id');
-        request_data.subject_ids = ids;
+        // request_data.subject_ids = ids;
+        let form_data = new FormData();
+        $.each(request_data, (key, value) => {
+          form_data.append(key, value)
+        })
+        $.each(ids, (key, value) => {
+          form_data.append(`subject_ids[${key}]`, value)
+        })
+
         $('.span-text-validation').text('');
         try {
-          window.serviceAPI.API().post(window.serviceAPI.ADD_TEACHERS, request_data)
+          window.serviceAPI.API().post(window.serviceAPI.ADD_TEACHERS, form_data, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+          })
             .then((response) => {
               response = response.data;
               if (response.status) {

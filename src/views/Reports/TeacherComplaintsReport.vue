@@ -6,14 +6,15 @@
         <div class="vx-row  text-right">
           <div class="vx-col md:w-1/4 mb-base">
             <label class="vs-input--label">{{$ml.get('teachers')}}</label>
-            <multiselect v-model="selectedTeacher" :options="teachers" open-direction="bottom"
+            <multiselect class="d-print-none" v-model="selectedTeacher" :options="teachers" open-direction="bottom"
                          :close-on-select="true"
                          :clear-on-select="false" :preserve-search="true" :placeholder="$ml.get('search')"
-                         :custom-label="customStudentLabel"
+                         :custom-label="customStudentLabel" :maxHeight="80"
                          track-by="id" :preselect-first="true">
             </multiselect>
             <span class="span-text-validation text-danger text-bold" id="student_id_error"></span>
             <span class="span-text-validation text-danger text-bold" id="student_term_id_error"></span>
+            <h6 class="hidden d-print-block">{{selectedTeacher ? selectedTeacher.name : ''}}</h6>
           </div>
           <div class="vx-col w-full mb-base btn-group d-print-none" dir="ltr">
             <vs-button @click="getAllTeacherComplaints()">

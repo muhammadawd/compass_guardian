@@ -4,6 +4,9 @@
     <!-- KNOWLEDGE BASE CARDS  -->
     <div class="vx-row">
       <div class="vx-col w-full">
+        <div class="vs-alert bg-danger text-white text-bold" v-if="displayError">
+          <div id="error_delete_error"></div>
+        </div>
         <vx-card class="text-center cursor-pointer">
           <div class="vs-row">
             <div class="vx-col md:w-1/4 text-right mb-base">
@@ -133,6 +136,7 @@
         selectedSubjects: null,
         itemsPerPage: 5,
         isMounted: false,
+        displayError: false,
       }
     },
     mounted() {
@@ -179,10 +183,14 @@
         let vm = this;
         vm.$root.$children[0].$refs.loader.show_loader = true;
         let subject_id = vm.selectedSubjects ? vm.selectedSubjects.id : '';
+        let auth_data = JSON.parse(window.ls.getFromStorage('auth_data'));
+        let teacher_id = auth_data.user.id;
+
         try {
           window.serviceAPI.API().get(window.serviceAPI.ALL_QUESTION, {
             params:{
-              subject_id: subject_id
+              subject_id: subject_id,
+              teacher_id: teacher_id,
             },
           })
             .then((response) => {
@@ -217,6 +225,7 @@
       acceptAlert() {
         let vm = this;
         let ids = vm.selected;
+        vm.displayError = false
         vm.$root.$children[0].$refs.loader.show_loader = true;
         ids = _.map(ids, 'id');
         console.log(ids)
@@ -241,6 +250,7 @@
       },
       deleteSingle(id) {
         let vm = this;
+        vm.displayError = false
         vm.$root.$children[0].$refs.loader.show_loader = true;
         this.$vs.dialog({
           type: 'confirm',

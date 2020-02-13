@@ -4,9 +4,10 @@
     <div class="vx-row">
       <div class="vx-col w-full md:w-1/4 mb-base text-right">
         <label class="vs-input--label">{{$ml.get('date')}}</label>
-        <flat-pickr class="w-full"
+        <flat-pickr class="w-full d-print-none"
                     :config="{mode:'range'}"
                     v-model="filterModel.date" :label="$ml.get('end_date')"></flat-pickr>
+        <h6 class="hidden d-print-block">{{filterModel.date}}</h6>
       </div>
       <div class="vx-col w-full md:w-1/5 mb-base text-right">
         <label class="vs-input--label">{{$ml.get('type')}}</label>
@@ -14,6 +15,7 @@
           <vs-select-item value="leave" :text="$ml.get('leave')"></vs-select-item>
           <vs-select-item value="vacancy" :text="$ml.get('vacancy')"></vs-select-item>
         </vs-select>
+<!--        <h6 class="hidden d-print-block">{{filterModel.type}}</h6>-->
       </div>
       <div class="vx-col md:w-1/5 mb-base text-right">
         <label class="vs-input--label">{{$ml.get('status')}}</label>

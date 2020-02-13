@@ -60,10 +60,16 @@
               <span class="span-text-validation text-danger text-bold" id="duration_error"></span>
             </div>
             <div class="vx-col md:w-1/6 mb-base">
-              <label class="vs-input--label">{{$ml.get('date')}} <span class="star">*</span></label>
-              <flat-pickr class="w-full" :config="timeConfig" :label="$ml.get('date')"
-                          v-model="dataModel.date"></flat-pickr>
-              <span class="span-text-validation text-danger text-bold" id="date_error"></span>
+              <label class="vs-input--label">{{$ml.get('start_date')}} <span class="star">*</span></label>
+              <flat-pickr class="w-full" :config="timeConfig" :label="$ml.get('start_date')"
+                          v-model="dataModel.start_date"></flat-pickr>
+              <span class="span-text-validation text-danger text-bold" id="start_date_error"></span>
+            </div>
+            <div class="vx-col md:w-1/6 mb-base">
+              <label class="vs-input--label">{{$ml.get('end_date')}} <span class="star">*</span></label>
+              <flat-pickr class="w-full" :config="timeConfig" :label="$ml.get('end_date')"
+                          v-model="dataModel.end_date"></flat-pickr>
+              <span class="span-text-validation text-danger text-bold" id="end_date_error"></span>
             </div>
             <div class="vx-col md:w-1/6 mb-base">
               <label class="vs-input--label">{{$ml.get('status')}}

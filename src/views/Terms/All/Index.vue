@@ -4,6 +4,10 @@
     <!-- KNOWLEDGE BASE CARDS  -->
     <div class="vx-row">
       <div class="vx-col w-full">
+
+        <div class="vs-alert bg-danger text-white text-bold" v-if="displayError">
+          <div id="error_delete_error"></div>
+        </div>
         <vx-card class="text-center cursor-pointer">
 
           <vs-table ref="table" multiple v-model="selected" pagination :max-items="itemsPerPage" search :data="terms">
@@ -51,6 +55,7 @@
               <vs-th>{{$ml.get('title_en')}}</vs-th>
               <vs-th>{{$ml.get('start_date')}}</vs-th>
               <vs-th>{{$ml.get('end_date')}}</vs-th>
+              <vs-th>{{$ml.get('is_current')}}</vs-th>
               <vs-th></vs-th>
             </template>
 
@@ -67,6 +72,14 @@
                 </vs-td>
                 <vs-td class="text-right">
                   {{tr.end_date}}
+                </vs-td>
+                <vs-td class="text-right">
+                  <slot v-if="tr.is_current">
+                    <i class="fas fa-check text-success"></i>
+                  </slot>
+                  <slot v-if="!tr.is_current">
+                    <i class="fas fa-times text-danger"></i>
+                  </slot>
                 </vs-td>
                 <vs-td class="text-right">
                   <div class="btn-group" dir="ltr">
@@ -103,6 +116,7 @@
         selected: [],
         itemsPerPage: 5,
         isMounted: false,
+        displayError: false,
       }
     },
     mounted() {
@@ -158,6 +172,7 @@
       acceptAlert() {
         let vm = this;
         let ids = vm.selected;
+        vm.displayError = false
         vm.$root.$children[0].$refs.loader.show_loader = true;
         ids = _.map(ids, 'id');
         console.log(ids)
@@ -182,6 +197,7 @@
       },
       deleteSingle(id) {
         let vm = this;
+        vm.displayError = false
         this.$vs.dialog({
           type: 'confirm',
           color: 'danger',

@@ -170,6 +170,9 @@
       }
     },
     methods: {
+      hasAccessPermission(permission) {
+        return window.helper.hasAccessPermission(permission);
+      },
       getDates(day) {
         return _.map(day, 'time')
       },

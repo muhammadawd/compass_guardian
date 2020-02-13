@@ -68,7 +68,9 @@ export const helper = {
       try {
         // console.log(key)
         $(`#${key}_error`).text(value[0]);
-        document.getElementById(key + '_error').innerText = value[0];
+        setTimeout(() => {
+          document.getElementById(key + '_error').innerText = value[0];
+        }, 300)
       } catch (e) {
         console.log(e)
       }
@@ -85,6 +87,9 @@ export const helper = {
         // let validations = window.helper.validationGroupingData(error.response.data.data, 'param');
         let validations = error.response.data.data.validation_errors;
         try {
+          for (const [key, value] of Object.entries(validations)) {
+            if (key == 'error_delete') vm.displayError = true;
+          }
           window.helper.addErrors(vm.dataModel, validations);
         } catch (e) {
 
